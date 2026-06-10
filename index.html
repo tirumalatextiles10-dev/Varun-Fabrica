@@ -22,7 +22,7 @@
                             goldLight: '#E8D5A3',
                             deep: '#1A1208',
                             cream: '#F5EFE0',
-                            beige: '#EDE0C8',
+                            beige: '#E8D5B7',
                             beigeDeep: '#D4BC99',
                             indigo: '#2D3561',
                             teal: '#1D6B72',
@@ -38,9 +38,10 @@
             --gold-light: #E8D5A3;
             --deep: #1A1208;
             --cream: #F5EFE0;
-            --beige: #EDE0C8;
+            --beige: #E8D5B7;
             --beige-deep: #D4BC99;
             --beige-dark: #C8B08A;
+            --beige-mid: #DECA9E;
             --indigo: #2D3561;
             --teal: #1D6B72;
         }
@@ -92,9 +93,9 @@
 
         /* ─── BEIGE GLASS ─── */
         .beige-glass {
-            background: rgba(237,224,200,0.55); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(201,169,110,0.35);
-            box-shadow: 0 8px 32px rgba(201,169,110,0.12);
+            background: rgba(232,213,183,0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(201,169,110,0.4);
+            box-shadow: 0 8px 32px rgba(201,169,110,0.18);
         }
 
         /* ─── REVEAL ANIMATIONS ─── */
@@ -216,8 +217,9 @@
         .cream-section { background-color: var(--cream); }
         .section-mesh {
             background-image:
-                radial-gradient(ellipse at 20% 20%, rgba(201,169,110,0.1) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 80%, rgba(201,169,110,0.06) 0%, transparent 60%);
+                radial-gradient(ellipse at 20% 20%, rgba(201,169,110,0.14) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(201,169,110,0.09) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 50%, rgba(232,213,183,0.12) 0%, transparent 70%);
         }
 
         /* ─── PROCESS CARD ─── */
@@ -326,6 +328,7 @@
         <div class="absolute inset-0 w-full h-full z-0">
             <video autoplay loop muted playsinline class="object-cover w-full h-full scale-105 animate-pulse-live">
                 <source src="hero_landing.mp4" type="video/mp4">
+                <img src="hero_landing.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1800&auto=format&fit=crop'" class="w-full h-full object-cover">
             </video>
             <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/70"></div>
             <div class="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent"></div>
@@ -361,7 +364,7 @@
                         <div class="overflow-hidden hero-title-line italic" style="color:#C9A96E;"><span class="delay-200">for modern retail.</span></div>
                     </h1>
                     <p class="fade-in delay-800 text-lg md:text-xl text-white/75 max-w-2xl font-light leading-relaxed mb-10">
-                        Manufacturing shirts, kurtis, kidswear, coord sets, joggers, pyjamas and retail essentials at scale with premium finishing, consistency, and modern production infrastructure.
+                        Manufacturing shirts, kurtis, kidswear, joggers and retail essentials at scale with premium finishing, consistency, and modern production infrastructure.
                     </p>
                     <div class="fade-in delay-1000 flex flex-wrap gap-4">
                         <a href="#manufacturing" class="btn-gold inline-block px-8 py-4 rounded-full text-sm font-medium">Explore Manufacturing</a>
@@ -401,25 +404,20 @@
             <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Shirts</span><span class="text-brand-gold/30 text-lg">✦</span>
             <span class="text-xs uppercase tracking-[0.3em] text-white/60 font-medium">Kurtis</span><span class="text-brand-gold/30 text-lg">✦</span>
             <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Kidswear</span><span class="text-brand-gold/30 text-lg">✦</span>
-            <span class="text-xs uppercase tracking-[0.3em] text-white/60 font-medium">Coord Sets</span><span class="text-brand-gold/30 text-lg">✦</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-white/60 font-medium">Joggers</span><span class="text-brand-gold/30 text-lg">✦</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Premium Manufacturing</span><span class="text-brand-gold/30 text-lg">✦</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-white/60 font-medium">Shirts</span><span class="text-brand-gold/30 text-lg">✦</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Kurtis</span><span class="text-brand-gold/30 text-lg">✦</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-white/60 font-medium">Kidswear</span><span class="text-brand-gold/30 text-lg">✦</span>
             <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Joggers</span><span class="text-brand-gold/30 text-lg">✦</span>
-            <span class="text-xs uppercase tracking-[0.3em] text-white/60 font-medium">Loungewear</span><span class="text-brand-gold/30 text-lg">✦</span>
-            <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">6 Lakh+ Monthly</span><span class="text-brand-gold/30 text-lg">✦</span>
-            <span class="text-xs uppercase tracking-[0.3em] text-white/60 font-medium">PAN India Supply</span><span class="text-brand-gold/30 text-lg">✦</span>
-            <!-- duplicate for seamless loop -->
-            <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Shirts</span><span class="text-brand-gold/30 text-lg">✦</span>
-            <span class="text-xs uppercase tracking-[0.3em] text-white/60 font-medium">Kurtis</span><span class="text-brand-gold/30 text-lg">✦</span>
-            <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Kidswear</span><span class="text-brand-gold/30 text-lg">✦</span>
-            <span class="text-xs uppercase tracking-[0.3em] text-white/60 font-medium">Coord Sets</span><span class="text-brand-gold/30 text-lg">✦</span>
-            <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Joggers</span><span class="text-brand-gold/30 text-lg">✦</span>
-            <span class="text-xs uppercase tracking-[0.3em] text-white/60 font-medium">Loungewear</span><span class="text-brand-gold/30 text-lg">✦</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-white/60 font-medium">Premium Manufacturing</span><span class="text-brand-gold/30 text-lg">✦</span>
             <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">6 Lakh+ Monthly</span><span class="text-brand-gold/30 text-lg">✦</span>
             <span class="text-xs uppercase tracking-[0.3em] text-white/60 font-medium">PAN India Supply</span><span class="text-brand-gold/30 text-lg">✦</span>
         </div>
     </div>
 
     <!-- MANUFACTURING -->
-    <section id="manufacturing" class="py-32 section-mesh" style="background-color:var(--beige);">
+    <section id="manufacturing" class="py-32 section-mesh" style="background:linear-gradient(160deg,var(--beige) 0%,var(--cream) 60%,var(--beige) 100%);">
         <div class="max-w-7xl mx-auto px-6 md:px-8">
             <div class="mb-24 md:w-2/3 reveal-up">
                 <div class="flex items-center gap-3 mb-6">
@@ -436,7 +434,7 @@
                     <div class="card-3d w-full h-full">
                         <video autoplay loop muted playsinline class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s]">
                             <source src="manufacturing_process.mp4" type="video/mp4">
-                            <img src="https://images.unsplash.com/photo-1612423284934-2850a4ea6b0f?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover">
+                            <img src="manufacturing_process.jpg" onerror="this.src='https://images.unsplash.com/photo-1612423284934-2850a4ea6b0f?q=80&w=1000&auto=format&fit=crop'" class="w-full h-full object-cover">
                         </video>
                     </div>
                     <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
@@ -451,7 +449,6 @@
                     <div class="absolute top-6 right-6 gold-glass text-white text-xs font-medium px-4 py-2 rounded-full flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full animate-pulse-live" style="background:var(--gold);"></span> Live Production
                     </div>
-                    <div class="absolute bottom-6 left-6 text-[9px] uppercase tracking-widest text-brand-gold/60 px-3 py-1.5 rounded-full" style="background:rgba(0,0,0,0.4);">manufacturing_process.mp4</div>
                 </div>
                 <div class="reveal-right" style="transition-delay:200ms;">
                     <div class="space-y-8">
@@ -501,7 +498,7 @@
                     <p class="text-xs uppercase tracking-widest text-white/50 mt-2 font-medium">Retail Buyers</p>
                 </div>
                 <div class="reveal-up stagger-3 group cursor-default">
-                    <p class="font-display text-5xl md:text-6xl font-light stat-number group-hover:scale-110 transition-transform duration-300"><span data-count="7">0</span></p>
+                    <p class="font-display text-5xl md:text-6xl font-light stat-number group-hover:scale-110 transition-transform duration-300"><span data-count="4">0</span></p>
                     <p class="text-xs uppercase tracking-widest text-white/50 mt-2 font-medium">Categories</p>
                 </div>
                 <div class="reveal-up stagger-4 group cursor-default">
@@ -513,7 +510,7 @@
     </div>
 
     <!-- CATEGORIES OVERVIEW -->
-    <section id="categories" class="py-32" style="background:#111108;">
+    <section id="categories" class="py-32" style="background:linear-gradient(160deg,#1a1208,#0f0a04);">
         <div class="max-w-7xl mx-auto px-6 md:px-8">
             <div class="text-center mb-20 reveal-up">
                 <div class="flex items-center justify-center gap-3 mb-6">
@@ -524,12 +521,12 @@
                 <h2 class="font-display text-5xl md:text-7xl font-light tracking-tight text-white mb-6">
                     Our <span class="italic text-shimmer">Categories.</span>
                 </h2>
-                <p class="text-stone-400 font-light max-w-xl mx-auto">Tap any category to explore the full gallery with 6 product images per range.</p>
+                <p class="font-light max-w-xl mx-auto" style="color:rgba(237,224,200,0.5);">Tap any category to explore the full gallery with 6 product images per range.</p>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <!-- Shirts -->
                 <div onclick="showCategoryPage('shirts')" class="group relative overflow-hidden rounded-3xl cursor-pointer reveal-scale stagger-1 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(201,169,110,0.25)] transition-all duration-500" style="min-height:300px;">
-                    <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-115">
+                    <img src="shirts_category_bg.jpg" alt="Shirts" onerror="this.src='https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=800&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-115">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
                     <div class="absolute inset-0 border-2 border-transparent group-hover:border-brand-gold/40 rounded-3xl transition-all duration-500"></div>
                     <div class="absolute bottom-0 left-0 p-6 w-full">
@@ -542,7 +539,7 @@
                 </div>
                 <!-- Kurtis -->
                 <div onclick="showCategoryPage('kurtis')" class="group relative overflow-hidden rounded-3xl cursor-pointer reveal-scale stagger-2 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(201,169,110,0.25)] transition-all duration-500" style="min-height:300px;">
-                    <img src="https://images.unsplash.com/photo-1583391733958-d25e07fac044?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-115">
+                    <img src="kurtis_category_bg.jpg" alt="Kurtis" onerror="this.src='https://images.unsplash.com/photo-1583391733958-d25e07fac044?q=80&w=800&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-115">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
                     <div class="absolute inset-0 border-2 border-transparent group-hover:border-brand-gold/40 rounded-3xl transition-all duration-500"></div>
                     <div class="absolute bottom-0 left-0 p-6 w-full">
@@ -555,7 +552,7 @@
                 </div>
                 <!-- Kidswear -->
                 <div onclick="showCategoryPage('kidswear')" class="group relative overflow-hidden rounded-3xl cursor-pointer reveal-scale stagger-3 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(201,169,110,0.25)] transition-all duration-500" style="min-height:300px;">
-                    <img src="https://images.unsplash.com/photo-1519241047957-be31d7379a5d?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-115">
+                    <img src="kidswear_category_bg.jpg" alt="Kidswear" onerror="this.src='https://images.unsplash.com/photo-1519241047957-be31d7379a5d?q=80&w=800&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-115">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
                     <div class="absolute inset-0 border-2 border-transparent group-hover:border-brand-gold/40 rounded-3xl transition-all duration-500"></div>
                     <div class="absolute bottom-0 left-0 p-6 w-full">
@@ -566,52 +563,13 @@
                         </div>
                     </div>
                 </div>
-                <!-- Coord Sets -->
-                <div onclick="showCategoryPage('coordsets')" class="group relative overflow-hidden rounded-3xl cursor-pointer reveal-scale stagger-4 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(201,169,110,0.25)] transition-all duration-500" style="min-height:300px;">
-                    <img src="https://images.unsplash.com/photo-1605763240000-7e93b172d754?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-115">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
-                    <div class="absolute inset-0 border-2 border-transparent group-hover:border-brand-gold/40 rounded-3xl transition-all duration-500"></div>
-                    <div class="absolute bottom-0 left-0 p-6 w-full">
-                        <h3 class="font-display text-2xl font-light text-white mb-1">Coord Sets</h3>
-                        <div class="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-400">
-                            <span class="text-xs text-brand-gold uppercase tracking-widest">Explore 6 styles</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#C9A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </div>
-                    </div>
-                </div>
                 <!-- Joggers -->
-                <div onclick="showCategoryPage('joggers')" class="group relative overflow-hidden rounded-3xl cursor-pointer reveal-scale stagger-5 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(201,169,110,0.25)] transition-all duration-500" style="min-height:300px;">
-                    <img src="https://images.unsplash.com/photo-1629853965901-52648fbcf939?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-115">
+                <div onclick="showCategoryPage('joggers')" class="group relative overflow-hidden rounded-3xl cursor-pointer reveal-scale stagger-4 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(201,169,110,0.25)] transition-all duration-500" style="min-height:300px;">
+                    <img src="joggers_category_bg.jpg" alt="Joggers" onerror="this.src='https://images.unsplash.com/photo-1629853965901-52648fbcf939?q=80&w=800&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-115">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
                     <div class="absolute inset-0 border-2 border-transparent group-hover:border-brand-gold/40 rounded-3xl transition-all duration-500"></div>
                     <div class="absolute bottom-0 left-0 p-6 w-full">
                         <h3 class="font-display text-2xl font-light text-white mb-1">Joggers</h3>
-                        <div class="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-400">
-                            <span class="text-xs text-brand-gold uppercase tracking-widest">Explore 6 styles</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#C9A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </div>
-                    </div>
-                </div>
-                <!-- Loungewear -->
-                <div onclick="showCategoryPage('loungewear')" class="group relative overflow-hidden rounded-3xl cursor-pointer reveal-scale stagger-6 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(201,169,110,0.25)] transition-all duration-500" style="min-height:300px;">
-                    <img src="https://images.unsplash.com/photo-1564859228273-274232fdb516?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-115">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
-                    <div class="absolute inset-0 border-2 border-transparent group-hover:border-brand-gold/40 rounded-3xl transition-all duration-500"></div>
-                    <div class="absolute bottom-0 left-0 p-6 w-full">
-                        <h3 class="font-display text-2xl font-light text-white mb-1">Loungewear</h3>
-                        <div class="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-400">
-                            <span class="text-xs text-brand-gold uppercase tracking-widest">Explore 6 styles</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#C9A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </div>
-                    </div>
-                </div>
-                <!-- Pyjamas -->
-                <div onclick="showCategoryPage('pyjamas')" class="group relative overflow-hidden rounded-3xl cursor-pointer reveal-scale stagger-1 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(201,169,110,0.25)] transition-all duration-500" style="min-height:300px;">
-                    <img src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-115">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
-                    <div class="absolute inset-0 border-2 border-transparent group-hover:border-brand-gold/40 rounded-3xl transition-all duration-500"></div>
-                    <div class="absolute bottom-0 left-0 p-6 w-full">
-                        <h3 class="font-display text-2xl font-light text-white mb-1">Pyjamas</h3>
                         <div class="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-400">
                             <span class="text-xs text-brand-gold uppercase tracking-widest">Explore 6 styles</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#C9A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -623,7 +581,7 @@
     </section>
 
     <!-- PROCESS -->
-    <section class="py-32 section-mesh" style="background-color:var(--beige);">
+    <section class="py-32 section-mesh" style="background:linear-gradient(160deg,var(--cream),var(--beige),#e5d5b8);">
         <div class="max-w-7xl mx-auto px-6 md:px-8">
             <div class="mb-20 text-center reveal-up">
                 <div class="flex items-center justify-center gap-3 mb-6">
@@ -715,7 +673,7 @@
                     <div class="card-3d w-full h-full">
                         <video autoplay loop muted playsinline class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[2s]">
                             <source src="infrastructure_tour.mp4" type="video/mp4">
-                            <img src="https://images.unsplash.com/photo-1563821035048-b427b0ec2da8?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover">
+                            <img src="infrastructure_tour.jpg" onerror="this.src='https://images.unsplash.com/photo-1563821035048-b427b0ec2da8?q=80&w=1200&auto=format&fit=crop'" class="w-full h-full object-cover">
                         </video>
                     </div>
                     <div class="absolute top-6 left-6 w-10 h-10 pointer-events-none"><div class="absolute top-0 left-0 w-6 h-[2px]" style="background:var(--gold);"></div><div class="absolute top-0 left-0 w-[2px] h-6" style="background:var(--gold);"></div></div>
@@ -729,14 +687,16 @@
                         </div>
                         <p class="text-sm text-stone-300 font-light">Strict QC protocols ensuring &lt;1% rejection rate at retail gates.</p>
                     </div>
-                    <div class="absolute top-4 right-4 text-[9px] uppercase tracking-widest text-brand-gold/60 px-3 py-1.5 rounded-full" style="background:rgba(0,0,0,0.4);">infrastructure_tour.mp4</div>
+                    <div class="absolute top-4 right-4">
+                        <span class="w-2 h-2 rounded-full animate-pulse-live inline-block" style="background:var(--gold);"></span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- BUYERS -->
-    <section id="buyers" class="py-28 section-mesh" style="background-color:var(--beige);border-top:1px solid rgba(201,169,110,0.15);">
+    <section id="buyers" class="py-28 section-mesh" style="background:linear-gradient(160deg,var(--beige-deep),var(--beige),var(--cream));border-top:1px solid rgba(201,169,110,0.15);">
         <div class="max-w-7xl mx-auto px-6 md:px-8 text-center">
             <div class="flex items-center justify-center gap-3 mb-6 reveal-up">
                 <div class="gold-line"></div>
@@ -754,7 +714,6 @@
                         </span>
                     </div>
                     <span class="text-2xl font-semibold tracking-tight" style="color:var(--deep);">Baazar Kolkata</span>
-                    <div class="text-xs text-brand-gold font-medium uppercase tracking-widest">File: <code class="text-xs bg-brand-gold/10 px-2 py-0.5 rounded">baazar_kolkata_logo.png</code></div>
                 </div>
             </div>
             <div class="flex flex-wrap justify-center gap-6 mb-6 reveal-up" style="transition-delay:200ms;">
@@ -764,7 +723,6 @@
                         <span class="text-[9px] text-brand-gold/70 hidden flex-col items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/></svg>Logo</span>
                     </div>
                     <span class="text-lg font-semibold tracking-tight" style="color:#5a4a35;">Style Baazar</span>
-                    <div class="text-[10px] text-brand-gold/70 font-medium"><code class="bg-brand-gold/10 px-1.5 py-0.5 rounded">style_baazar_logo.png</code></div>
                 </div>
                 <div class="buyer-logo relative cursor-pointer px-8 py-6 rounded-2xl flex flex-col items-center gap-3 min-w-[160px]">
                     <div class="w-16 h-12 flex items-center justify-center rounded-lg" style="background:rgba(201,169,110,0.06);border:1px dashed rgba(201,169,110,0.25);">
@@ -772,7 +730,6 @@
                         <span class="text-[9px] text-brand-gold/70 hidden flex-col items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/></svg>Logo</span>
                     </div>
                     <span class="text-lg font-semibold tracking-tight" style="color:#5a4a35;">V2 Retail</span>
-                    <div class="text-[10px] text-brand-gold/70 font-medium"><code class="bg-brand-gold/10 px-1.5 py-0.5 rounded">v2_retail_logo.png</code></div>
                 </div>
                 <div class="buyer-logo relative cursor-pointer px-8 py-6 rounded-2xl flex flex-col items-center gap-3 min-w-[160px]">
                     <div class="w-16 h-12 flex items-center justify-center rounded-lg" style="background:rgba(201,169,110,0.06);border:1px dashed rgba(201,169,110,0.25);">
@@ -780,19 +737,16 @@
                         <span class="text-[9px] text-brand-gold/70 hidden flex-col items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/></svg>Logo</span>
                     </div>
                     <span class="text-lg font-semibold tracking-tight" style="color:#5a4a35;">Vishal Mega Mart</span>
-                    <div class="text-[10px] text-brand-gold/70 font-medium"><code class="bg-brand-gold/10 px-1.5 py-0.5 rounded">vishal_mega_mart_logo.png</code></div>
                 </div>
             </div>
             <div class="flex flex-wrap justify-center gap-5 reveal-up" style="transition-delay:300ms;">
                 <div class="buyer-logo cursor-pointer px-6 py-5 rounded-xl flex flex-col items-center gap-2 min-w-[140px]">
                     <img src="vmart_logo.png" alt="V-Mart" onerror="this.style.display='none';" class="max-h-9 max-w-[56px] object-contain">
                     <span class="text-base font-semibold tracking-tight" style="color:#5a4a35;">V-Mart</span>
-                    <code class="text-[9px] bg-brand-gold/10 px-1.5 py-0.5 rounded text-brand-gold">vmart_logo.png</code>
                 </div>
                 <div class="buyer-logo cursor-pointer px-6 py-5 rounded-xl flex flex-col items-center gap-2 min-w-[140px]">
                     <img src="mbaazar_logo.png" alt="M-Baazar" onerror="this.style.display='none';" class="max-h-9 max-w-[56px] object-contain">
                     <span class="text-base font-semibold tracking-tight" style="color:#5a4a35;">M-Baazar</span>
-                    <code class="text-[9px] bg-brand-gold/10 px-1.5 py-0.5 rounded text-brand-gold">mbaazar_logo.png</code>
                 </div>
                 <div class="buyer-logo cursor-pointer px-6 py-5 rounded-xl flex flex-col items-center gap-2 min-w-[140px]" style="border-style:dashed;">
                     <div class="w-9 h-9 flex items-center justify-center">
@@ -805,7 +759,7 @@
     </section>
 
     <!-- VIDEO GALLERY -->
-    <section class="py-32" style="background:#0d0d0b;">
+    <section class="py-32" style="background:linear-gradient(160deg,#1a1208,#2d1f0a);">
         <div class="max-w-7xl mx-auto px-6 md:px-8">
             <div class="text-center mb-20 reveal-up">
                 <div class="flex items-center justify-center gap-3 mb-6">
@@ -814,33 +768,31 @@
                     <div class="gold-line" style="background:linear-gradient(90deg,transparent,var(--gold));"></div>
                 </div>
                 <h2 class="font-display text-5xl md:text-6xl font-light tracking-tight text-white mb-6">Every Stitch Reflects <span class="italic text-shimmer">Consistency.</span></h2>
-                <p class="text-stone-400 font-light max-w-lg mx-auto">Real footage from our production floor.</p>
+                <p class="font-light max-w-lg mx-auto" style="color:rgba(237,224,200,0.55);">Real footage from our production floor.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div class="group cursor-pointer reveal-scale scene-3d">
                     <div class="card-3d video-showcase" style="height:480px;">
                         <video autoplay loop muted playsinline class="transform group-hover:scale-105 transition-transform duration-700" style="width:100%;height:100%;object-fit:cover;">
                             <source src="gallery_video_1.mp4" type="video/mp4">
-                            <img src="https://images.unsplash.com/photo-1558098329-a11cff621064?q=80&w=1200&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;">
+                            <img src="gallery_video_1.jpg" onerror="this.src='https://images.unsplash.com/photo-1558098329-a11cff621064?q=80&w=1200&auto=format&fit=crop'" style="width:100%;height:100%;object-fit:cover;">
                         </video>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
                             <span class="text-xs uppercase tracking-widest text-brand-gold font-medium">Manufacturing Process</span>
                         </div>
-                        <div class="absolute top-4 right-4 text-[9px] uppercase tracking-widest text-brand-gold/60 px-3 py-1.5 rounded-full" style="background:rgba(0,0,0,0.5);">gallery_video_1.mp4</div>
                     </div>
                 </div>
                 <div class="group cursor-pointer reveal-scale scene-3d" style="transition-delay:150ms;">
                     <div class="card-3d-reverse card-3d video-showcase" style="height:480px;">
                         <video autoplay loop muted playsinline class="transform group-hover:scale-105 transition-transform duration-700" style="width:100%;height:100%;object-fit:cover;">
                             <source src="gallery_video_2.mp4" type="video/mp4">
-                            <img src="https://images.unsplash.com/photo-1598425237654-4c05b1fbe14c?q=80&w=1200&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;">
+                            <img src="gallery_video_2.jpg" onerror="this.src='https://images.unsplash.com/photo-1598425237654-4c05b1fbe14c?q=80&w=1200&auto=format&fit=crop'" style="width:100%;height:100%;object-fit:cover;">
                         </video>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
                             <span class="text-xs uppercase tracking-widest text-brand-gold font-medium">Quality Finishing</span>
                         </div>
-                        <div class="absolute top-4 right-4 text-[9px] uppercase tracking-widest text-brand-gold/60 px-3 py-1.5 rounded-full" style="background:rgba(0,0,0,0.5);">gallery_video_2.mp4</div>
                     </div>
                 </div>
             </div>
@@ -903,7 +855,7 @@
     </section>
 
     <!-- GST & Address Banner -->
-    <section class="py-14" style="background:var(--beige);border-bottom:1px solid rgba(201,169,110,0.2);">
+    <section class="py-14" style="background:linear-gradient(160deg,var(--beige-deep),var(--beige));border-bottom:1px solid rgba(201,169,110,0.2);">
         <div class="max-w-7xl mx-auto px-6 md:px-8">
             <div class="grid md:grid-cols-2 gap-10 items-start reveal-up">
                 <div class="p-8 rounded-2xl" style="background:rgba(201,169,110,0.1);border:1px solid rgba(201,169,110,0.25);">
@@ -943,7 +895,7 @@
     </section>
 
     <!-- Group of Companies -->
-    <section class="py-20" style="background-color:var(--beige);">
+    <section class="py-20" style="background:linear-gradient(160deg,var(--cream),var(--beige),var(--beige-deep));">
         <div class="max-w-7xl mx-auto px-6 md:px-8">
             <div class="group-banner reveal-up">
                 <div class="text-center mb-10">
@@ -980,7 +932,7 @@
     </section>
 
     <!-- Own Brands -->
-    <section class="py-24" style="background:#111108;">
+    <section class="py-24" style="background:linear-gradient(160deg,var(--beige),#e8d8c0,var(--beige-deep));">
         <div class="max-w-7xl mx-auto px-6 md:px-8">
             <div class="text-center mb-16 reveal-up">
                 <div class="flex items-center justify-center gap-3 mb-6">
@@ -988,50 +940,47 @@
                     <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-medium">Our Own Brands</span>
                     <div class="gold-line" style="background:linear-gradient(90deg,transparent,var(--gold));"></div>
                 </div>
-                <h2 class="font-display text-4xl md:text-6xl font-light text-white tracking-tight mb-4">Brands We <span class="italic text-shimmer">Own.</span></h2>
-                <p class="text-stone-400 font-light max-w-xl mx-auto">Beyond manufacturing for others, we build our own fashion identities for India's retail shelves.</p>
+                <h2 class="font-display text-4xl md:text-6xl font-light tracking-tight mb-4" style="color:var(--deep);">Brands We <span class="italic text-beige-shimmer">Own.</span></h2>
+                <p class="font-light max-w-xl mx-auto" style="color:#7a6a55;">Beyond manufacturing for others, we build our own fashion identities for India's retail shelves.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="brand-logo-box reveal-scale stagger-1 cursor-default">
+                <div class="brand-logo-box reveal-scale stagger-1 cursor-default" style="background:rgba(255,255,255,0.55);border:1px solid rgba(201,169,110,0.35);">
                     <div class="brand-logo-placeholder">
                         <img src="hombrevo_logo.png" alt="HOMBREVO" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" class="max-h-14 max-w-[120px] object-contain">
                         <span class="text-[10px] text-brand-gold/60 uppercase tracking-wider hidden flex-col items-center gap-1 text-center px-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Logo
                         </span>
                     </div>
-                    <h3 class="font-display text-3xl font-light text-white tracking-wide">HOMBREVO</h3>
-                    <p class="text-center text-stone-400 text-sm font-light">Shirts &amp; Half Pants</p>
-                    <div class="text-[10px] text-brand-gold/60 font-medium text-center mt-1">File: <code class="bg-white/5 px-1.5 py-0.5 rounded text-brand-gold">hombrevo_logo.png</code></div>
+                    <h3 class="font-display text-3xl font-light tracking-wide" style="color:var(--deep);">HOMBREVO</h3>
+                    <p class="text-center text-sm font-light" style="color:#7a6a55;">Shirts &amp; Half Pants</p>
                     <div class="mt-2 flex gap-2 flex-wrap justify-center">
                         <span class="text-[10px] uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(201,169,110,0.1);color:var(--gold);border:1px solid rgba(201,169,110,0.25);">Men's Shirts</span>
                         <span class="text-[10px] uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(201,169,110,0.1);color:var(--gold);border:1px solid rgba(201,169,110,0.25);">Half Pants</span>
                     </div>
                 </div>
-                <div class="brand-logo-box reveal-scale stagger-2 cursor-default">
+                <div class="brand-logo-box reveal-scale stagger-2 cursor-default" style="background:rgba(255,255,255,0.55);border:1px solid rgba(201,169,110,0.35);">
                     <div class="brand-logo-placeholder">
                         <img src="rivya_logo.png" alt="RIVYA" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" class="max-h-14 max-w-[120px] object-contain">
                         <span class="text-[10px] text-brand-gold/60 uppercase tracking-wider hidden flex-col items-center gap-1 text-center px-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Logo
                         </span>
                     </div>
-                    <h3 class="font-display text-3xl font-light text-white tracking-wide">RIVYA</h3>
-                    <p class="text-center text-stone-400 text-sm font-light">Kurtas for Women</p>
-                    <div class="text-[10px] text-brand-gold/60 font-medium text-center mt-1">File: <code class="bg-white/5 px-1.5 py-0.5 rounded text-brand-gold">rivya_logo.png</code></div>
+                    <h3 class="font-display text-3xl font-light tracking-wide" style="color:var(--deep);">RIVYA</h3>
+                    <p class="text-center text-sm font-light" style="color:#7a6a55;">Kurtas for Women</p>
                     <div class="mt-2 flex gap-2 flex-wrap justify-center">
                         <span class="text-[10px] uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(201,169,110,0.1);color:var(--gold);border:1px solid rgba(201,169,110,0.25);">Kurtas</span>
                         <span class="text-[10px] uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(201,169,110,0.1);color:var(--gold);border:1px solid rgba(201,169,110,0.25);">Women's Wear</span>
                     </div>
                 </div>
-                <div class="brand-logo-box reveal-scale stagger-3 cursor-default">
+                <div class="brand-logo-box reveal-scale stagger-3 cursor-default" style="background:rgba(255,255,255,0.55);border:1px solid rgba(201,169,110,0.35);">
                     <div class="brand-logo-placeholder">
                         <img src="ninos_logo.png" alt="NINOS" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" class="max-h-14 max-w-[120px] object-contain">
                         <span class="text-[10px] text-brand-gold/60 uppercase tracking-wider hidden flex-col items-center gap-1 text-center px-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Logo
                         </span>
                     </div>
-                    <h3 class="font-display text-3xl font-light text-white tracking-wide">NINOS</h3>
-                    <p class="text-center text-stone-400 text-sm font-light">Kids Wear</p>
-                    <div class="text-[10px] text-brand-gold/60 font-medium text-center mt-1">File: <code class="bg-white/5 px-1.5 py-0.5 rounded text-brand-gold">ninos_logo.png</code></div>
+                    <h3 class="font-display text-3xl font-light tracking-wide" style="color:var(--deep);">NINOS</h3>
+                    <p class="text-center text-sm font-light" style="color:#7a6a55;">Kids Wear</p>
                     <div class="mt-2 flex gap-2 flex-wrap justify-center">
                         <span class="text-[10px] uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(201,169,110,0.1);color:var(--gold);border:1px solid rgba(201,169,110,0.25);">Kids Wear</span>
                         <span class="text-[10px] uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(201,169,110,0.1);color:var(--gold);border:1px solid rgba(201,169,110,0.25);">Boys &amp; Girls</span>
@@ -1058,11 +1007,11 @@
                 <!-- Rakesh Tharad -->
                 <div class="leader-card reveal-scale stagger-1">
                     <div class="leader-photo-frame mb-6">
-                        <div class="photo-placeholder">
+                        <div class="photo-placeholder" id="placeholder-rakesh">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                            <div><p class="text-center text-xs text-stone-400 mb-2">Add photo file as:</p><div class="filename-tag">rakesh_tharad.jpg</div></div>
+                            <div><p class="text-center text-xs text-stone-400 mb-2">Rakesh Tharad</p></div>
                         </div>
-                        <!-- Uncomment when file available: <img src="rakesh_tharad.jpg" alt="Rakesh Tharad" class="w-full aspect-[3/4] object-cover object-top"> -->
+                        <img src="rakesh_tharad.jpg" alt="Rakesh Tharad" class="w-full aspect-[3/4] object-cover object-top" style="display:none;" onload="this.style.display='block';document.getElementById('placeholder-rakesh').style.display='none';">
                     </div>
                     <div class="px-2">
                         <div class="flex items-start justify-between mb-3">
@@ -1081,10 +1030,11 @@
                 <!-- Varun Tharad -->
                 <div class="leader-card reveal-scale stagger-2">
                     <div class="leader-photo-frame mb-6">
-                        <div class="photo-placeholder">
+                        <div class="photo-placeholder" id="placeholder-varun">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                            <div><p class="text-center text-xs text-stone-400 mb-2">Add photo file as:</p><div class="filename-tag">varun_tharad.jpg</div></div>
+                            <div><p class="text-center text-xs text-stone-400 mb-2">Varun Tharad</p></div>
                         </div>
+                        <img src="varun_tharad.jpg" alt="Varun Tharad" class="w-full aspect-[3/4] object-cover object-top" style="display:none;" onload="this.style.display='block';document.getElementById('placeholder-varun').style.display='none';">
                     </div>
                     <div class="px-2">
                         <div class="flex items-start justify-between mb-3">
@@ -1103,10 +1053,11 @@
                 <!-- Manisha Tharad -->
                 <div class="leader-card reveal-scale stagger-3">
                     <div class="leader-photo-frame mb-6">
-                        <div class="photo-placeholder">
+                        <div class="photo-placeholder" id="placeholder-manisha">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                            <div><p class="text-center text-xs text-stone-400 mb-2">Add photo file as:</p><div class="filename-tag">manisha_tharad.jpg</div></div>
+                            <div><p class="text-center text-xs text-stone-400 mb-2">Manisha Tharad</p></div>
                         </div>
+                        <img src="manisha_tharad.jpg" alt="Manisha Tharad" class="w-full aspect-[3/4] object-cover object-top" style="display:none;" onload="this.style.display='block';document.getElementById('placeholder-manisha').style.display='none';">
                     </div>
                     <div class="px-2">
                         <div class="flex items-start justify-between mb-3">
@@ -1194,98 +1145,56 @@ const categories = {
         title: 'Shirts',
         desc: 'Formal, casual & corporate ranges in premium cotton blends — crafted for India\'s modern retail shelves.',
         videoBg: 'shirts_category_bg.mp4',
-        fallbackImg: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=1600&auto=format&fit=crop',
+        fallbackImg: 'shirts_category_bg.jpg',
         images: [
-            { file:'shirts_01.jpg', label:'Formal Oxford', src:'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=800&auto=format&fit=crop' },
-            { file:'shirts_02.jpg', label:'Casual Chambray', src:'https://images.unsplash.com/photo-1603252109303-2751441dd157?q=80&w=800&auto=format&fit=crop' },
-            { file:'shirts_03.jpg', label:'Corporate Stripe', src:'https://images.unsplash.com/photo-1604852702536-d87c8a9cf474?q=80&w=800&auto=format&fit=crop' },
-            { file:'shirts_04.jpg', label:'Linen Blend', src:'https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?q=80&w=800&auto=format&fit=crop' },
-            { file:'shirts_05.jpg', label:'Printed Range', src:'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?q=80&w=800&auto=format&fit=crop' },
-            { file:'shirts_06.jpg', label:'Half-Sleeve Slim', src:'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?q=80&w=800&auto=format&fit=crop' },
+            { file:'shirts_01.jpg', label:'Formal Oxford', src:'shirts_01.jpg' },
+            { file:'shirts_02.jpg', label:'Casual Chambray', src:'shirts_02.jpg' },
+            { file:'shirts_03.jpg', label:'Corporate Stripe', src:'shirts_03.jpg' },
+            { file:'shirts_04.jpg', label:'Linen Blend', src:'shirts_04.jpg' },
+            { file:'shirts_05.jpg', label:'Printed Range', src:'shirts_05.jpg' },
+            { file:'shirts_06.jpg', label:'Half-Sleeve Slim', src:'shirts_06.jpg' },
         ]
     },
     kurtis: {
         title: 'Kurtis',
         desc: 'Elegant designs in cotton, rayon, and blended fabrics — crafted for women\'s ethnic and fusion retail.',
         videoBg: 'kurtis_category_bg.mp4',
-        fallbackImg: 'https://images.unsplash.com/photo-1583391733958-d25e07fac044?q=80&w=1600&auto=format&fit=crop',
+        fallbackImg: 'kurtis_category_bg.jpg',
         images: [
-            { file:'kurtis_01.jpg', label:'Cotton Anarkali', src:'https://images.unsplash.com/photo-1583391733958-d25e07fac044?q=80&w=800&auto=format&fit=crop' },
-            { file:'kurtis_02.jpg', label:'Rayon Straight', src:'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?q=80&w=800&auto=format&fit=crop' },
-            { file:'kurtis_03.jpg', label:'Printed Flare', src:'https://images.unsplash.com/photo-1550614000-4895a10e1bfd?q=80&w=800&auto=format&fit=crop' },
-            { file:'kurtis_04.jpg', label:'Embroidered', src:'https://images.unsplash.com/photo-1561052967-61fc91e48d79?q=80&w=800&auto=format&fit=crop' },
-            { file:'kurtis_05.jpg', label:'Fusion Casual', src:'https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=800&auto=format&fit=crop' },
-            { file:'kurtis_06.jpg', label:'Festive Range', src:'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=800&auto=format&fit=crop' },
+            { file:'kurtis_01.jpg', label:'Cotton Anarkali', src:'kurtis_01.jpg' },
+            { file:'kurtis_02.jpg', label:'Rayon Straight', src:'kurtis_02.jpg' },
+            { file:'kurtis_03.jpg', label:'Printed Flare', src:'kurtis_03.jpg' },
+            { file:'kurtis_04.jpg', label:'Embroidered', src:'kurtis_04.jpg' },
+            { file:'kurtis_05.jpg', label:'Fusion Casual', src:'kurtis_05.jpg' },
+            { file:'kurtis_06.jpg', label:'Festive Range', src:'kurtis_06.jpg' },
         ]
     },
     kidswear: {
         title: 'Kidswear',
         desc: 'Safe, comfortable, and playful garments for boys and girls — built for active young lives.',
         videoBg: 'kidswear_category_bg.mp4',
-        fallbackImg: 'https://images.unsplash.com/photo-1519241047957-be31d7379a5d?q=80&w=1600&auto=format&fit=crop',
+        fallbackImg: 'kidswear_category_bg.jpg',
         images: [
-            { file:'kidswear_01.jpg', label:'Boys Casual Set', src:'https://images.unsplash.com/photo-1519241047957-be31d7379a5d?q=80&w=800&auto=format&fit=crop' },
-            { file:'kidswear_02.jpg', label:'Girls Frocks', src:'https://images.unsplash.com/photo-1476234251651-f353703a034d?q=80&w=800&auto=format&fit=crop' },
-            { file:'kidswear_03.jpg', label:'School Uniform', src:'https://images.unsplash.com/photo-1573152958734-1922c188fba3?q=80&w=800&auto=format&fit=crop' },
-            { file:'kidswear_04.jpg', label:'Ethnic Wear', src:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop' },
-            { file:'kidswear_05.jpg', label:'Sports Range', src:'https://images.unsplash.com/photo-1601233749202-95d04d5b3c00?q=80&w=800&auto=format&fit=crop' },
-            { file:'kidswear_06.jpg', label:'Toddler Collection', src:'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=800&auto=format&fit=crop' },
-        ]
-    },
-    coordsets: {
-        title: 'Coord Sets',
-        desc: 'Matching separates in premium blends — the on-trend staple for modern Indian retail fashion.',
-        videoBg: 'coordsets_category_bg.mp4',
-        fallbackImg: 'https://images.unsplash.com/photo-1605763240000-7e93b172d754?q=80&w=1600&auto=format&fit=crop',
-        images: [
-            { file:'coordsets_01.jpg', label:'Linen Co-ord', src:'https://images.unsplash.com/photo-1605763240000-7e93b172d754?q=80&w=800&auto=format&fit=crop' },
-            { file:'coordsets_02.jpg', label:'Printed Duo', src:'https://images.unsplash.com/photo-1594938298603-c8148c4b4f8d?q=80&w=800&auto=format&fit=crop' },
-            { file:'coordsets_03.jpg', label:'Solid Pastel', src:'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=800&auto=format&fit=crop' },
-            { file:'coordsets_04.jpg', label:'Cotton Blend', src:'https://images.unsplash.com/photo-1580657018950-c7f7d6a6d990?q=80&w=800&auto=format&fit=crop' },
-            { file:'coordsets_05.jpg', label:'Fusion Ethnic', src:'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=800&auto=format&fit=crop' },
-            { file:'coordsets_06.jpg', label:'Festive Set', src:'https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=800&auto=format&fit=crop' },
+            { file:'kidswear_01.jpg', label:'Boys Casual Set', src:'kidswear_01.jpg' },
+            { file:'kidswear_02.jpg', label:'Girls Frocks', src:'kidswear_02.jpg' },
+            { file:'kidswear_03.jpg', label:'School Uniform', src:'kidswear_03.jpg' },
+            { file:'kidswear_04.jpg', label:'Ethnic Wear', src:'kidswear_04.jpg' },
+            { file:'kidswear_05.jpg', label:'Sports Range', src:'kidswear_05.jpg' },
+            { file:'kidswear_06.jpg', label:'Toddler Collection', src:'kidswear_06.jpg' },
         ]
     },
     joggers: {
         title: 'Joggers',
         desc: 'Comfortable, durable athleisure essentials — designed for everyday active wear across all age groups.',
         videoBg: 'joggers_category_bg.mp4',
-        fallbackImg: 'https://images.unsplash.com/photo-1629853965901-52648fbcf939?q=80&w=1600&auto=format&fit=crop',
+        fallbackImg: 'joggers_category_bg.jpg',
         images: [
-            { file:'joggers_01.jpg', label:'Men\'s Slim Jogger', src:'https://images.unsplash.com/photo-1629853965901-52648fbcf939?q=80&w=800&auto=format&fit=crop' },
-            { file:'joggers_02.jpg', label:'Women\'s Track', src:'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop' },
-            { file:'joggers_03.jpg', label:'Kids Active', src:'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800&auto=format&fit=crop' },
-            { file:'joggers_04.jpg', label:'Fleece Jogger', src:'https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=800&auto=format&fit=crop' },
-            { file:'joggers_05.jpg', label:'Printed Athletic', src:'https://images.unsplash.com/photo-1588117305388-c2631a279f82?q=80&w=800&auto=format&fit=crop' },
-            { file:'joggers_06.jpg', label:'Relaxed Fit', src:'https://images.unsplash.com/photo-1584735175315-9d5df23be620?q=80&w=800&auto=format&fit=crop' },
-        ]
-    },
-    loungewear: {
-        title: 'Loungewear',
-        desc: 'Soft, breathable collections for everyday comfort — from home to casual outings.',
-        videoBg: 'loungewear_category_bg.mp4',
-        fallbackImg: 'https://images.unsplash.com/photo-1564859228273-274232fdb516?q=80&w=1600&auto=format&fit=crop',
-        images: [
-            { file:'loungewear_01.jpg', label:'Lounge Set', src:'https://images.unsplash.com/photo-1564859228273-274232fdb516?q=80&w=800&auto=format&fit=crop' },
-            { file:'loungewear_02.jpg', label:'Slip Dress', src:'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop' },
-            { file:'loungewear_03.jpg', label:'Oversized Tee', src:'https://images.unsplash.com/photo-1617114193232-62b37caeabba?q=80&w=800&auto=format&fit=crop' },
-            { file:'loungewear_04.jpg', label:'Ribbed Set', src:'https://images.unsplash.com/photo-1601224992897-6f5ada1a0d85?q=80&w=800&auto=format&fit=crop' },
-            { file:'loungewear_05.jpg', label:'Tie-Waist Pant', src:'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800&auto=format&fit=crop' },
-            { file:'loungewear_06.jpg', label:'Printed Kurta', src:'https://images.unsplash.com/photo-1548614606-52b4451f994b?q=80&w=800&auto=format&fit=crop' },
-        ]
-    },
-    pyjamas: {
-        title: 'Pyjamas',
-        desc: 'Soft, breathable night and home wear — ensuring comfort through the night and lazy mornings.',
-        videoBg: 'pyjamas_category_bg.mp4',
-        fallbackImg: 'https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?q=80&w=1600&auto=format&fit=crop',
-        images: [
-            { file:'pyjamas_01.jpg', label:'Cotton Night Set', src:'https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?q=80&w=800&auto=format&fit=crop' },
-            { file:'pyjamas_02.jpg', label:'Checked Pyjama', src:'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=800&auto=format&fit=crop' },
-            { file:'pyjamas_03.jpg', label:'Kids Night Suit', src:'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=800&auto=format&fit=crop' },
-            { file:'pyjamas_04.jpg', label:'Women\'s Sleep Set', src:'https://images.unsplash.com/photo-1568252542512-9fe8fe9c87bb?q=80&w=800&auto=format&fit=crop' },
-            { file:'pyjamas_05.jpg', label:'Printed Shorts Set', src:'https://images.unsplash.com/photo-1622493967115-eb19a04b8dd5?q=80&w=800&auto=format&fit=crop' },
-            { file:'pyjamas_06.jpg', label:'Satin Lounge', src:'https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?q=80&w=800&auto=format&fit=crop' },
+            { file:'joggers_01.jpg', label:'Men\'s Slim Jogger', src:'joggers_01.jpg' },
+            { file:'joggers_02.jpg', label:'Women\'s Track', src:'joggers_02.jpg' },
+            { file:'joggers_03.jpg', label:'Kids Active', src:'joggers_03.jpg' },
+            { file:'joggers_04.jpg', label:'Fleece Jogger', src:'joggers_04.jpg' },
+            { file:'joggers_05.jpg', label:'Printed Athletic', src:'joggers_05.jpg' },
+            { file:'joggers_06.jpg', label:'Relaxed Fit', src:'joggers_06.jpg' },
         ]
     },
 };
@@ -1338,14 +1247,11 @@ function showCategoryPage(catKey) {
                     <span class="delay-100 italic text-shimmer">${cat.title}</span>
                 </h1>
                 <p class="text-lg text-stone-300 font-light max-w-2xl leading-relaxed">${cat.desc}</p>
-                <div class="mt-4 text-xs uppercase tracking-widest text-brand-gold/70 px-4 py-2 rounded-full" style="background:rgba(0,0,0,0.4);">
-                    Background video: <span class="text-brand-gold font-medium">${cat.videoBg}</span>
-                </div>
             </div>
         </section>
 
         <!-- Image Gallery Grid -->
-        <section class="py-24" style="background:var(--beige);">
+        <section class="py-24" style="background:linear-gradient(160deg,var(--cream),var(--beige),#e5d5b8);">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="text-center mb-16 reveal-up">
                     <div class="flex items-center justify-center gap-3 mb-5">
@@ -1358,40 +1264,23 @@ function showCategoryPage(catKey) {
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
                     ${cat.images.map((img, i) => `
                     <div class="img-grid-item reveal-scale stagger-${(i%6)+1}" style="aspect-ratio:3/4;">
-                        <img src="${img.src}" alt="${img.label}" loading="lazy">
+                        <img src="${img.src}" alt="${img.label}" onerror="this.src='https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=800&auto=format&fit=crop'" loading="lazy">
                         <div class="img-overlay"></div>
                         <div class="img-label">
                             <p class="text-sm font-medium tracking-wide">${img.label}</p>
-                            <p class="text-[10px] uppercase tracking-widest text-brand-gold/80 mt-1 font-medium">${img.file}</p>
                         </div>
                     </div>
                     `).join('')}
-                </div>
-
-                <!-- Image filenames reference card -->
-                <div class="mt-16 p-8 rounded-2xl reveal-up" style="background:rgba(201,169,110,0.08);border:1px solid rgba(201,169,110,0.25);">
-                    <h3 class="text-sm font-semibold uppercase tracking-widest mb-5" style="color:var(--gold);">📁 Image File Names — Save your photos with these exact names</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-                        ${cat.images.map(img => `
-                        <div class="flex items-center gap-3 px-4 py-3 rounded-xl" style="background:rgba(0,0,0,0.05);border:1px solid rgba(201,169,110,0.15);">
-                            <div class="w-2 h-2 rounded-full flex-shrink-0" style="background:var(--gold);"></div>
-                            <code class="text-xs font-mono" style="color:var(--deep);">${img.file}</code>
-                        </div>
-                        `).join('')}
-                    </div>
-                    <div class="mt-4 pt-4" style="border-top:1px solid rgba(201,169,110,0.15);">
-                        <p class="text-xs font-medium" style="color:#7a6a55;">Background video: <code class="bg-brand-gold/10 px-2 py-1 rounded" style="color:var(--gold);">${cat.videoBg}</code></p>
-                    </div>
                 </div>
             </div>
         </section>
 
         <!-- CTA strip -->
-        <div class="py-12 text-center" style="background:linear-gradient(135deg,#1a1208,#2d1f0a);">
-            <p class="text-stone-400 font-light text-sm mb-4">Interested in bulk production of ${cat.title}?</p>
+        <div class="py-12 text-center" style="background:linear-gradient(135deg,var(--beige-deep),var(--beige));">
+            <p class="font-light text-sm mb-4" style="color:#7a6a55;">Interested in bulk production of ${cat.title}?</p>
             <div class="flex flex-wrap justify-center gap-4">
                 <button onclick="showPage('home')" class="btn-gold px-8 py-3 rounded-full text-sm font-medium">Schedule Meeting</button>
-                <button onclick="showPage('home')" class="btn-playful px-8 py-3 rounded-full text-sm font-medium border text-white hover:bg-white/5" style="border-color:rgba(201,169,110,0.3);">Explore More Categories</button>
+                <button onclick="showPage('home')" class="btn-playful px-8 py-3 rounded-full text-sm font-medium border hover:bg-brand-gold/10" style="border-color:rgba(201,169,110,0.5);color:var(--deep);">Explore More Categories</button>
             </div>
         </div>
     `;
