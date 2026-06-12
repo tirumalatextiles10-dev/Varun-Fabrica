@@ -1,0 +1,2058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varun Fabrica LLP | Premium Apparel Manufacturing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Cormorant Garamond', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            gold: '#C9A96E',
+                            goldLight: '#E8D5A3',
+                            deep: '#1A1208',
+                            cream: '#F5EFE0',
+                            beige: '#E8D5B7',
+                            beigeDeep: '#D4BC99',
+                            indigo: '#2D3561',
+                            teal: '#1D6B72',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --gold: #C9A96E;
+            --gold-light: #E8D5A3;
+            --deep: #1A1208;
+            --cream: #F5EFE0;
+            --beige: #E8D5B7;
+            --beige-deep: #D4BC99;
+            --beige-dark: #C8B08A;
+            --beige-mid: #DECA9E;
+            --indigo: #2D3561;
+            --teal: #1D6B72;
+        }
+        * { box-sizing: border-box; }
+        body {
+            background-color: var(--beige);
+            color: var(--deep);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ─── PAGE SYSTEM ─── */
+        .page { display: none; }
+        .page.active { display: block; }
+
+        /* ─── SCROLLBAR ─── */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--beige); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* ─── 3D PERSPECTIVE ─── */
+        .scene-3d { perspective: 1200px; perspective-origin: 50% 40%; }
+        .card-3d { transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.34,1.56,0.64,1); }
+        .card-3d:hover { transform: rotateY(-6deg) rotateX(3deg) translateZ(18px); }
+        .card-3d-reverse:hover { transform: rotateY(6deg) rotateX(3deg) translateZ(18px); }
+
+        /* ─── LIQUID GLASS ─── */
+        .liquid-glass {
+            background: rgba(0,0,0,0.28);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.12), 0 8px 40px rgba(0,0,0,0.2);
+            position: relative; overflow: hidden;
+        }
+        .liquid-glass::before {
+            content:''; position:absolute; inset:0; border-radius:inherit; padding:1.2px;
+            background: linear-gradient(180deg,rgba(255,255,255,0.35) 0%,rgba(255,255,255,0) 50%,rgba(255,255,255,0.35) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+        }
+
+        /* ─── GOLD GLASS ─── */
+        .gold-glass {
+            background: rgba(201,169,110,0.15); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(201,169,110,0.3);
+            box-shadow: 0 8px 32px rgba(201,169,110,0.1), inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+
+        /* ─── BEIGE GLASS ─── */
+        .beige-glass {
+            background: rgba(232,213,183,0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(201,169,110,0.4);
+            box-shadow: 0 8px 32px rgba(201,169,110,0.18);
+        }
+
+        /* ─── REVEAL ANIMATIONS ─── */
+        .reveal-up { opacity:0; transform:translateY(60px); transition:all 0.9s cubic-bezier(0.34,1.56,0.64,1); }
+        .reveal-scale { opacity:0; transform:scale(0.85); transition:all 0.9s cubic-bezier(0.34,1.56,0.64,1); }
+        .reveal-right { opacity:0; transform:translateX(-60px); transition:all 0.9s cubic-bezier(0.34,1.56,0.64,1); }
+        .reveal-left { opacity:0; transform:translateX(60px); transition:all 0.9s cubic-bezier(0.34,1.56,0.64,1); }
+        .reveal-rotate { opacity:0; transform:rotate(-8deg) scale(0.9); transition:all 1s cubic-bezier(0.34,1.56,0.64,1); }
+        .is-revealed { opacity:1; transform:translateY(0) scale(1) translateX(0) rotate(0); }
+
+        /* ─── CONTINUOUS ─── */
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+        .animate-float { animation: float 5s ease-in-out infinite; }
+        @keyframes float-slow { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-8px) rotate(2deg)} }
+        .animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
+        @keyframes float2 { 0%,100%{transform:translateY(-6px)} 50%{transform:translateY(6px)} }
+        .animate-float2 { animation: float2 4s ease-in-out infinite; }
+        @keyframes pulse-live { 0%,100%{transform:scale(1)} 50%{transform:scale(1.03)} }
+        .animate-pulse-live { animation: pulse-live 3s ease-in-out infinite; }
+        @keyframes spin-slow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+        .animate-spin-slow { animation: spin-slow 20s linear infinite; }
+        @keyframes shimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
+        .text-shimmer {
+            background: linear-gradient(90deg, var(--gold) 0%, #fff5d4 40%, var(--gold) 60%, #c9a96e 100%);
+            background-size:200% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+            animation: shimmer 4s linear infinite;
+        }
+        @keyframes beige-shimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
+        .text-beige-shimmer {
+            background: linear-gradient(90deg, var(--beige-dark) 0%, #fff0d0 40%, var(--beige-dark) 60%, #c8b08a 100%);
+            background-size:200% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+            animation: beige-shimmer 4s linear infinite;
+        }
+        @keyframes textReveal { 0%{opacity:0;transform:translateY(100%)} 100%{opacity:1;transform:translateY(0)} }
+        @keyframes fadeIn { 0%{opacity:0;transform:scale(0.95)} 100%{opacity:1;transform:scale(1)} }
+        .hero-title-line span { display:inline-block; opacity:0; transform:translateY(100%); animation: textReveal 1s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+        .delay-100{animation-delay:0.1s} .delay-200{animation-delay:0.2s} .delay-300{animation-delay:0.3s}
+        .delay-800{animation-delay:0.8s} .delay-1000{animation-delay:1s} .delay-1200{animation-delay:1.2s}
+        .fade-in { opacity:0; animation: fadeIn 1.2s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+
+        @keyframes slideInLeft { 0%{opacity:0;transform:translateX(-80px)} 100%{opacity:1;transform:translateX(0)} }
+        @keyframes glowPulse { 0%,100%{box-shadow:0 0 20px rgba(201,169,110,0.2)} 50%{box-shadow:0 0 50px rgba(201,169,110,0.5)} }
+        .glow-pulse { animation: glowPulse 3s ease-in-out infinite; }
+        @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+        .marquee-track { animation: marquee 25s linear infinite; }
+
+        /* ─── NAVBAR ─── */
+        #navbar-container { transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1); }
+        .nav-scrolled {
+            background: rgba(26,18,8,0.88);
+            backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+            box-shadow:0 4px 40px rgba(201,169,110,0.12), inset 0 1px 0 rgba(201,169,110,0.2);
+            transform:scale(0.98) translateY(5px);
+        }
+        .btn-nav-scrolled { background:linear-gradient(135deg,var(--gold),#a87d3e) !important; color:white !important; border-color:transparent !important; }
+        #mobile-menu { opacity:0; transform:translateY(-20px); pointer-events:none; transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+        #mobile-menu.open { opacity:1; transform:translateY(0); pointer-events:auto; }
+
+        /* ─── BUTTONS ─── */
+        .btn-gold { background:linear-gradient(135deg,#C9A96E,#a87d3e); color:white; transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+        .btn-gold:hover { transform:translateY(-4px) scale(1.02); box-shadow:0 16px 40px rgba(201,169,110,0.4); }
+        .btn-beige { background:linear-gradient(135deg,var(--beige),var(--beige-deep)); color:var(--deep); transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+        .btn-beige:hover { transform:translateY(-4px) scale(1.02); box-shadow:0 16px 40px rgba(201,169,110,0.3); }
+        .btn-playful { transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+        .btn-playful:hover { transform:translateY(-4px) scale(1.02); box-shadow:0 10px 25px rgba(0,0,0,0.15); }
+
+        /* ─── ACCENT ─── */
+        .gold-line { display:inline-block; width:60px; height:2px; background:linear-gradient(90deg,var(--gold),transparent); }
+
+        /* ─── CATEGORY IMAGE GRID ─── */
+        .img-grid-item {
+            position:relative; overflow:hidden; border-radius:16px; cursor:pointer;
+            transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1);
+        }
+        .img-grid-item:hover { transform:translateY(-8px) scale(1.02); box-shadow:0 20px 50px rgba(201,169,110,0.25); }
+        .img-grid-item img { width:100%; height:100%; object-fit:cover; transition:transform 1.2s cubic-bezier(0.34,1.56,0.64,1); display:block; }
+        .img-grid-item:hover img { transform:scale(1.12); }
+        .img-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.65),transparent 60%); opacity:0; transition:opacity 0.4s; }
+        .img-grid-item:hover .img-overlay { opacity:1; }
+        .img-label { position:absolute; bottom:0; left:0; right:0; padding:16px; transform:translateY(10px); opacity:0; transition:all 0.4s; color:white; }
+        .img-grid-item:hover .img-label { transform:translateY(0); opacity:1; }
+
+        /* ─── CAT VIDEO BG ─── */
+        .cat-img-bg { position:absolute; inset:0; z-index:0; overflow:hidden; }
+        .cat-img-bg img { width:100%; height:100%; object-fit:cover; }
+        .cat-video-overlay { position:absolute; inset:0; background:rgba(20,14,5,0.75); z-index:1; }
+
+        /* ─── LEADER CARD ─── */
+        .leader-card { position:relative; transform-style:preserve-3d; transition:transform 0.8s cubic-bezier(0.34,1.56,0.64,1); }
+        .leader-card:hover { transform:translateY(-12px) rotateX(4deg); }
+        .leader-photo-frame { position:relative; border-radius:20px; overflow:hidden; background:linear-gradient(135deg,#1a1208,#2d1f0a); }
+        .leader-photo-frame::before {
+            content:''; position:absolute; inset:0; border:2px solid transparent;
+            background:linear-gradient(135deg,rgba(201,169,110,0.6),rgba(201,169,110,0.1),rgba(201,169,110,0.6)) border-box;
+            -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite:xor; mask-composite:exclude; border-radius:20px; pointer-events:none; z-index:2;
+        }
+        .photo-placeholder {
+            width:100%; aspect-ratio:3/4;
+            background:linear-gradient(160deg,#1a1208 0%,#2d1f0a 40%,#1a1208 100%);
+            display:flex; flex-direction:column; align-items:center; justify-content:center;
+            gap:16px; color:rgba(201,169,110,0.6);
+        }
+
+        /* ─── BEIGE SECTION ─── */
+        .section-mesh {
+            background-image:
+                radial-gradient(ellipse at 20% 20%, rgba(201,169,110,0.14) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(201,169,110,0.09) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 50%, rgba(232,213,183,0.12) 0%, transparent 70%);
+        }
+
+        /* ─── PROCESS CARD ─── */
+        .process-card { transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1); }
+        .process-card:hover { transform:translateY(-8px) scale(1.02); box-shadow:0 20px 40px rgba(201,169,110,0.15); }
+
+        /* ─── BUYER LOGO ─── */
+        .buyer-logo { transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1); background:rgba(201,169,110,0.05); border:1px solid rgba(201,169,110,0.15); }
+        .buyer-logo:hover { background:rgba(201,169,110,0.12); border-color:rgba(201,169,110,0.4); transform:translateY(-6px) scale(1.05); box-shadow:0 12px 32px rgba(201,169,110,0.2); }
+        .buyer-rank { position:absolute; top:-10px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,var(--gold),#a87d3e); color:white; font-size:9px; font-weight:700; letter-spacing:0.15em; padding:3px 10px; border-radius:100px; white-space:nowrap; }
+
+        /* ─── STAT ─── */
+        .stat-number { font-family:'Cormorant Garamond',serif; background:linear-gradient(135deg,var(--gold-light),var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+
+        /* ─── BRAND BOX ─── */
+        .brand-logo-box { background:linear-gradient(135deg,rgba(201,169,110,0.08),rgba(201,169,110,0.02)); border:1px solid rgba(201,169,110,0.25); border-radius:16px; padding:24px 32px; display:flex; flex-direction:column; align-items:center; gap:12px; transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+        .brand-logo-box:hover { transform:translateY(-8px); box-shadow:0 20px 40px rgba(201,169,110,0.15); border-color:rgba(201,169,110,0.5); }
+        .brand-logo-placeholder { width:80px; height:60px; background:rgba(201,169,110,0.1); border:1px dashed rgba(201,169,110,0.3); border-radius:8px; display:flex; align-items:center; justify-content:center; }
+        .group-banner { background:linear-gradient(135deg,rgba(237,224,200,0.6) 0%,rgba(212,188,153,0.4) 100%); border:1px solid rgba(201,169,110,0.25); border-radius:20px; padding:32px 40px; }
+
+        /* ─── VIDEO SHOWCASE ─── */
+        .video-showcase { position:relative; border-radius:24px; overflow:hidden; background:#111; }
+        .video-showcase::after { content:''; position:absolute; inset:0; border-radius:24px; box-shadow:inset 0 0 0 1px rgba(201,169,110,0.25); pointer-events:none; }
+        .video-showcase img { width:100%; height:100%; object-fit:cover; display:block; }
+
+        /* ─── PARTICLE ─── */
+        .particle { position:absolute; border-radius:50%; background:var(--gold); opacity:0.3; animation:float-slow var(--dur,6s) ease-in-out infinite; animation-delay:var(--delay,0s); }
+
+        /* ─── BACK BTN ─── */
+        .back-btn { display:inline-flex; align-items:center; gap:8px; padding:10px 20px; border-radius:100px; font-size:13px; font-weight:500; cursor:pointer; transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1); background:rgba(201,169,110,0.1); border:1px solid rgba(201,169,110,0.3); color:var(--gold); }
+        .back-btn:hover { background:rgba(201,169,110,0.2); transform:translateX(-4px); }
+
+        .about-bg { background:linear-gradient(160deg,#0f0a04 0%,#1a1208 40%,#0d1a1a 100%); }
+
+        /* ─── STAGGER ─── */
+        .stagger-1{transition-delay:0.05s} .stagger-2{transition-delay:0.1s} .stagger-3{transition-delay:0.15s}
+        .stagger-4{transition-delay:0.2s} .stagger-5{transition-delay:0.25s} .stagger-6{transition-delay:0.3s}
+
+        @keyframes ripple { 0%{transform:scale(0);opacity:0.6} 100%{transform:scale(4);opacity:0} }
+        .ripple-effect { position:absolute; border-radius:50%; background:rgba(201,169,110,0.4); width:80px; height:80px; animation:ripple 0.7s ease-out forwards; pointer-events:none; }
+    </style>
+</head>
+<body class="antialiased">
+
+<!-- ══════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════ -->
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-5 px-4 md:px-8 pointer-events-none">
+    <div id="navbar-container" class="w-full max-w-7xl mx-auto flex items-center justify-between px-6 py-4 rounded-2xl pointer-events-auto bg-transparent text-white border border-transparent">
+        <div onclick="showPage('home')" class="flex items-center gap-3 hover:scale-105 transition-transform duration-300 cursor-pointer">
+            <div class="w-9 h-9 rounded-full flex items-center justify-center border border-brand-gold/40" style="background:linear-gradient(135deg,rgba(201,169,110,0.2),rgba(201,169,110,0.05));">
+                <span class="font-semibold tracking-widest text-sm text-brand-gold">VF</span>
+            </div>
+            <span class="w-px h-4 bg-white/20 hidden sm:block"></span>
+            <span class="text-sm font-medium tracking-widest hidden sm:block">VARUN FABRICA LLP</span>
+        </div>
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white/80">
+            <a href="#" onclick="showPage('manufacturing');return false;" class="hover:text-brand-gold hover:-translate-y-1 transition-all">Manufacturing</a>
+            <a href="#" onclick="showPage('categories');return false;" class="hover:text-brand-gold hover:-translate-y-1 transition-all">Categories</a>
+            <a href="#" onclick="showPage('buyers');return false;" class="hover:text-brand-gold hover:-translate-y-1 transition-all">Buyers</a>
+            <a href="#" onclick="showPage('about');return false;" id="nav-about-link" class="hover:text-brand-gold hover:-translate-y-1 transition-all">About Us</a>
+            <a href="#" onclick="showPage('contact');return false;" class="hover:text-brand-gold hover:-translate-y-1 transition-all">Contact</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <button id="nav-btn" onclick="showPage('contact')" class="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium btn-playful bg-white/10 text-white backdrop-blur-md border border-white/20">
+                Schedule Meeting
+            </button>
+            <button id="menu-open" class="md:hidden text-white focus:outline-none hover:scale-110 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu" class="fixed inset-0 z-[60] text-white p-8 flex flex-col" style="background:linear-gradient(160deg,#0f0a04,#1a1208);">
+    <div class="flex justify-between items-center mb-12">
+        <span class="font-semibold tracking-widest text-xl text-brand-gold">VARUN FABRICA LLP</span>
+        <button id="menu-close" class="focus:outline-none hover:rotate-90 transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+    </div>
+    <div class="flex flex-col gap-6 text-2xl font-light tracking-tight">
+        <a href="#" onclick="showPage('manufacturing');closeMenu();" class="mobile-link border-b border-white/10 pb-4 hover:pl-4 hover:text-brand-gold transition-all">Manufacturing</a>
+        <a href="#" onclick="showPage('categories');closeMenu();" class="mobile-link border-b border-white/10 pb-4 hover:pl-4 hover:text-brand-gold transition-all">Categories</a>
+        <a href="#" onclick="showPage('buyers');closeMenu();" class="mobile-link border-b border-white/10 pb-4 hover:pl-4 hover:text-brand-gold transition-all">Buyers</a>
+        <a href="#" onclick="showPage('about');closeMenu();" class="mobile-link border-b border-white/10 pb-4 hover:pl-4 hover:text-brand-gold transition-all">About Us</a>
+        <a href="#" onclick="showPage('contact');closeMenu();" class="mobile-link pb-4 hover:pl-4 hover:text-brand-gold transition-all">Contact</a>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     HOME PAGE — Hero + Infrastructure only
+══════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+    <!-- HERO -->
+    <section class="relative h-screen w-full overflow-hidden" style="background:#0f0a04;">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0" style="background:radial-gradient(ellipse at 30% 60%,rgba(201,169,110,0.14) 0%,transparent 60%),radial-gradient(ellipse at 70% 20%,rgba(45,53,97,0.2) 0%,transparent 60%);"></div>
+        </div>
+        <div class="absolute inset-0 w-full h-full z-0">
+            <!-- Hero background: video preferred, jpg fallback -->
+            <video autoplay loop muted playsinline class="object-cover w-full h-full scale-105 animate-pulse-live" id="hero-video">
+                <source src="hero_landing.mp4" type="video/mp4">
+            </video>
+            <img src="hero_landing.jpg" id="hero-img-fallback" alt="Varun Fabrica Manufacturing" class="w-full h-full object-cover absolute inset-0" style="display:none;"
+                 onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1800&auto=format&fit=crop'">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/70"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent"></div>
+        </div>
+        <!-- Particles -->
+        <div class="absolute inset-0 z-1 pointer-events-none overflow-hidden">
+            <div class="particle" style="width:6px;height:6px;top:20%;left:15%;--dur:8s;--delay:0s;"></div>
+            <div class="particle" style="width:4px;height:4px;top:60%;left:25%;--dur:10s;--delay:2s;"></div>
+            <div class="particle" style="width:8px;height:8px;top:35%;left:75%;--dur:7s;--delay:1s;"></div>
+            <div class="particle" style="width:5px;height:5px;top:75%;left:85%;--dur:9s;--delay:3s;"></div>
+            <div class="particle" style="width:4px;height:4px;top:15%;left:60%;--dur:11s;--delay:0.5s;"></div>
+            <div class="particle" style="width:3px;height:3px;top:45%;left:40%;--dur:12s;--delay:1.5s;"></div>
+        </div>
+        <div class="absolute top-1/2 right-12 -translate-y-1/2 w-64 h-64 opacity-10 animate-spin-slow pointer-events-none hidden lg:block" style="z-index:1;">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="90" stroke="#C9A96E" stroke-width="0.5" stroke-dasharray="8 4"/>
+                <circle cx="100" cy="100" r="70" stroke="#C9A96E" stroke-width="0.5" stroke-dasharray="4 8"/>
+                <circle cx="100" cy="100" r="50" stroke="#C9A96E" stroke-width="0.5"/>
+            </svg>
+        </div>
+        <div class="relative z-10 h-full w-full max-w-7xl mx-auto px-6 md:px-8 flex flex-col justify-end pb-24 md:pb-32">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+                <div class="lg:col-span-8">
+                    <div class="flex items-center gap-3 mb-8 fade-in delay-100">
+                        <div class="gold-line"></div>
+                        <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Premium Apparel Manufacturing</span>
+                    </div>
+                    <h1 class="font-display text-6xl md:text-8xl lg:text-9xl font-light text-white tracking-tight leading-[1.0] mb-8">
+                        <div class="overflow-hidden hero-title-line"><span class="delay-100">Crafting apparel</span></div>
+                        <div class="overflow-hidden hero-title-line italic" style="color:#C9A96E;"><span class="delay-200">for modern retail.</span></div>
+                    </h1>
+                    <p class="fade-in delay-800 text-lg md:text-xl text-white/75 max-w-2xl font-light leading-relaxed mb-10">
+                        Manufacturing shirts, kurtis, kidswear, joggers and retail essentials at scale with premium finishing, consistency, and modern production infrastructure.
+                    </p>
+                    <div class="fade-in delay-1000 flex flex-wrap gap-4">
+                        <button onclick="showPage('manufacturing')" class="btn-gold inline-block px-8 py-4 rounded-full text-sm font-medium">Explore Manufacturing</button>
+                        <button onclick="showPage('categories')" class="btn-playful inline-flex bg-transparent border border-white/25 text-white backdrop-blur-sm px-8 py-4 rounded-full text-sm font-medium hover:bg-white/10 items-center gap-2 group">
+                            View Categories
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="fade-in delay-1200 lg:col-span-4 lg:justify-self-end w-full max-w-sm animate-float">
+                    <div class="liquid-glass p-8 rounded-3xl text-white hover:scale-105 transition-transform duration-500 cursor-default glow-pulse">
+                        <div class="space-y-6">
+                            <div>
+                                <p class="text-xs text-white/50 uppercase tracking-[0.2em] mb-1">Capacity</p>
+                                <p class="font-display text-4xl font-light stat-number">6L+ <span class="text-xl" style="color:rgba(201,169,110,0.7);">Monthly</span></p>
+                            </div>
+                            <div class="h-px w-full" style="background:linear-gradient(90deg,rgba(201,169,110,0.3),transparent);"></div>
+                            <div>
+                                <p class="text-xs text-white/50 uppercase tracking-[0.2em] mb-1">Network</p>
+                                <p class="text-xl font-light">PAN India Supply</p>
+                            </div>
+                            <div class="h-px w-full" style="background:linear-gradient(90deg,rgba(201,169,110,0.3),transparent);"></div>
+                            <div>
+                                <p class="text-xs text-white/50 uppercase tracking-[0.2em] mb-2">Trusted By</p>
+                                <p class="text-sm font-light text-white/75 leading-relaxed">Baazar Kolkata, Style Baazar, V2 Retail, Vishal Mega Mart, V-Mart, M-Baazar and more.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARQUEE STRIP -->
+    <div class="overflow-hidden py-4" style="background:linear-gradient(90deg,#1a1208,#2d1f0a,#1a1208); border-top:1px solid rgba(201,169,110,0.2); border-bottom:1px solid rgba(201,169,110,0.2);">
+        <div class="marquee-track flex gap-12 whitespace-nowrap" style="width:max-content;">
+            <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Shirts</span><span class="text-brand-gold/30 text-lg">✦</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-white/60 font-medium">Kurtis</span><span class="text-brand-gold/30 text-lg">✦</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Kidswear</span><span class="text-brand-gold/30 text-lg">✦</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-white/60 font-medium">Joggers</span><span class="text-brand-gold/30 text-lg">✦</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Premium Manufacturing</span><span class="text-brand-gold/30 text-lg">✦</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-white/60 font-medium">PAN India Supply</span><span class="text-brand-gold/30 text-lg">✦</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">6 Lakh+ Monthly</span><span class="text-brand-gold/30 text-lg">✦</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-white/60 font-medium">Shirts</span><span class="text-brand-gold/30 text-lg">✦</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Kurtis</span><span class="text-brand-gold/30 text-lg">✦</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-white/60 font-medium">Kidswear</span><span class="text-brand-gold/30 text-lg">✦</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Joggers</span><span class="text-brand-gold/30 text-lg">✦</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-white/60 font-medium">Premium Manufacturing</span><span class="text-brand-gold/30 text-lg">✦</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">6 Lakh+ Monthly</span><span class="text-brand-gold/30 text-lg">✦</span>
+            <span class="text-xs uppercase tracking-[0.3em] text-white/60 font-medium">PAN India Supply</span><span class="text-brand-gold/30 text-lg">✦</span>
+        </div>
+    </div>
+
+    <!-- INFRASTRUCTURE — stays on home page -->
+    <section id="infrastructure" class="py-32" style="background:linear-gradient(160deg,#0f0a04,#0f1410);">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="gold-line"></div>
+                        <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-medium">Our Facility</span>
+                    </div>
+                    <h2 class="font-display text-5xl md:text-6xl font-light tracking-tight text-white mb-8 reveal-up">
+                        Infrastructure built for <span class="italic" style="color:var(--gold);">volume</span>.
+                    </h2>
+                    <p class="text-lg text-stone-400 font-light leading-relaxed mb-10 reveal-up" style="transition-delay:200ms;">
+                        Our production floor utilizes automated spreading, modern sewing arrays, and dedicated quality inspection zones to maintain speed without compromising finish.
+                    </p>
+                    <ul class="space-y-5">
+                        <li class="flex items-center gap-4 text-stone-300 font-light reveal-right hover:translate-x-3 transition-transform cursor-default" style="transition-delay:300ms;">
+                            <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(201,169,110,0.15);border:1px solid rgba(201,169,110,0.3);">
+                                <div class="w-2 h-2 rounded-full animate-pulse-live" style="background:var(--gold);"></div>
+                            </div>
+                            State-of-the-art stitching lines
+                        </li>
+                        <li class="flex items-center gap-4 text-stone-300 font-light reveal-right hover:translate-x-3 transition-transform cursor-default" style="transition-delay:400ms;">
+                            <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(45,53,97,0.3);border:1px solid rgba(45,53,97,0.5);">
+                                <div class="w-2 h-2 rounded-full animate-pulse-live" style="background:#6b75c9;"></div>
+                            </div>
+                            Dedicated sampling rooms
+                        </li>
+                        <li class="flex items-center gap-4 text-stone-300 font-light reveal-right hover:translate-x-3 transition-transform cursor-default" style="transition-delay:500ms;">
+                            <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(29,107,114,0.3);border:1px solid rgba(29,107,114,0.5);">
+                                <div class="w-2 h-2 rounded-full animate-pulse-live" style="background:#3db8c0;"></div>
+                            </div>
+                            Climate-controlled fabric warehouse
+                        </li>
+                        <li class="flex items-center gap-4 text-stone-300 font-light reveal-right hover:translate-x-3 transition-transform cursor-default" style="transition-delay:600ms;">
+                            <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(201,169,110,0.15);border:1px solid rgba(201,169,110,0.3);">
+                                <div class="w-2 h-2 rounded-full animate-pulse-live" style="background:var(--gold);"></div>
+                            </div>
+                            Automated packaging systems
+                        </li>
+                    </ul>
+                </div>
+                <div class="order-1 lg:order-2 relative w-full rounded-3xl overflow-hidden reveal-scale group shadow-[0_40px_80px_rgba(0,0,0,0.5)] scene-3d" style="height:70vh;min-height:420px;">
+                    <div class="card-3d w-full h-full">
+                        <!-- Infrastructure: video preferred, png/jpg fallback -->
+                        <video autoplay loop muted playsinline class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[2s]" id="infra-video">
+                            <source src="infrastructure_tour.mp4" type="video/mp4">
+                        </video>
+                        <img src="infrastructure_tour.jpg" id="infra-img-fallback" alt="Infrastructure" class="w-full h-full object-cover absolute inset-0" style="display:none;"
+                             onerror="this.src='https://images.unsplash.com/photo-1563821035048-b427b0ec2da8?q=80&w=1200&auto=format&fit=crop'">
+                    </div>
+                    <div class="absolute top-6 left-6 w-10 h-10 pointer-events-none"><div class="absolute top-0 left-0 w-6 h-[2px]" style="background:var(--gold);"></div><div class="absolute top-0 left-0 w-[2px] h-6" style="background:var(--gold);"></div></div>
+                    <div class="absolute bottom-6 right-6 w-10 h-10 pointer-events-none"><div class="absolute bottom-0 right-0 w-6 h-[2px]" style="background:var(--gold);"></div><div class="absolute bottom-0 right-0 w-[2px] h-6" style="background:var(--gold);"></div></div>
+                    <div class="absolute bottom-8 left-8 right-8 md:right-auto md:w-72 backdrop-blur-xl p-6 rounded-2xl reveal-up animate-float" style="transition-delay:600ms;background:rgba(255,255,255,0.08);border:1px solid rgba(201,169,110,0.25);">
+                        <div class="flex items-center gap-4 mb-2">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white" style="background:linear-gradient(135deg,var(--gold),#a87d3e);">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            <p class="font-medium text-white">Consistent Output</p>
+                        </div>
+                        <p class="text-sm text-stone-300 font-light">Strict QC protocols ensuring &lt;1% rejection rate at retail gates.</p>
+                    </div>
+                    <div class="absolute top-4 right-4">
+                        <span class="w-2 h-2 rounded-full animate-pulse-live inline-block" style="background:var(--gold);"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="py-32 section-mesh" style="background:linear-gradient(160deg,var(--cream),var(--beige),#e5d5b8);">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="text-center mb-20 reveal-up">
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <div class="gold-line"></div>
+                    <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-medium">Why Partner With Us</span>
+                    <div class="gold-line" style="background:linear-gradient(90deg,transparent,var(--gold));"></div>
+                </div>
+                <h2 class="font-display text-5xl md:text-6xl font-light tracking-tight mb-4" style="color:var(--deep);">Built Around <span class="italic" style="color:var(--gold);">Retail Realities.</span></h2>
+                <p class="font-light max-w-xl mx-auto" style="color:#7a6a55;">We understand what retail chains need — speed, consistency, scale, and zero excuses at the delivery gate.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="process-card p-8 rounded-2xl reveal-up stagger-1 cursor-default" style="background:rgba(255,255,255,0.7);border:1px solid rgba(201,169,110,0.2);">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:linear-gradient(135deg,var(--gold),#a87d3e);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3" style="color:var(--deep);">6 Lakh+ Monthly Output</h3>
+                    <p class="text-sm font-light leading-relaxed" style="color:#7a6a55;">Multi-line production capacity that scales with your seasonal demand spikes — no capacity crunches, no backorders.</p>
+                </div>
+                <div class="process-card p-8 rounded-2xl reveal-up stagger-2 cursor-default" style="background:rgba(255,255,255,0.7);border:1px solid rgba(45,53,97,0.15);">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:linear-gradient(135deg,var(--indigo),#1d2451);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3" style="color:var(--deep);">&lt;1% Rejection Rate</h3>
+                    <p class="text-sm font-light leading-relaxed" style="color:#7a6a55;">Multi-point QC at every stage — fabric, stitching, finishing, and packing — means near-zero rejections at retail gates.</p>
+                </div>
+                <div class="process-card p-8 rounded-2xl reveal-up stagger-3 cursor-default" style="background:rgba(255,255,255,0.7);border:1px solid rgba(29,107,114,0.15);">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:linear-gradient(135deg,var(--teal),#134b50);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3" style="color:var(--deep);">99% On-Time Delivery</h3>
+                    <p class="text-sm font-light leading-relaxed" style="color:#7a6a55;">Retail calendars are non-negotiable. Our production schedules are built around your windows, not ours.</p>
+                </div>
+                <div class="process-card p-8 rounded-2xl reveal-up stagger-4 cursor-default" style="background:rgba(255,255,255,0.7);border:1px solid rgba(201,169,110,0.2);">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:linear-gradient(135deg,#6b5c3a,#3d3020);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3" style="color:var(--deep);">4 Product Categories</h3>
+                    <p class="text-sm font-light leading-relaxed" style="color:#7a6a55;">Shirts, Kurtis, Kidswear, and Joggers — a focused range perfected over years of retail execution.</p>
+                </div>
+                <div class="process-card p-8 rounded-2xl reveal-up stagger-5 cursor-default" style="background:rgba(255,255,255,0.7);border:1px solid rgba(45,53,97,0.15);">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:linear-gradient(135deg,#2D3561,#1d2451);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3" style="color:var(--deep);">6+ Retail Partners</h3>
+                    <p class="text-sm font-light leading-relaxed" style="color:#7a6a55;">Trusted by India's largest value retail chains — Baazar Kolkata, Vishal Mega Mart, V2 Retail, V-Mart and more.</p>
+                </div>
+                <div class="process-card p-8 rounded-2xl reveal-up stagger-6 cursor-default" style="background:rgba(255,255,255,0.7);border:1px solid rgba(29,107,114,0.15);">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:linear-gradient(135deg,var(--teal),#1a5a60);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3" style="color:var(--deep);">Vertically Integrated</h3>
+                    <p class="text-sm font-light leading-relaxed" style="color:#7a6a55;">Fabric sourcing, pattern development, cutting, stitching, QC, and packing — all under one roof for complete accountability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS / PARTNER WORDS -->
+    <section class="py-28 overflow-hidden" style="background:linear-gradient(160deg,#0f0a04,#1a1208);">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="text-center mb-16 reveal-up">
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <div class="gold-line"></div>
+                    <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-medium">Trusted By Retail Leaders</span>
+                    <div class="gold-line" style="background:linear-gradient(90deg,transparent,var(--gold));"></div>
+                </div>
+                <h2 class="font-display text-5xl md:text-6xl font-light tracking-tight text-white mb-4">Retail Partners <span class="italic text-shimmer">Across India.</span></h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 mb-16">
+                <div class="p-8 rounded-2xl reveal-scale stagger-1 cursor-default" style="background:rgba(201,169,110,0.06);border:1px solid rgba(201,169,110,0.15);">
+                    <div class="flex gap-1 mb-5">
+                        <span style="color:var(--gold);">★★★★★</span>
+                    </div>
+                    <p class="text-stone-300 font-light text-sm leading-relaxed mb-6 italic">"Varun Fabrica consistently delivers on time with outstanding quality. Their shirts and kurtis range has become a cornerstone of our seasonal buying."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,var(--gold),#a87d3e);color:white;">BK</div>
+                        <div>
+                            <p class="text-white font-medium text-sm">Buying Team</p>
+                            <p class="text-brand-gold text-xs font-medium">Baazar Kolkata</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8 rounded-2xl reveal-scale stagger-2 cursor-default" style="background:rgba(45,53,97,0.15);border:1px solid rgba(45,53,97,0.3);">
+                    <div class="flex gap-1 mb-5">
+                        <span style="color:var(--gold);">★★★★★</span>
+                    </div>
+                    <p class="text-stone-300 font-light text-sm leading-relaxed mb-6 italic">"Their production scale and QC discipline is what sets them apart. We've been sourcing kidswear and joggers from them across multiple seasons."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,var(--indigo),#1d2451);color:white;">VM</div>
+                        <div>
+                            <p class="text-white font-medium text-sm">Merchandising Head</p>
+                            <p class="text-brand-gold text-xs font-medium">Vishal Mega Mart</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8 rounded-2xl reveal-scale stagger-3 cursor-default" style="background:rgba(29,107,114,0.1);border:1px solid rgba(29,107,114,0.25);">
+                    <div class="flex gap-1 mb-5">
+                        <span style="color:var(--gold);">★★★★★</span>
+                    </div>
+                    <p class="text-stone-300 font-light text-sm leading-relaxed mb-6 italic">"Reliable partner for our fast-fashion cycles. The ability to scale up in-season without any quality compromise is genuinely rare in this market."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,var(--teal),#134b50);color:white;">V2</div>
+                        <div>
+                            <p class="text-white font-medium text-sm">Category Manager</p>
+                            <p class="text-brand-gold text-xs font-medium">V2 Retail</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partner Logos Row -->
+            <div class="reveal-up">
+                <p class="text-center text-xs uppercase tracking-widest text-stone-600 mb-8">Supply Partners Across India</p>
+                <div class="grid grid-cols-3 md:grid-cols-6 gap-4">
+                    <div class="buyer-logo px-4 py-5 rounded-xl flex flex-col items-center gap-2 text-center">
+                        <div class="w-10 h-8 rounded flex items-center justify-center" style="background:rgba(201,169,110,0.1);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="#C9A96E" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        </div>
+                        <span class="text-xs font-semibold" style="color:#5a4a35;">Baazar Kolkata</span>
+                    </div>
+                    <div class="buyer-logo px-4 py-5 rounded-xl flex flex-col items-center gap-2 text-center">
+                        <div class="w-10 h-8 rounded flex items-center justify-center" style="background:rgba(45,53,97,0.1);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="#4a5ad0" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        </div>
+                        <span class="text-xs font-semibold" style="color:#5a4a35;">Style Baazar</span>
+                    </div>
+                    <div class="buyer-logo px-4 py-5 rounded-xl flex flex-col items-center gap-2 text-center">
+                        <div class="w-10 h-8 rounded flex items-center justify-center" style="background:rgba(29,107,114,0.1);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="#1D6B72" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                        </div>
+                        <span class="text-xs font-semibold" style="color:#5a4a35;">V2 Retail</span>
+                    </div>
+                    <div class="buyer-logo px-4 py-5 rounded-xl flex flex-col items-center gap-2 text-center">
+                        <div class="w-10 h-8 rounded flex items-center justify-center" style="background:rgba(201,169,110,0.1);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="#C9A96E" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                        </div>
+                        <span class="text-xs font-semibold" style="color:#5a4a35;">Vishal Mega Mart</span>
+                    </div>
+                    <div class="buyer-logo px-4 py-5 rounded-xl flex flex-col items-center gap-2 text-center">
+                        <div class="w-10 h-8 rounded flex items-center justify-center" style="background:rgba(45,53,97,0.1);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="#4a5ad0" stroke-width="1.5" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <span class="text-xs font-semibold" style="color:#5a4a35;">V-Mart</span>
+                    </div>
+                    <div class="buyer-logo px-4 py-5 rounded-xl flex flex-col items-center gap-2 text-center">
+                        <div class="w-10 h-8 rounded flex items-center justify-center" style="background:rgba(29,107,114,0.1);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="#1D6B72" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </div>
+                        <span class="text-xs font-semibold" style="color:#5a4a35;">M-Baazar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK NAV CARDS — CTA to explore other pages -->
+    <section class="py-20" style="background:linear-gradient(160deg,#1a1208,#0f0a04);">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="text-center mb-12 reveal-up">
+                <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Explore More</span>
+                <h2 class="font-display text-4xl md:text-5xl font-light text-white mt-3">What We Offer</h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div onclick="showPage('manufacturing')" class="group cursor-pointer p-8 rounded-2xl text-center reveal-scale stagger-1 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(201,169,110,0.2)]" style="background:rgba(201,169,110,0.08);border:1px solid rgba(201,169,110,0.2);">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform" style="background:linear-gradient(135deg,var(--gold),#a87d3e);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3 class="text-white font-medium text-sm tracking-wide">Manufacturing</h3>
+                    <p class="text-stone-400 text-xs mt-1 font-light">Process &amp; Quality</p>
+                </div>
+                <div onclick="showPage('categories')" class="group cursor-pointer p-8 rounded-2xl text-center reveal-scale stagger-2 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(201,169,110,0.2)]" style="background:rgba(45,53,97,0.15);border:1px solid rgba(45,53,97,0.3);">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform" style="background:linear-gradient(135deg,var(--indigo),#1d2451);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                    </div>
+                    <h3 class="text-white font-medium text-sm tracking-wide">Categories</h3>
+                    <p class="text-stone-400 text-xs mt-1 font-light">4 Product Ranges</p>
+                </div>
+                <div onclick="showPage('buyers')" class="group cursor-pointer p-8 rounded-2xl text-center reveal-scale stagger-3 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(201,169,110,0.2)]" style="background:rgba(29,107,114,0.1);border:1px solid rgba(29,107,114,0.25);">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform" style="background:linear-gradient(135deg,var(--teal),#134b50);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3 class="text-white font-medium text-sm tracking-wide">Buyers</h3>
+                    <p class="text-stone-400 text-xs mt-1 font-light">Our Retail Partners</p>
+                </div>
+                <div onclick="showPage('about')" class="group cursor-pointer p-8 rounded-2xl text-center reveal-scale stagger-4 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(201,169,110,0.2)]" style="background:rgba(201,169,110,0.06);border:1px solid rgba(201,169,110,0.15);">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform" style="background:linear-gradient(135deg,#6b5c3a,#3d3020);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+                    </div>
+                    <h3 class="text-white font-medium text-sm tracking-wide">About Us</h3>
+                    <p class="text-stone-400 text-xs mt-1 font-light">Our Story &amp; Team</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div><!-- end page-home -->
+
+
+<!-- ══════════════════════════════════════════
+     MANUFACTURING PAGE
+══════════════════════════════════════════ -->
+<div id="page-manufacturing" class="page">
+
+    <!-- Page Hero -->
+    <section class="relative pt-40 pb-24 overflow-hidden" style="background:linear-gradient(160deg,var(--beige) 0%,var(--cream) 60%,var(--beige) 100%);">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <button onclick="showPage('home')" class="back-btn mb-8">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 5-7 7 7 7"/></svg>
+                Back to Home
+            </button>
+            <div class="mb-16 md:w-2/3 reveal-up">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="gold-line"></div>
+                    <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-medium">Our Craft</span>
+                </div>
+                <h1 class="font-display text-5xl md:text-7xl font-light tracking-tight mb-6" style="color:var(--deep);">
+                    Precision in <br/><span class="italic" style="color:var(--gold);">Every Process.</span>
+                </h1>
+                <p class="text-xl font-light leading-relaxed" style="color:#5a4a35;">End-to-end apparel manufacturing built for modern retail supply chains. We merge industrial scale with editorial precision.</p>
+            </div>
+
+            <!-- Manufacturing showcase image -->
+            <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
+                <div class="aspect-[4/5] overflow-hidden rounded-3xl relative reveal-scale shadow-2xl group cursor-pointer scene-3d" style="background:#111;">
+                    <div class="card-3d w-full h-full">
+                        <video autoplay loop muted playsinline class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s]" id="mfg-video">
+                            <source src="manufacturing_process.mp4" type="video/mp4">
+                        </video>
+                        <img src="manufacturing_process.jpg" alt="Manufacturing Process" class="w-full h-full object-cover absolute inset-0" id="mfg-img" style="display:none;"
+                             onerror="this.src='https://images.unsplash.com/photo-1612423284934-2850a4ea6b0f?q=80&w=1000&auto=format&fit=crop'">
+                    </div>
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                    <div class="absolute top-6 right-6 gold-glass text-white text-xs font-medium px-4 py-2 rounded-full flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full animate-pulse-live" style="background:var(--gold);"></span> Live Production
+                    </div>
+                </div>
+                <div class="reveal-right" style="transition-delay:200ms;">
+                    <div class="space-y-8">
+                        <div class="p-6 rounded-2xl hover:shadow-xl transition-all duration-500 hover:-translate-y-2 cursor-default" style="background:rgba(201,169,110,0.08);border:1px solid rgba(201,169,110,0.2);">
+                            <div class="flex items-center gap-4 mb-3">
+                                <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,var(--gold),#a87d3e);">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                </div>
+                                <h3 class="text-lg font-medium" style="color:var(--deep);">Scalable Production</h3>
+                            </div>
+                            <p class="font-light leading-relaxed text-sm" style="color:#7a6a55;">Multi-line operations capable of 6 lakh+ pieces monthly across all categories with consistent quality benchmarks.</p>
+                        </div>
+                        <div class="p-6 rounded-2xl hover:shadow-xl transition-all duration-500 hover:-translate-y-2 cursor-default" style="background:rgba(45,53,97,0.05);border:1px solid rgba(45,53,97,0.12);">
+                            <div class="flex items-center gap-4 mb-3">
+                                <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,var(--indigo),#1d2451);">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                </div>
+                                <h3 class="text-lg font-medium" style="color:var(--deep);">Quality Assured</h3>
+                            </div>
+                            <p class="font-light leading-relaxed text-sm" style="color:#7a6a55;">Multi-point inspection at every stage, delivering &lt;1% rejection rate to retail partners across India.</p>
+                        </div>
+                        <div class="p-6 rounded-2xl hover:shadow-xl transition-all duration-500 hover:-translate-y-2 cursor-default" style="background:rgba(29,107,114,0.05);border:1px solid rgba(29,107,114,0.12);">
+                            <div class="flex items-center gap-4 mb-3">
+                                <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,var(--teal),#134b50);">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                </div>
+                                <h3 class="text-lg font-medium" style="color:var(--deep);">On-Time Delivery</h3>
+                            </div>
+                            <p class="font-light leading-relaxed text-sm" style="color:#7a6a55;">Disciplined production timelines built around retail calendar windows and seasonal demand cycles.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS STRIP -->
+    <div class="py-16 section-mesh" style="background:linear-gradient(135deg,#1a1208,#2d1f0a);">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="reveal-up stagger-1 group cursor-default">
+                    <p class="font-display text-5xl md:text-6xl font-light stat-number group-hover:scale-110 transition-transform duration-300"><span data-count="600000">0</span>+</p>
+                    <p class="text-xs uppercase tracking-widest text-white/50 mt-2 font-medium">Monthly Pieces</p>
+                </div>
+                <div class="reveal-up stagger-2 group cursor-default">
+                    <p class="font-display text-5xl md:text-6xl font-light stat-number group-hover:scale-110 transition-transform duration-300"><span data-count="6">0</span>+</p>
+                    <p class="text-xs uppercase tracking-widest text-white/50 mt-2 font-medium">Retail Buyers</p>
+                </div>
+                <div class="reveal-up stagger-3 group cursor-default">
+                    <p class="font-display text-5xl md:text-6xl font-light stat-number group-hover:scale-110 transition-transform duration-300"><span data-count="4">0</span></p>
+                    <p class="text-xs uppercase tracking-widest text-white/50 mt-2 font-medium">Categories</p>
+                </div>
+                <div class="reveal-up stagger-4 group cursor-default">
+                    <p class="font-display text-5xl md:text-6xl font-light stat-number group-hover:scale-110 transition-transform duration-300"><span data-count="99">0</span>%</p>
+                    <p class="text-xs uppercase tracking-widest text-white/50 mt-2 font-medium">On-Time Rate</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROCESS -->
+    <section class="py-32 section-mesh" style="background:linear-gradient(160deg,var(--cream),var(--beige),#e5d5b8);">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="mb-20 text-center reveal-up">
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <div class="gold-line"></div>
+                    <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-medium">How We Work</span>
+                    <div class="gold-line" style="background:linear-gradient(90deg,transparent,var(--gold));"></div>
+                </div>
+                <h2 class="font-display text-5xl md:text-6xl font-light tracking-tight mb-4" style="color:var(--deep);">The Manufacturing <span class="italic" style="color:var(--gold);">Process</span></h2>
+                <p class="font-light max-w-xl mx-auto" style="color:#7a6a55;">From yarn selection to final dispatch — a rigorous system ensuring corporate retail standards.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
+                <div class="process-card p-8 rounded-2xl reveal-up stagger-1 cursor-default" style="background:linear-gradient(135deg,rgba(201,169,110,0.12),rgba(201,169,110,0.04));border:1px solid rgba(201,169,110,0.25);">
+                    <div class="font-display text-5xl font-light mb-6" style="color:rgba(201,169,110,0.35);">01</div>
+                    <h3 class="text-xl font-medium mb-3" style="color:var(--deep);">Fabric Sourcing</h3>
+                    <p class="text-sm font-light leading-relaxed" style="color:#7a6a55;">Premium yarns and raw materials vetted for quality and consistency.</p>
+                </div>
+                <div class="process-card p-8 rounded-2xl reveal-up stagger-2 cursor-default" style="background:linear-gradient(135deg,rgba(45,53,97,0.07),rgba(45,53,97,0.02));border:1px solid rgba(45,53,97,0.15);">
+                    <div class="font-display text-5xl font-light mb-6" style="color:rgba(45,53,97,0.3);">02</div>
+                    <h3 class="text-xl font-medium mb-3" style="color:var(--deep);">Pattern Development</h3>
+                    <p class="text-sm font-light leading-relaxed" style="color:#7a6a55;">Precision engineering of fits using digital CAD systems.</p>
+                </div>
+                <div class="process-card p-8 rounded-2xl reveal-up stagger-3 cursor-default" style="background:linear-gradient(135deg,rgba(29,107,114,0.07),rgba(29,107,114,0.02));border:1px solid rgba(29,107,114,0.15);">
+                    <div class="font-display text-5xl font-light mb-6" style="color:rgba(29,107,114,0.3);">03</div>
+                    <h3 class="text-xl font-medium mb-3" style="color:var(--deep);">Cutting</h3>
+                    <p class="text-sm font-light leading-relaxed" style="color:#7a6a55;">Automated spreading and cutting for zero-defect fabric utilization.</p>
+                </div>
+                <div class="process-card p-8 rounded-2xl reveal-up stagger-4 cursor-default" style="background:linear-gradient(135deg,rgba(201,169,110,0.12),rgba(201,169,110,0.04));border:1px solid rgba(201,169,110,0.25);">
+                    <div class="font-display text-5xl font-light mb-6" style="color:rgba(201,169,110,0.35);">04</div>
+                    <h3 class="text-xl font-medium mb-3" style="color:var(--deep);">Stitching</h3>
+                    <p class="text-sm font-light leading-relaxed" style="color:#7a6a55;">High-speed industrial assembly lines with specialized machinery.</p>
+                </div>
+                <div class="process-card p-8 rounded-2xl reveal-up stagger-5 cursor-default" style="background:linear-gradient(135deg,rgba(45,53,97,0.07),rgba(45,53,97,0.02));border:1px solid rgba(45,53,97,0.15);">
+                    <div class="font-display text-5xl font-light mb-6" style="color:rgba(45,53,97,0.3);">05</div>
+                    <h3 class="text-xl font-medium mb-3" style="color:var(--deep);">Quality Control</h3>
+                    <p class="text-sm font-light leading-relaxed" style="color:#7a6a55;">Multi-point inspection standardizing every seam and finish.</p>
+                </div>
+                <div class="process-card p-8 rounded-2xl reveal-up stagger-6 cursor-default" style="background:linear-gradient(135deg,rgba(29,107,114,0.07),rgba(29,107,114,0.02));border:1px solid rgba(29,107,114,0.15);">
+                    <div class="font-display text-5xl font-light mb-6" style="color:rgba(29,107,114,0.3);">06</div>
+                    <h3 class="text-xl font-medium mb-3" style="color:var(--deep);">Finishing & Packing</h3>
+                    <p class="text-sm font-light leading-relaxed" style="color:#7a6a55;">Steam pressing, tagging, and retail-ready packaging.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO GALLERY -->
+    <section class="py-32" style="background:linear-gradient(160deg,#1a1208,#2d1f0a);">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="text-center mb-20 reveal-up">
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <div class="gold-line"></div>
+                    <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-medium">Quality in Motion</span>
+                    <div class="gold-line" style="background:linear-gradient(90deg,transparent,var(--gold));"></div>
+                </div>
+                <h2 class="font-display text-5xl md:text-6xl font-light tracking-tight text-white mb-6">Every Stitch Reflects <span class="italic text-shimmer">Consistency.</span></h2>
+                <p class="font-light max-w-lg mx-auto" style="color:rgba(237,224,200,0.55);">Real footage from our production floor.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="group cursor-pointer reveal-scale scene-3d">
+                    <div class="card-3d video-showcase" style="height:480px;">
+                        <video autoplay loop muted playsinline class="transform group-hover:scale-105 transition-transform duration-700" style="width:100%;height:100%;object-fit:cover;" id="gv1">
+                            <source src="gallery_video_1.mp4" type="video/mp4">
+                        </video>
+                        <img src="gallery_video_1.jpg" alt="Manufacturing Process" class="absolute inset-0" style="width:100%;height:100%;object-fit:cover;display:none;" id="gv1-img"
+                             onerror="this.src='https://images.unsplash.com/photo-1558098329-a11cff621064?q=80&w=1200&auto=format&fit=crop'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                            <span class="text-xs uppercase tracking-widest text-brand-gold font-medium">Manufacturing Process</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="group cursor-pointer reveal-scale scene-3d" style="transition-delay:150ms;">
+                    <div class="card-3d-reverse card-3d video-showcase" style="height:480px;">
+                        <video autoplay loop muted playsinline class="transform group-hover:scale-105 transition-transform duration-700" style="width:100%;height:100%;object-fit:cover;" id="gv2">
+                            <source src="gallery_video_2.mp4" type="video/mp4">
+                        </video>
+                        <img src="gallery_video_2.jpg" alt="Quality Finishing" class="absolute inset-0" style="width:100%;height:100%;object-fit:cover;display:none;" id="gv2-img"
+                             onerror="this.src='https://images.unsplash.com/photo-1598425237654-4c05b1fbe14c?q=80&w=1200&auto=format&fit=crop'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                            <span class="text-xs uppercase tracking-widest text-brand-gold font-medium">Quality Finishing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div><!-- end page-manufacturing -->
+
+
+<!-- ══════════════════════════════════════════
+     CATEGORIES PAGE
+══════════════════════════════════════════ -->
+<div id="page-categories" class="page">
+
+    <section class="relative pt-40 pb-20 overflow-hidden" style="background:linear-gradient(160deg,#1a1208,#0f0a04);">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <button onclick="showPage('home')" class="back-btn mb-8">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 5-7 7 7 7"/></svg>
+                Back to Home
+            </button>
+            <div class="text-center mb-20 reveal-up">
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <div class="gold-line"></div>
+                    <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-medium">What We Make</span>
+                    <div class="gold-line" style="background:linear-gradient(90deg,transparent,var(--gold));"></div>
+                </div>
+                <h1 class="font-display text-5xl md:text-7xl font-light tracking-tight text-white mb-6">
+                    Our <span class="italic text-shimmer">Categories.</span>
+                </h1>
+                <p class="font-light max-w-xl mx-auto" style="color:rgba(237,224,200,0.5);">Tap any category to explore the full product gallery.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Shirts -->
+                <div onclick="showCategoryPage('shirts')" class="group relative overflow-hidden rounded-3xl cursor-pointer reveal-scale stagger-1 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(201,169,110,0.25)] transition-all duration-500" style="min-height:300px;">
+                    <img src="shirts_category_bg.jpg" alt="Shirts" onerror="this.src='https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=800&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+                    <div class="absolute inset-0 border-2 border-transparent group-hover:border-brand-gold/40 rounded-3xl transition-all duration-500"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="font-display text-2xl font-light text-white mb-1">Shirts</h3>
+                        <div class="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-400">
+                            <span class="text-xs text-brand-gold uppercase tracking-widest">Explore 6 styles</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#C9A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- Kurtis -->
+                <div onclick="showCategoryPage('kurtis')" class="group relative overflow-hidden rounded-3xl cursor-pointer reveal-scale stagger-2 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(201,169,110,0.25)] transition-all duration-500" style="min-height:300px;">
+                    <img src="kurtis_category_bg.jpg" alt="Kurtis" onerror="this.src='https://images.unsplash.com/photo-1583391733958-d25e07fac044?q=80&w=800&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+                    <div class="absolute inset-0 border-2 border-transparent group-hover:border-brand-gold/40 rounded-3xl transition-all duration-500"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="font-display text-2xl font-light text-white mb-1">Kurtis</h3>
+                        <div class="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-400">
+                            <span class="text-xs text-brand-gold uppercase tracking-widest">Explore 6 styles</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#C9A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- Kidswear -->
+                <div onclick="showCategoryPage('kidswear')" class="group relative overflow-hidden rounded-3xl cursor-pointer reveal-scale stagger-3 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(201,169,110,0.25)] transition-all duration-500" style="min-height:300px;">
+                    <img src="kidswear_category_bg.jpg" alt="Kidswear" onerror="this.src='https://images.unsplash.com/photo-1519241047957-be31d7379a5d?q=80&w=800&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+                    <div class="absolute inset-0 border-2 border-transparent group-hover:border-brand-gold/40 rounded-3xl transition-all duration-500"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="font-display text-2xl font-light text-white mb-1">Kidswear</h3>
+                        <div class="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-400">
+                            <span class="text-xs text-brand-gold uppercase tracking-widest">Explore 6 styles</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#C9A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- Joggers -->
+                <div onclick="showCategoryPage('joggers')" class="group relative overflow-hidden rounded-3xl cursor-pointer reveal-scale stagger-4 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(201,169,110,0.25)] transition-all duration-500" style="min-height:300px;">
+                    <img src="joggers_category_bg.jpg" alt="Joggers" onerror="this.src='https://images.unsplash.com/photo-1629853965901-52648fbcf939?q=80&w=800&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+                    <div class="absolute inset-0 border-2 border-transparent group-hover:border-brand-gold/40 rounded-3xl transition-all duration-500"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="font-display text-2xl font-light text-white mb-1">Joggers</h3>
+                        <div class="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-400">
+                            <span class="text-xs text-brand-gold uppercase tracking-widest">Explore 6 styles</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#C9A96E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div><!-- end page-categories -->
+
+
+<!-- ══════════════════════════════════════════
+     CATEGORY DETAIL PAGE (rendered by JS)
+══════════════════════════════════════════ -->
+<div id="page-category" class="page">
+    <!-- Filled dynamically by showCategoryPage() -->
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     BUYERS PAGE
+══════════════════════════════════════════ -->
+<div id="page-buyers" class="page">
+
+    <section class="py-28 section-mesh" style="background:linear-gradient(160deg,var(--beige-deep),var(--beige),var(--cream));min-height:100vh;">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <button onclick="showPage('home')" class="back-btn mb-8">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 5-7 7 7 7"/></svg>
+                Back to Home
+            </button>
+            <div class="text-center mb-14">
+                <div class="flex items-center justify-center gap-3 mb-6 reveal-up">
+                    <div class="gold-line"></div>
+                    <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-medium">Trusted by Leading Retail</span>
+                    <div class="gold-line" style="background:linear-gradient(90deg,transparent,var(--gold));"></div>
+                </div>
+                <h1 class="font-display text-5xl md:text-7xl font-light tracking-tight mb-4 reveal-up" style="color:var(--deep);">Our <span class="italic text-beige-shimmer">Buyers.</span></h1>
+                <p class="font-light reveal-up" style="color:#7a6a55;transition-delay:100ms;">Our valued corporate buyers across India's top retail chains</p>
+            </div>
+
+            <div class="flex justify-center mb-8 reveal-up" style="transition-delay:100ms;">
+                <div class="buyer-logo relative cursor-pointer px-10 py-7 rounded-2xl flex flex-col items-center gap-3 min-w-[200px]">
+                    <span class="buyer-rank">★ Primary Partner</span>
+                    <div class="w-20 h-14 flex items-center justify-center rounded-xl" style="background:rgba(201,169,110,0.08);border:1px dashed rgba(201,169,110,0.3);">
+                        <img src="baazar_kolkata_logo.png" alt="Baazar Kolkata" onerror="this.style.display='none'" class="max-h-12 max-w-[80px] object-contain" style="filter:grayscale(0.3) opacity(0.85);">
+                    </div>
+                    <span class="text-2xl font-semibold tracking-tight" style="color:var(--deep);">Baazar Kolkata</span>
+                </div>
+            </div>
+            <div class="flex flex-wrap justify-center gap-6 mb-6 reveal-up" style="transition-delay:200ms;">
+                <div class="buyer-logo relative cursor-pointer px-8 py-6 rounded-2xl flex flex-col items-center gap-3 min-w-[160px]">
+                    <div class="w-16 h-12 flex items-center justify-center rounded-lg" style="background:rgba(201,169,110,0.06);border:1px dashed rgba(201,169,110,0.25);">
+                        <img src="style_baazar_logo.png" alt="Style Baazar" onerror="this.style.display='none'" class="max-h-10 max-w-[64px] object-contain">
+                    </div>
+                    <span class="text-lg font-semibold tracking-tight" style="color:#5a4a35;">Style Baazar</span>
+                </div>
+                <div class="buyer-logo relative cursor-pointer px-8 py-6 rounded-2xl flex flex-col items-center gap-3 min-w-[160px]">
+                    <div class="w-16 h-12 flex items-center justify-center rounded-lg" style="background:rgba(201,169,110,0.06);border:1px dashed rgba(201,169,110,0.25);">
+                        <img src="v2_retail_logo.png" alt="V2 Retail" onerror="this.style.display='none'" class="max-h-10 max-w-[64px] object-contain">
+                    </div>
+                    <span class="text-lg font-semibold tracking-tight" style="color:#5a4a35;">V2 Retail</span>
+                </div>
+                <div class="buyer-logo relative cursor-pointer px-8 py-6 rounded-2xl flex flex-col items-center gap-3 min-w-[160px]">
+                    <div class="w-16 h-12 flex items-center justify-center rounded-lg" style="background:rgba(201,169,110,0.06);border:1px dashed rgba(201,169,110,0.25);">
+                        <img src="vishal_mega_mart_logo.png" alt="Vishal Mega Mart" onerror="this.style.display='none'" class="max-h-10 max-w-[64px] object-contain">
+                    </div>
+                    <span class="text-lg font-semibold tracking-tight" style="color:#5a4a35;">Vishal Mega Mart</span>
+                </div>
+            </div>
+            <div class="flex flex-wrap justify-center gap-5 reveal-up" style="transition-delay:300ms;">
+                <div class="buyer-logo cursor-pointer px-6 py-5 rounded-xl flex flex-col items-center gap-2 min-w-[140px]">
+                    <img src="vmart_logo.png" alt="V-Mart" onerror="this.style.display='none'" class="max-h-9 max-w-[56px] object-contain">
+                    <span class="text-base font-semibold tracking-tight" style="color:#5a4a35;">V-Mart</span>
+                </div>
+                <div class="buyer-logo cursor-pointer px-6 py-5 rounded-xl flex flex-col items-center gap-2 min-w-[140px]">
+                    <img src="mbaazar_logo.png" alt="M-Baazar" onerror="this.style.display='none'" class="max-h-9 max-w-[56px] object-contain">
+                    <span class="text-base font-semibold tracking-tight" style="color:#5a4a35;">M-Baazar</span>
+                </div>
+                <div class="buyer-logo cursor-pointer px-6 py-5 rounded-xl flex flex-col items-center gap-2 min-w-[140px]" style="border-style:dashed;">
+                    <div class="w-9 h-9 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="color:rgba(201,169,110,0.4)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    </div>
+                    <span class="text-base font-semibold tracking-tight text-stone-400 italic">&amp; More</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BUYER TRUST STATS -->
+    <section class="py-20" style="background:linear-gradient(135deg,#1a1208,#2d1f0a);">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mb-16">
+                <div class="reveal-up stagger-1 group cursor-default">
+                    <p class="font-display text-5xl md:text-6xl font-light stat-number group-hover:scale-110 transition-transform duration-300"><span data-count="6">0</span>+</p>
+                    <p class="text-xs uppercase tracking-widest text-white/50 mt-2 font-medium">Retail Buyers</p>
+                </div>
+                <div class="reveal-up stagger-2 group cursor-default">
+                    <p class="font-display text-5xl md:text-6xl font-light stat-number group-hover:scale-110 transition-transform duration-300"><span data-count="99">0</span>%</p>
+                    <p class="text-xs uppercase tracking-widest text-white/50 mt-2 font-medium">On-Time Rate</p>
+                </div>
+                <div class="reveal-up stagger-3 group cursor-default">
+                    <p class="font-display text-5xl md:text-6xl font-light stat-number group-hover:scale-110 transition-transform duration-300"><span data-count="600000">0</span>+</p>
+                    <p class="text-xs uppercase tracking-widest text-white/50 mt-2 font-medium">Monthly Pieces</p>
+                </div>
+                <div class="reveal-up stagger-4 group cursor-default">
+                    <p class="font-display text-5xl md:text-6xl font-light stat-number group-hover:scale-110 transition-transform duration-300"><span data-count="4">0</span></p>
+                    <p class="text-xs uppercase tracking-widest text-white/50 mt-2 font-medium">Product Categories</p>
+                </div>
+            </div>
+            <div class="text-center reveal-up">
+                <p class="text-stone-400 font-light text-sm mb-6">Looking to become a buyer? Let's discuss your requirements.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button onclick="showPage('contact')" class="btn-gold px-8 py-3 rounded-full text-sm font-medium">Start a Conversation</button>
+                    <button onclick="showPage('categories')" class="btn-playful px-8 py-3 border rounded-full text-sm font-medium hover:bg-white/5 text-white" style="border-color:rgba(201,169,110,0.3);">View Product Range</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div><!-- end page-buyers -->
+
+
+<!-- ══════════════════════════════════════════
+     ABOUT US PAGE
+══════════════════════════════════════════ -->
+<div id="page-about" class="page">
+
+    <!-- Hero -->
+    <section class="relative pt-40 pb-24 overflow-hidden" style="background:linear-gradient(160deg,#0f0a04 0%,#1a1208 60%,#0d1a1a 100%);">
+        <div class="absolute inset-0" style="background:radial-gradient(ellipse at 30% 40%,rgba(201,169,110,0.1) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(45,53,97,0.12) 0%,transparent 60%);"></div>
+        <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+            <button onclick="showPage('home')" class="back-btn mb-8">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 5-7 7 7 7"/></svg>
+                Back to Home
+            </button>
+            <div class="flex items-center gap-3 mb-8">
+                <div class="gold-line"></div>
+                <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Our Story</span>
+            </div>
+            <h1 class="font-display text-6xl md:text-8xl font-light text-white tracking-tight leading-[1.0] mb-8 hero-title-line">
+                <span class="delay-100">About <span class="italic" style="color:var(--gold);">Us.</span></span>
+            </h1>
+            <p class="text-xl text-stone-400 font-light max-w-3xl leading-relaxed">A legacy of craftsmanship, scale, and integrity — woven into every garment we produce for India's leading retail chains.</p>
+        </div>
+    </section>
+
+    <!-- OUR STORY / TIMELINE -->
+    <section class="py-28" style="background:linear-gradient(160deg,#0f0a04,#1a1208);">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal-right">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="gold-line"></div>
+                        <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-medium">Our Journey</span>
+                    </div>
+                    <h2 class="font-display text-5xl md:text-6xl font-light text-white tracking-tight mb-8">From Factory Floor <span class="italic" style="color:var(--gold);">to Retail Shelf.</span></h2>
+                    <p class="text-stone-400 font-light leading-relaxed mb-6">Varun Fabrica LLP was founded with a single conviction — that Indian apparel manufacturing could meet the quality and scale demands of modern retail chains, without compromise.</p>
+                    <p class="text-stone-400 font-light leading-relaxed mb-6">Starting with a focused production unit in Kolkata, the company systematically built up its manufacturing capabilities, quality systems, and retail partnerships across India's leading value and mass-market chains.</p>
+                    <p class="text-stone-400 font-light leading-relaxed">Today, Varun Fabrica operates as part of a vertically integrated group — spanning fabric sourcing (Varun Creation), specialised women's manufacturing (Tanvi Apparels), and the flagship manufacturing entity, delivering 6 lakh+ pieces monthly.</p>
+                </div>
+                <div class="reveal-left" style="transition-delay:150ms;">
+                    <!-- Timeline -->
+                    <div class="space-y-0 relative">
+                        <div class="absolute left-5 top-0 bottom-0 w-px" style="background:linear-gradient(to bottom,var(--gold),rgba(201,169,110,0.1));"></div>
+                        <div class="flex gap-8 pb-10 relative">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 relative z-10" style="background:linear-gradient(135deg,var(--gold),#a87d3e);">
+                                <span class="text-white text-xs font-bold">01</span>
+                            </div>
+                            <div>
+                                <p class="text-brand-gold text-xs uppercase tracking-widest mb-1 font-medium">Foundation</p>
+                                <h4 class="text-white font-medium text-lg mb-1">Varun Fabrica LLP Established</h4>
+                                <p class="text-stone-500 font-light text-sm leading-relaxed">Company incorporated with a focus on scalable apparel manufacturing for India's organised retail sector. GST: 19ABBFV7595D1ZP</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-8 pb-10 relative">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 relative z-10" style="background:linear-gradient(135deg,var(--indigo),#1d2451);">
+                                <span class="text-white text-xs font-bold">02</span>
+                            </div>
+                            <div>
+                                <p class="text-brand-gold text-xs uppercase tracking-widest mb-1 font-medium">Infrastructure</p>
+                                <h4 class="text-white font-medium text-lg mb-1">EIGMEF Apparel Park, Kolkata</h4>
+                                <p class="text-stone-500 font-light text-sm leading-relaxed">Moved into the EIGMEF Apparel Park with dedicated units A3/1, A3/2, A3/3 — enabling multi-line production at full capacity.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-8 pb-10 relative">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 relative z-10" style="background:linear-gradient(135deg,var(--teal),#134b50);">
+                                <span class="text-white text-xs font-bold">03</span>
+                            </div>
+                            <div>
+                                <p class="text-brand-gold text-xs uppercase tracking-widest mb-1 font-medium">Retail Expansion</p>
+                                <h4 class="text-white font-medium text-lg mb-1">6+ Major Retail Partnerships</h4>
+                                <p class="text-stone-500 font-light text-sm leading-relaxed">Established supply relationships with Baazar Kolkata, Vishal Mega Mart, V2 Retail, V-Mart, Style Baazar and M-Baazar.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-8 relative">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 relative z-10" style="background:linear-gradient(135deg,#6b5c3a,#3d3020);">
+                                <span class="text-white text-xs font-bold">04</span>
+                            </div>
+                            <div>
+                                <p class="text-brand-gold text-xs uppercase tracking-widest mb-1 font-medium">Today</p>
+                                <h4 class="text-white font-medium text-lg mb-1">6 Lakh+ Pieces Monthly</h4>
+                                <p class="text-stone-500 font-light text-sm leading-relaxed">Operating at full industrial scale with own brands HOMBREVO, RIVYA, and NINOS alongside B2B manufacturing for India's top retailers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE VALUES -->
+    <section class="py-24 section-mesh" style="background:linear-gradient(160deg,var(--beige-deep),var(--beige),var(--cream));">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="text-center mb-16 reveal-up">
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <div class="gold-line"></div>
+                    <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-medium">What Drives Us</span>
+                    <div class="gold-line" style="background:linear-gradient(90deg,transparent,var(--gold));"></div>
+                </div>
+                <h2 class="font-display text-4xl md:text-5xl font-light tracking-tight mb-4" style="color:var(--deep);">Our Core <span class="italic" style="color:var(--gold);">Values.</span></h2>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center p-8 rounded-2xl reveal-scale stagger-1 cursor-default" style="background:rgba(255,255,255,0.6);border:1px solid rgba(201,169,110,0.2);">
+                    <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5" style="background:linear-gradient(135deg,var(--gold),#a87d3e);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2" style="color:var(--deep);">Quality First</h3>
+                    <p class="text-sm font-light leading-relaxed" style="color:#7a6a55;">Every seam, stitch and finish is inspected against retail-grade standards before dispatch.</p>
+                </div>
+                <div class="text-center p-8 rounded-2xl reveal-scale stagger-2 cursor-default" style="background:rgba(255,255,255,0.6);border:1px solid rgba(45,53,97,0.15);">
+                    <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5" style="background:linear-gradient(135deg,var(--indigo),#1d2451);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2" style="color:var(--deep);">Partner Trust</h3>
+                    <p class="text-sm font-light leading-relaxed" style="color:#7a6a55;">We treat every retail buyer as a long-term partner, not a one-time order. Relationships are our business.</p>
+                </div>
+                <div class="text-center p-8 rounded-2xl reveal-scale stagger-3 cursor-default" style="background:rgba(255,255,255,0.6);border:1px solid rgba(29,107,114,0.15);">
+                    <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5" style="background:linear-gradient(135deg,var(--teal),#134b50);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2" style="color:var(--deep);">Speed & Scale</h3>
+                    <p class="text-sm font-light leading-relaxed" style="color:#7a6a55;">Modern production systems that let us ramp up quickly without cutting corners on finish or fit.</p>
+                </div>
+                <div class="text-center p-8 rounded-2xl reveal-scale stagger-4 cursor-default" style="background:rgba(255,255,255,0.6);border:1px solid rgba(201,169,110,0.2);">
+                    <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5" style="background:linear-gradient(135deg,#6b5c3a,#3d3020);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2" style="color:var(--deep);">Transparency</h3>
+                    <p class="text-sm font-light leading-relaxed" style="color:#7a6a55;">Clear timelines, honest communication, and accountability at every production stage — no surprises.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="grid md:grid-cols-2 gap-10 items-start reveal-up">
+                <div class="p-8 rounded-2xl" style="background:rgba(201,169,110,0.1);border:1px solid rgba(201,169,110,0.25);">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,var(--gold),#a87d3e);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                        </div>
+                        <h3 class="text-base font-semibold uppercase tracking-widest" style="color:var(--deep);">Company Details</h3>
+                    </div>
+                    <p class="text-sm font-medium mb-1" style="color:var(--deep);">Varun Fabrica LLP</p>
+                    <p class="text-xs font-light mb-4" style="color:#7a6a55;">GST: <span class="font-semibold" style="color:var(--gold);">19ABBFV7595D1ZP</span></p>
+                    <p class="text-xs font-light leading-relaxed" style="color:#7a6a55;">
+                        EIGMEF Apparel Park Ltd.<br/>
+                        Ward No.1, Bidhannagar Municipality<br/>
+                        Mahishbathan, Krishnapur, Kolkata 700102<br/>
+                        P.S. Electronic Complex · Post. Krishnapur<br/>
+                        Beside Marlin 4th Avenue &amp; PS Panache Housing Complex<br/>
+                        Block A — Unit No. A3/1, A3/2, A3/3
+                    </p>
+                </div>
+                <div class="p-8 rounded-2xl" style="background:rgba(45,53,97,0.06);border:1px solid rgba(45,53,97,0.15);">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,var(--indigo),#1d2451);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3 class="text-base font-semibold uppercase tracking-widest" style="color:var(--deep);">Group Entities</h3>
+                    </div>
+                    <p class="text-xs font-light leading-relaxed mb-4" style="color:#7a6a55;">Part of a vertically integrated apparel group with specialized manufacturing entities.</p>
+                    <div class="space-y-3">
+                        <div class="group-banner"><h3 class="font-display text-2xl font-light mb-1" style="color:var(--deep);">Varun Creation</h3><p class="text-sm font-light" style="color:#7a6a55;">Fabric sourcing &amp; development unit.</p></div>
+                        <div class="group-banner"><h3 class="font-display text-2xl font-light mb-1" style="color:var(--deep);">Tanvi Apparels</h3><p class="text-sm font-light" style="color:#7a6a55;">Specialized women's wear manufacturing.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Own Brands -->
+    <section class="py-24" style="background:linear-gradient(160deg,var(--beige),#e8d8c0,var(--beige-deep));">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="text-center mb-16 reveal-up">
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <div class="gold-line"></div>
+                    <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-medium">Our Own Brands</span>
+                    <div class="gold-line" style="background:linear-gradient(90deg,transparent,var(--gold));"></div>
+                </div>
+                <h2 class="font-display text-4xl md:text-6xl font-light tracking-tight mb-4" style="color:var(--deep);">Brands We <span class="italic text-beige-shimmer">Own.</span></h2>
+                <p class="font-light max-w-xl mx-auto" style="color:#7a6a55;">Beyond manufacturing for others, we build our own fashion identities for India's retail shelves.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="brand-logo-box reveal-scale stagger-1 cursor-default" style="background:rgba(255,255,255,0.55);border:1px solid rgba(201,169,110,0.35);">
+                    <div class="brand-logo-placeholder">
+                        <img src="hombrevo_logo.png" alt="HOMBREVO" onerror="this.style.display='none'" class="max-h-14 max-w-[120px] object-contain">
+                    </div>
+                    <h3 class="font-display text-3xl font-light tracking-wide" style="color:var(--deep);">HOMBREVO</h3>
+                    <p class="text-center text-sm font-light" style="color:#7a6a55;">Shirts &amp; Half Pants</p>
+                    <div class="mt-2 flex gap-2 flex-wrap justify-center">
+                        <span class="text-[10px] uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(201,169,110,0.1);color:var(--gold);border:1px solid rgba(201,169,110,0.25);">Men's Shirts</span>
+                        <span class="text-[10px] uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(201,169,110,0.1);color:var(--gold);border:1px solid rgba(201,169,110,0.25);">Half Pants</span>
+                    </div>
+                </div>
+                <div class="brand-logo-box reveal-scale stagger-2 cursor-default" style="background:rgba(255,255,255,0.55);border:1px solid rgba(201,169,110,0.35);">
+                    <div class="brand-logo-placeholder">
+                        <img src="rivya_logo.png" alt="RIVYA" onerror="this.style.display='none'" class="max-h-14 max-w-[120px] object-contain">
+                    </div>
+                    <h3 class="font-display text-3xl font-light tracking-wide" style="color:var(--deep);">RIVYA</h3>
+                    <p class="text-center text-sm font-light" style="color:#7a6a55;">Kurtas for Women</p>
+                    <div class="mt-2 flex gap-2 flex-wrap justify-center">
+                        <span class="text-[10px] uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(201,169,110,0.1);color:var(--gold);border:1px solid rgba(201,169,110,0.25);">Kurtas</span>
+                        <span class="text-[10px] uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(201,169,110,0.1);color:var(--gold);border:1px solid rgba(201,169,110,0.25);">Women's Wear</span>
+                    </div>
+                </div>
+                <div class="brand-logo-box reveal-scale stagger-3 cursor-default" style="background:rgba(255,255,255,0.55);border:1px solid rgba(201,169,110,0.35);">
+                    <div class="brand-logo-placeholder">
+                        <img src="ninos_logo.png" alt="NINOS" onerror="this.style.display='none'" class="max-h-14 max-w-[120px] object-contain">
+                    </div>
+                    <h3 class="font-display text-3xl font-light tracking-wide" style="color:var(--deep);">NINOS</h3>
+                    <p class="text-center text-sm font-light" style="color:#7a6a55;">Kids Wear</p>
+                    <div class="mt-2 flex gap-2 flex-wrap justify-center">
+                        <span class="text-[10px] uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(201,169,110,0.1);color:var(--gold);border:1px solid rgba(201,169,110,0.25);">Kids Wear</span>
+                        <span class="text-[10px] uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(201,169,110,0.1);color:var(--gold);border:1px solid rgba(201,169,110,0.25);">Boys &amp; Girls</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section class="py-32 about-bg relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 20% 30%,rgba(201,169,110,0.06) 0%,transparent 60%),radial-gradient(ellipse at 80% 70%,rgba(29,107,114,0.06) 0%,transparent 60%);"></div>
+        <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+            <div class="text-center mb-16 reveal-up">
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <div class="gold-line"></div>
+                    <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-medium">Leadership</span>
+                    <div class="gold-line" style="background:linear-gradient(90deg,transparent,var(--gold));"></div>
+                </div>
+                <h3 class="font-display text-4xl md:text-5xl font-light text-white">The People Behind <span class="italic" style="color:var(--gold);">the Brand</span></h3>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Rakesh Tharad -->
+                <div class="leader-card reveal-scale stagger-1">
+                    <div class="leader-photo-frame mb-6">
+                        <div class="photo-placeholder" id="placeholder-rakesh">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            <p class="text-center text-xs text-stone-400">Rakesh Tharad</p>
+                        </div>
+                        <img src="rakesh_tharad.jpg" alt="Rakesh Tharad" class="w-full aspect-[3/4] object-cover object-top" style="display:none;" onload="this.style.display='block';document.getElementById('placeholder-rakesh').style.display='none';">
+                    </div>
+                    <div class="px-2">
+                        <h4 class="font-display text-3xl font-light text-white mb-1">Rakesh Tharad</h4>
+                        <p class="text-brand-gold text-sm uppercase tracking-[0.2em] mb-3 font-medium">Partner</p>
+                        <p class="text-stone-400 font-light leading-relaxed text-sm">With decades of expertise in Indian textiles and apparel manufacturing, Rakesh Tharad leads the strategic vision and long-term growth of Varun Fabrica — forging partnerships with India's leading retail chains.</p>
+                    </div>
+                </div>
+                <!-- Varun Tharad -->
+                <div class="leader-card reveal-scale stagger-2">
+                    <div class="leader-photo-frame mb-6">
+                        <div class="photo-placeholder" id="placeholder-varun">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            <p class="text-center text-xs text-stone-400">Varun Tharad</p>
+                        </div>
+                        <img src="varun_tharad.jpg" alt="Varun Tharad" class="w-full aspect-[3/4] object-cover object-top" style="display:none;" onload="this.style.display='block';document.getElementById('placeholder-varun').style.display='none';">
+                    </div>
+                    <div class="px-2">
+                        <h4 class="font-display text-3xl font-light text-white mb-1">Varun Tharad</h4>
+                        <p class="text-brand-gold text-sm uppercase tracking-[0.2em] mb-3 font-medium">Partner</p>
+                        <p class="text-stone-400 font-light leading-relaxed text-sm">Varun Tharad drives day-to-day operations, production innovation, and commercial strategy. With a sharp focus on modern retail demands, he ensures Varun Fabrica continuously delivers at the highest standards.</p>
+                    </div>
+                </div>
+                <!-- Manisha Tharad -->
+                <div class="leader-card reveal-scale stagger-3">
+                    <div class="leader-photo-frame mb-6">
+                        <div class="photo-placeholder" id="placeholder-manisha">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            <p class="text-center text-xs text-stone-400">Manisha Tharad</p>
+                        </div>
+                        <img src="manisha_tharad.jpg" alt="Manisha Tharad" class="w-full aspect-[3/4] object-cover object-top" style="display:none;" onload="this.style.display='block';document.getElementById('placeholder-manisha').style.display='none';">
+                    </div>
+                    <div class="px-2">
+                        <h4 class="font-display text-3xl font-light text-white mb-1">Manisha Tharad</h4>
+                        <p class="text-brand-gold text-sm uppercase tracking-[0.2em] mb-3 font-medium">Senior Partner</p>
+                        <p class="text-stone-400 font-light leading-relaxed text-sm">Manisha Tharad brings a nuanced perspective to brand development and organizational culture at Varun Fabrica, ensuring the group's values of quality and integrity are upheld across all entities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div><!-- end page-about -->
+
+
+<!-- ══════════════════════════════════════════
+     CONTACT PAGE
+══════════════════════════════════════════ -->
+<div id="page-contact" class="page">
+
+    <!-- Hero -->
+    <section class="relative pt-36 pb-20 overflow-hidden" style="background:linear-gradient(160deg,#0f0a04 0%,#1a1208 50%,#0d1a1a 100%);">
+        <div class="absolute inset-0 animate-pulse-live pointer-events-none" style="background:radial-gradient(ellipse at 50% 40%,rgba(201,169,110,0.08) 0%,transparent 70%);"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-5 animate-spin-slow pointer-events-none hidden lg:block">
+            <svg viewBox="0 0 200 200" fill="none"><circle cx="100" cy="100" r="95" stroke="#C9A96E" stroke-width="0.5" stroke-dasharray="8 4"/><circle cx="100" cy="100" r="75" stroke="#C9A96E" stroke-width="0.5" stroke-dasharray="4 8"/><circle cx="100" cy="100" r="55" stroke="#C9A96E" stroke-width="0.5"/></svg>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+            <button onclick="showPage('home')" class="back-btn mb-10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 5-7 7 7 7"/></svg>
+                Back to Home
+            </button>
+            <div class="text-center reveal-up max-w-3xl mx-auto">
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <div class="gold-line"></div>
+                    <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-medium">Get In Touch</span>
+                    <div class="gold-line" style="background:linear-gradient(90deg,transparent,var(--gold));"></div>
+                </div>
+                <h1 class="font-display text-6xl md:text-8xl font-light tracking-tight text-white mb-6">Built for <br/><span class="italic text-shimmer">Modern Retail.</span></h1>
+                <p class="text-lg text-stone-400 font-light leading-relaxed">Partner with Varun Fabrica LLP for scalable apparel manufacturing with premium finishing and dependable execution.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Grid -->
+    <section class="py-24" style="background:linear-gradient(160deg,#1a1208,#0f1410);">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="grid lg:grid-cols-5 gap-12 items-start">
+
+                <!-- Left: Info cards -->
+                <div class="lg:col-span-2 space-y-6 reveal-right">
+                    <div class="p-7 rounded-2xl" style="background:rgba(201,169,110,0.07);border:1px solid rgba(201,169,110,0.2);">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-1" style="background:linear-gradient(135deg,var(--gold),#a87d3e);">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-medium mb-2 text-sm uppercase tracking-widest">Factory Address</h3>
+                                <p class="text-stone-400 font-light text-sm leading-relaxed">
+                                    EIGMEF Apparel Park Ltd.<br/>
+                                    Ward No.1, Bidhannagar Municipality<br/>
+                                    Mahishbathan, Krishnapur<br/>
+                                    Kolkata – 700102, West Bengal
+                                </p>
+                                <p class="text-xs mt-2" style="color:rgba(201,169,110,0.6);">Block A — Unit A3/1, A3/2, A3/3</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-7 rounded-2xl" style="background:rgba(201,169,110,0.07);border:1px solid rgba(201,169,110,0.2);">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-1" style="background:linear-gradient(135deg,var(--indigo),#1d2451);">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.26 11.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.17 0h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 7.91a16 16 0 0 0 6.08 6.08l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 14.92z"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-medium mb-2 text-sm uppercase tracking-widest">Phone</h3>
+                                <a href="tel:+919831000000" class="text-brand-gold font-light text-sm hover:underline">+91 98310 00000</a>
+                                <br/>
+                                <a href="tel:+913340000000" class="text-stone-400 font-light text-sm hover:text-white transition-colors">+91 33400 00000</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-7 rounded-2xl" style="background:rgba(201,169,110,0.07);border:1px solid rgba(201,169,110,0.2);">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-1" style="background:linear-gradient(135deg,var(--teal),#134b50);">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-medium mb-2 text-sm uppercase tracking-widest">Email</h3>
+                                <a href="mailto:info@varunfabrica.com" class="text-brand-gold font-light text-sm hover:underline">info@varunfabrica.com</a>
+                                <br/>
+                                <a href="mailto:sales@varunfabrica.com" class="text-stone-400 font-light text-sm hover:text-white transition-colors">sales@varunfabrica.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-7 rounded-2xl" style="background:rgba(201,169,110,0.07);border:1px solid rgba(201,169,110,0.2);">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-1" style="background:linear-gradient(135deg,#3a7c20,#2a5a16);">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.122 1.516 5.856L0 24l6.315-1.49A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-4.97-1.352l-.356-.211-3.75.885.937-3.635-.231-.37A9.818 9.818 0 0 1 2.182 12C2.182 6.582 6.582 2.182 12 2.182S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-medium mb-2 text-sm uppercase tracking-widest">WhatsApp</h3>
+                                <a href="https://wa.me/919831000000" target="_blank" class="text-brand-gold font-light text-sm hover:underline">+91 98310 00000</a>
+                                <p class="text-stone-500 font-light text-xs mt-1">Quick enquiries &amp; samples</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Contact Form -->
+                <div class="lg:col-span-3 reveal-left" style="transition-delay:150ms;">
+                    <div class="p-8 md:p-10 rounded-3xl" style="background:rgba(255,255,255,0.04);border:1px solid rgba(201,169,110,0.2);">
+                        <h2 class="font-display text-3xl font-light text-white mb-2">Send an Enquiry</h2>
+                        <p class="text-stone-500 font-light text-sm mb-8">We typically respond within 24 hours.</p>
+
+                        <div id="contact-form-wrap">
+                            <div class="grid sm:grid-cols-2 gap-5 mb-5">
+                                <div>
+                                    <label class="block text-xs uppercase tracking-widest text-stone-500 mb-2">Your Name *</label>
+                                    <input id="cf-name" type="text" placeholder="Rajesh Kumar" class="w-full rounded-xl px-5 py-3.5 text-sm font-light text-white outline-none focus:ring-2 transition-all" style="background:rgba(255,255,255,0.06);border:1px solid rgba(201,169,110,0.2);focus:ring-color:rgba(201,169,110,0.5);" onfocus="this.style.borderColor='rgba(201,169,110,0.6)'" onblur="this.style.borderColor='rgba(201,169,110,0.2)'">
+                                </div>
+                                <div>
+                                    <label class="block text-xs uppercase tracking-widest text-stone-500 mb-2">Company Name</label>
+                                    <input id="cf-company" type="text" placeholder="Retail Brand Pvt. Ltd." class="w-full rounded-xl px-5 py-3.5 text-sm font-light text-white outline-none transition-all" style="background:rgba(255,255,255,0.06);border:1px solid rgba(201,169,110,0.2);" onfocus="this.style.borderColor='rgba(201,169,110,0.6)'" onblur="this.style.borderColor='rgba(201,169,110,0.2)'">
+                                </div>
+                            </div>
+                            <div class="grid sm:grid-cols-2 gap-5 mb-5">
+                                <div>
+                                    <label class="block text-xs uppercase tracking-widest text-stone-500 mb-2">Email Address *</label>
+                                    <input id="cf-email" type="email" placeholder="buyer@retailco.com" class="w-full rounded-xl px-5 py-3.5 text-sm font-light text-white outline-none transition-all" style="background:rgba(255,255,255,0.06);border:1px solid rgba(201,169,110,0.2);" onfocus="this.style.borderColor='rgba(201,169,110,0.6)'" onblur="this.style.borderColor='rgba(201,169,110,0.2)'">
+                                </div>
+                                <div>
+                                    <label class="block text-xs uppercase tracking-widest text-stone-500 mb-2">Phone Number</label>
+                                    <input id="cf-phone" type="tel" placeholder="+91 98XXX XXXXX" class="w-full rounded-xl px-5 py-3.5 text-sm font-light text-white outline-none transition-all" style="background:rgba(255,255,255,0.06);border:1px solid rgba(201,169,110,0.2);" onfocus="this.style.borderColor='rgba(201,169,110,0.6)'" onblur="this.style.borderColor='rgba(201,169,110,0.2)'">
+                                </div>
+                            </div>
+                            <div class="mb-5">
+                                <label class="block text-xs uppercase tracking-widest text-stone-500 mb-2">Category of Interest</label>
+                                <select id="cf-category" class="w-full rounded-xl px-5 py-3.5 text-sm font-light text-white outline-none transition-all appearance-none cursor-pointer" style="background:rgba(255,255,255,0.06);border:1px solid rgba(201,169,110,0.2);" onfocus="this.style.borderColor='rgba(201,169,110,0.6)'" onblur="this.style.borderColor='rgba(201,169,110,0.2)'">
+                                    <option value="" style="background:#1a1208;">Select a category…</option>
+                                    <option value="shirts" style="background:#1a1208;">Shirts</option>
+                                    <option value="kurtis" style="background:#1a1208;">Kurtis</option>
+                                    <option value="kidswear" style="background:#1a1208;">Kidswear</option>
+                                    <option value="joggers" style="background:#1a1208;">Joggers</option>
+                                    <option value="multiple" style="background:#1a1208;">Multiple Categories</option>
+                                </select>
+                            </div>
+                            <div class="mb-5">
+                                <label class="block text-xs uppercase tracking-widest text-stone-500 mb-2">Approximate Monthly Volume</label>
+                                <select id="cf-volume" class="w-full rounded-xl px-5 py-3.5 text-sm font-light text-white outline-none transition-all appearance-none cursor-pointer" style="background:rgba(255,255,255,0.06);border:1px solid rgba(201,169,110,0.2);" onfocus="this.style.borderColor='rgba(201,169,110,0.6)'" onblur="this.style.borderColor='rgba(201,169,110,0.2)'">
+                                    <option value="" style="background:#1a1208;">Select volume range…</option>
+                                    <option value="under10k" style="background:#1a1208;">Under 10,000 pieces</option>
+                                    <option value="10k-50k" style="background:#1a1208;">10,000 – 50,000 pieces</option>
+                                    <option value="50k-1l" style="background:#1a1208;">50,000 – 1 Lakh pieces</option>
+                                    <option value="1l-3l" style="background:#1a1208;">1 – 3 Lakh pieces</option>
+                                    <option value="3l+" style="background:#1a1208;">3 Lakh+ pieces</option>
+                                </select>
+                            </div>
+                            <div class="mb-7">
+                                <label class="block text-xs uppercase tracking-widest text-stone-500 mb-2">Message</label>
+                                <textarea id="cf-message" rows="4" placeholder="Tell us about your requirements, product specifications, or any questions…" class="w-full rounded-xl px-5 py-3.5 text-sm font-light text-white outline-none transition-all resize-none" style="background:rgba(255,255,255,0.06);border:1px solid rgba(201,169,110,0.2);" onfocus="this.style.borderColor='rgba(201,169,110,0.6)'" onblur="this.style.borderColor='rgba(201,169,110,0.2)'"></textarea>
+                            </div>
+                            <button onclick="submitContactForm()" class="w-full btn-gold py-4 rounded-xl font-medium text-sm tracking-wide flex items-center justify-center gap-2 group">
+                                Send Enquiry
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </button>
+                        </div>
+
+                        <!-- Success state (hidden by default) -->
+                        <div id="contact-success" class="hidden text-center py-12">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style="background:linear-gradient(135deg,var(--gold),#a87d3e);">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            <h3 class="font-display text-3xl font-light text-white mb-3">Enquiry Sent!</h3>
+                            <p class="text-stone-400 font-light text-sm mb-8">Thank you for reaching out. Our team will get back to you within 24 hours.</p>
+                            <button onclick="resetContactForm()" class="btn-gold px-8 py-3 rounded-full text-sm font-medium">Send Another Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map / Location strip -->
+    <div class="py-12 text-center" style="background:linear-gradient(135deg,#050402,#0f0a04);border-top:1px solid rgba(201,169,110,0.1);">
+        <p class="text-xs uppercase tracking-widest text-stone-600 mb-2">Our Location</p>
+        <p class="text-stone-400 font-light text-sm">EIGMEF Apparel Park · Krishnapur, Kolkata 700102 · West Bengal, India</p>
+        <a href="https://maps.google.com/?q=Krishnapur+Kolkata+700102" target="_blank" class="inline-flex items-center gap-2 mt-4 text-xs text-brand-gold hover:underline font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Open in Google Maps
+        </a>
+    </div>
+
+</div><!-- end page-contact -->
+
+
+<!-- ══════════════════════════════════════════
+     MEDIA GUIDE PAGE (for site owner reference)
+══════════════════════════════════════════ -->
+<div id="page-mediaguide" class="page">
+    <section class="min-h-screen py-32" style="background:linear-gradient(160deg,#0f0a04,#1a1208);">
+        <div class="max-w-5xl mx-auto px-6 md:px-8">
+            <button onclick="showPage('home')" class="back-btn mb-10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 5-7 7 7 7"/></svg>
+                Back to Home
+            </button>
+            <div class="flex items-center gap-3 mb-8">
+                <div class="gold-line"></div>
+                <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-medium">Site Owner Guide</span>
+            </div>
+            <h1 class="font-display text-5xl md:text-7xl font-light text-white tracking-tight mb-6">Media Upload <span class="italic text-shimmer">Guide.</span></h1>
+            <p class="text-stone-400 font-light text-lg mb-16 max-w-2xl">Place all your media files in the same folder as this HTML file. Below are the exact filenames and supported formats for every slot on the website.</p>
+
+            <!-- VIDEO FILES -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,var(--gold),#a87d3e);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                    </div>
+                    <h2 class="text-white font-semibold text-xl uppercase tracking-widest">Video Files</h2>
+                </div>
+                <div class="p-4 rounded-xl mb-4 text-xs font-light" style="background:rgba(201,169,110,0.08);border:1px solid rgba(201,169,110,0.2);color:#a89060;">
+                    ✦ Supported formats: <strong style="color:var(--gold);">.mp4 (H.264/H.265)</strong> &nbsp;|&nbsp; .webm (VP8/VP9) &nbsp;|&nbsp; .ogg (Theora)<br/>
+                    ✦ Recommended: <strong style="color:var(--gold);">MP4 H.264</strong> — broadest browser compatibility<br/>
+                    ✦ Resolution: 1080p (1920×1080) or 4K for hero; 720p acceptable for gallery videos<br/>
+                    ✦ File size: Keep under 20MB per video for fast loading. Use <a href="https://handbrake.fr" target="_blank" style="color:var(--gold);">HandBrake</a> to compress.
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr style="border-bottom:1px solid rgba(201,169,110,0.2);">
+                                <th class="text-left py-3 px-4 text-xs uppercase tracking-widest" style="color:var(--gold);">Filename</th>
+                                <th class="text-left py-3 px-4 text-xs uppercase tracking-widest" style="color:var(--gold);">Used On</th>
+                                <th class="text-left py-3 px-4 text-xs uppercase tracking-widest" style="color:var(--gold);">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-stone-400 font-light">
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                                <td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">hero_landing.mp4</code></td>
+                                <td class="py-3 px-4">Home — Hero</td>
+                                <td class="py-3 px-4">Full-screen hero background video (loop, muted). Best: factory floor / team working.</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                                <td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">infrastructure_tour.mp4</code></td>
+                                <td class="py-3 px-4">Home — Infrastructure</td>
+                                <td class="py-3 px-4">Factory/facility walkthrough video shown in the infrastructure section.</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                                <td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">manufacturing_process.mp4</code></td>
+                                <td class="py-3 px-4">Manufacturing Page</td>
+                                <td class="py-3 px-4">Video of the manufacturing/stitching process for the manufacturing hero section.</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                                <td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">gallery_video_1.mp4</code></td>
+                                <td class="py-3 px-4">Manufacturing — Gallery</td>
+                                <td class="py-3 px-4">First video in the "Quality in Motion" gallery. E.g. stitching line footage.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">gallery_video_2.mp4</code></td>
+                                <td class="py-3 px-4">Manufacturing — Gallery</td>
+                                <td class="py-3 px-4">Second video in the gallery. E.g. finishing/QC/packing footage.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- IMAGE FILES -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,var(--indigo),#1d2451);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    </div>
+                    <h2 class="text-white font-semibold text-xl uppercase tracking-widest">Photo / Image Files</h2>
+                </div>
+                <div class="p-4 rounded-xl mb-4 text-xs font-light" style="background:rgba(45,53,97,0.15);border:1px solid rgba(45,53,97,0.3);color:#8a9acc;">
+                    ✦ Supported formats: <strong style="color:#a0b4ff;">.jpg / .jpeg</strong> &nbsp;|&nbsp; .png &nbsp;|&nbsp; .webp &nbsp;|&nbsp; .avif<br/>
+                    ✦ Recommended: <strong style="color:#a0b4ff;">.jpg</strong> for photos, <strong style="color:#a0b4ff;">.png</strong> for logos (transparent background), <strong style="color:#a0b4ff;">.webp</strong> for best quality/size ratio<br/>
+                    ✦ Hero / background images: minimum 1600px wide &nbsp;|&nbsp; Category cards: minimum 800×1000px &nbsp;|&nbsp; Product gallery: minimum 600×800px<br/>
+                    ✦ Logos: PNG with transparent background, minimum 400px wide
+                </div>
+
+                <p class="text-brand-gold text-xs uppercase tracking-widest mb-3 font-medium mt-6">Backgrounds &amp; Hero Images</p>
+                <div class="overflow-x-auto mb-8">
+                    <table class="w-full text-sm">
+                        <thead><tr style="border-bottom:1px solid rgba(201,169,110,0.2);"><th class="text-left py-3 px-4 text-xs uppercase tracking-widest" style="color:var(--gold);">Filename</th><th class="text-left py-3 px-4 text-xs uppercase tracking-widest" style="color:var(--gold);">Used On</th><th class="text-left py-3 px-4 text-xs uppercase tracking-widest" style="color:var(--gold);">Size</th></tr></thead>
+                        <tbody class="text-stone-400 font-light">
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">hero_landing.jpg</code></td><td class="py-3 px-4">Home Hero (video fallback)</td><td class="py-3 px-4">1920×1080px min</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">infrastructure_tour.jpg</code></td><td class="py-3 px-4">Home Infrastructure (fallback)</td><td class="py-3 px-4">1200×800px min</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">manufacturing_process.jpg</code></td><td class="py-3 px-4">Manufacturing page (fallback)</td><td class="py-3 px-4">1000×1250px min</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">gallery_video_1.jpg</code></td><td class="py-3 px-4">Mfg gallery slot 1 (fallback)</td><td class="py-3 px-4">1200×800px min</td></tr>
+                            <tr><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">gallery_video_2.jpg</code></td><td class="py-3 px-4">Mfg gallery slot 2 (fallback)</td><td class="py-3 px-4">1200×800px min</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="text-brand-gold text-xs uppercase tracking-widest mb-3 font-medium">Category Background Images</p>
+                <div class="overflow-x-auto mb-8">
+                    <table class="w-full text-sm">
+                        <thead><tr style="border-bottom:1px solid rgba(201,169,110,0.2);"><th class="text-left py-3 px-4 text-xs uppercase tracking-widest" style="color:var(--gold);">Filename</th><th class="text-left py-3 px-4 text-xs uppercase tracking-widest" style="color:var(--gold);">Used On</th><th class="text-left py-3 px-4 text-xs uppercase tracking-widest" style="color:var(--gold);">Size</th></tr></thead>
+                        <tbody class="text-stone-400 font-light">
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">shirts_category_bg.jpg</code></td><td class="py-3 px-4">Categories page + Shirts detail hero</td><td class="py-3 px-4">800×1000px min</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">kurtis_category_bg.jpg</code></td><td class="py-3 px-4">Categories page + Kurtis detail hero</td><td class="py-3 px-4">800×1000px min</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">kidswear_category_bg.jpg</code></td><td class="py-3 px-4">Categories page + Kidswear detail hero</td><td class="py-3 px-4">800×1000px min</td></tr>
+                            <tr><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">joggers_category_bg.jpg</code></td><td class="py-3 px-4">Categories page + Joggers detail hero</td><td class="py-3 px-4">800×1000px min</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="text-brand-gold text-xs uppercase tracking-widest mb-3 font-medium">Product Gallery Images (24 total — 6 per category)</p>
+                <div class="overflow-x-auto mb-8">
+                    <table class="w-full text-sm">
+                        <thead><tr style="border-bottom:1px solid rgba(201,169,110,0.2);"><th class="text-left py-3 px-4 text-xs uppercase tracking-widest" style="color:var(--gold);">Filenames</th><th class="text-left py-3 px-4 text-xs uppercase tracking-widest" style="color:var(--gold);">Category</th><th class="text-left py-3 px-4 text-xs uppercase tracking-widest" style="color:var(--gold);">Size / Ratio</th></tr></thead>
+                        <tbody class="text-stone-400 font-light">
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">shirts_01.jpg</code> → <code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">shirts_06.jpg</code></td><td class="py-3 px-4">Shirts gallery</td><td class="py-3 px-4">600×800px · 3:4 ratio</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">kurtis_01.jpg</code> → <code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">kurtis_06.jpg</code></td><td class="py-3 px-4">Kurtis gallery</td><td class="py-3 px-4">600×800px · 3:4 ratio</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">kidswear_01.jpg</code> → <code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">kidswear_06.jpg</code></td><td class="py-3 px-4">Kidswear gallery</td><td class="py-3 px-4">600×800px · 3:4 ratio</td></tr>
+                            <tr><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">joggers_01.jpg</code> → <code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">joggers_06.jpg</code></td><td class="py-3 px-4">Joggers gallery</td><td class="py-3 px-4">600×800px · 3:4 ratio</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="text-brand-gold text-xs uppercase tracking-widest mb-3 font-medium">Logo & Portrait Images</p>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead><tr style="border-bottom:1px solid rgba(201,169,110,0.2);"><th class="text-left py-3 px-4 text-xs uppercase tracking-widest" style="color:var(--gold);">Filename</th><th class="text-left py-3 px-4 text-xs uppercase tracking-widest" style="color:var(--gold);">Used On</th><th class="text-left py-3 px-4 text-xs uppercase tracking-widest" style="color:var(--gold);">Format / Size</th></tr></thead>
+                        <tbody class="text-stone-400 font-light">
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">rakesh_tharad.jpg</code></td><td class="py-3 px-4">About — Leadership</td><td class="py-3 px-4">JPG · 400×533px · 3:4 ratio · Portrait</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">varun_tharad.jpg</code></td><td class="py-3 px-4">About — Leadership</td><td class="py-3 px-4">JPG · 400×533px · 3:4 ratio · Portrait</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">manisha_tharad.jpg</code></td><td class="py-3 px-4">About — Leadership</td><td class="py-3 px-4">JPG · 400×533px · 3:4 ratio · Portrait</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">hombrevo_logo.png</code></td><td class="py-3 px-4">About — Own Brands</td><td class="py-3 px-4">PNG transparent · 400px wide min</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">rivya_logo.png</code></td><td class="py-3 px-4">About — Own Brands</td><td class="py-3 px-4">PNG transparent · 400px wide min</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">ninos_logo.png</code></td><td class="py-3 px-4">About — Own Brands</td><td class="py-3 px-4">PNG transparent · 400px wide min</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">baazar_kolkata_logo.png</code></td><td class="py-3 px-4">Buyers page</td><td class="py-3 px-4">PNG transparent · 400px wide min</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">style_baazar_logo.png</code></td><td class="py-3 px-4">Buyers page</td><td class="py-3 px-4">PNG transparent · 300px wide min</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">v2_retail_logo.png</code></td><td class="py-3 px-4">Buyers page</td><td class="py-3 px-4">PNG transparent · 300px wide min</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">vishal_mega_mart_logo.png</code></td><td class="py-3 px-4">Buyers page</td><td class="py-3 px-4">PNG transparent · 300px wide min</td></tr>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);"><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">vmart_logo.png</code></td><td class="py-3 px-4">Buyers page</td><td class="py-3 px-4">PNG transparent · 250px wide min</td></tr>
+                            <tr><td class="py-3 px-4"><code class="text-brand-gold bg-black/30 px-2 py-0.5 rounded text-xs">mbaazar_logo.png</code></td><td class="py-3 px-4">Buyers page</td><td class="py-3 px-4">PNG transparent · 250px wide min</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- QUICK SUMMARY BOX -->
+            <div class="p-8 rounded-2xl mt-12" style="background:rgba(201,169,110,0.07);border:1px solid rgba(201,169,110,0.25);">
+                <h3 class="text-white font-semibold mb-4 text-lg">📁 Quick Summary — Total Files Needed</h3>
+                <div class="grid sm:grid-cols-3 gap-6 text-sm font-light text-stone-400">
+                    <div>
+                        <p class="text-brand-gold font-medium mb-2">Videos (5 files)</p>
+                        <p>hero_landing.mp4</p>
+                        <p>infrastructure_tour.mp4</p>
+                        <p>manufacturing_process.mp4</p>
+                        <p>gallery_video_1.mp4</p>
+                        <p>gallery_video_2.mp4</p>
+                    </div>
+                    <div>
+                        <p class="text-brand-gold font-medium mb-2">Video Fallback Images (5)</p>
+                        <p>hero_landing.jpg</p>
+                        <p>infrastructure_tour.jpg</p>
+                        <p>manufacturing_process.jpg</p>
+                        <p>gallery_video_1.jpg</p>
+                        <p>gallery_video_2.jpg</p>
+                    </div>
+                    <div>
+                        <p class="text-brand-gold font-medium mb-2">Product + Category (28)</p>
+                        <p>4× category_bg.jpg</p>
+                        <p>24× product gallery images</p>
+                        <p class="text-brand-gold font-medium mt-3 mb-2">Logos &amp; Portraits (12)</p>
+                        <p>3× leader portraits .jpg</p>
+                        <p>3× own brand logos .png</p>
+                        <p>6× buyer logos .png</p>
+                    </div>
+                </div>
+                <p class="mt-6 text-xs font-light" style="color:#5a4a35;">All files go in the same folder as <code style="color:var(--gold);">varun_fabrica.html</code>. Videos auto-fallback to .jpg if not present. Images fallback to Unsplash placeholders if not present.</p>
+            </div>
+        </div>
+    </section>
+</div><!-- end page-mediaguide -->
+
+
+<footer class="text-stone-400 py-16" style="background:#050402;border-top:1px solid rgba(201,169,110,0.12);">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-3 text-white mb-6 group cursor-pointer w-fit" onclick="showPage('home')">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,rgba(201,169,110,0.2),rgba(201,169,110,0.05));border:1px solid rgba(201,169,110,0.3);">
+                        <span class="font-semibold tracking-widest text-sm group-hover:rotate-12 transition-transform duration-300" style="color:var(--gold);">VF</span>
+                    </div>
+                    <span class="text-sm font-medium tracking-widest group-hover:translate-x-1 transition-transform">VARUN FABRICA LLP</span>
+                </div>
+                <p class="font-light text-sm max-w-sm leading-relaxed mb-3">Premium apparel manufacturing specializing in scalable production for modern retail and corporate brands.</p>
+                <p class="font-light text-xs leading-relaxed mb-1" style="color:#5a4a35;">GST: <span style="color:var(--gold);">19ABBFV7595D1ZP</span></p>
+                <p class="font-light text-xs leading-relaxed mb-4" style="color:#5a4a35;">
+                    EIGMEF Apparel Park Ltd., Ward No.1, Bidhannagar Municipality,<br/>
+                    Mahishbathan, Krishnapur, Kolkata 700102<br/>
+                    Block A — Unit A3/1, A3/2, A3/3
+                </p>
+                <p class="font-light text-xs" style="color:#3a3028;">Part of the <span style="color:var(--gold);">Varun Creation · Tanvi Apparels · Varun Fabrica LLP</span> group.</p>
+            </div>
+            <div>
+                <h4 class="text-xs uppercase tracking-widest mb-6" style="color:var(--gold);">Navigation</h4>
+                <ul class="space-y-3 text-sm font-light">
+                    <li><a href="#" onclick="showPage('manufacturing');return false;" class="hover:text-brand-gold hover:pl-2 transition-all duration-300 inline-block">Manufacturing</a></li>
+                    <li><a href="#" onclick="showPage('categories');return false;" class="hover:text-brand-gold hover:pl-2 transition-all duration-300 inline-block">Categories</a></li>
+                    <li><a href="#" onclick="showPage('buyers');return false;" class="hover:text-brand-gold hover:pl-2 transition-all duration-300 inline-block">Buyers</a></li>
+                    <li><a href="#" onclick="showPage('about');return false;" class="hover:text-brand-gold hover:pl-2 transition-all duration-300 inline-block">About Us</a></li>
+                    <li><a href="#" onclick="showPage('contact');return false;" class="hover:text-brand-gold hover:pl-2 transition-all duration-300 inline-block">Contact</a></li>
+                    <li><a href="#" onclick="showPage('mediaguide');return false;" class="hover:text-brand-gold hover:pl-2 transition-all duration-300 inline-block" style="color:#3a3028;">Media Upload Guide ↗</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xs uppercase tracking-widest mb-6" style="color:var(--gold);">Contact</h4>
+                <ul class="space-y-3 text-sm font-light">
+                    <li><a href="mailto:info@varunfabrica.com" class="hover:text-brand-gold transition-colors">info@varunfabrica.com</a></li>
+                    <li><a href="tel:+919831000000" class="hover:text-brand-gold transition-colors">+91 98310 00000</a></li>
+                    <li class="pt-4 mt-4 text-xs leading-relaxed" style="border-top:1px solid rgba(201,169,110,0.12);color:#5a4a35;">
+                        EIGMEF Apparel Park Ltd.<br/>
+                        Krishnapur, Kolkata 700102
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row justify-between items-center pt-8 text-xs font-light" style="border-top:1px solid rgba(201,169,110,0.1);">
+            <p>© 2026 Varun Fabrica LLP. All rights reserved.</p>
+            <div class="flex gap-4 mt-4 md:mt-0">
+                <a href="#" class="hover:text-white hover:-translate-y-1 transition-transform inline-block">Privacy Policy</a>
+                <a href="#" class="hover:text-white hover:-translate-y-1 transition-transform inline-block">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════ -->
+<script>
+// ─── VIDEO FALLBACK HELPER ───
+function setupVideoFallback(videoId, imgId) {
+    const video = document.getElementById(videoId);
+    const img = document.getElementById(imgId);
+    if (!video || !img) return;
+    function showImg() { video.style.display = 'none'; img.style.display = 'block'; }
+    video.addEventListener('error', showImg);
+    video.addEventListener('stalled', showImg);
+    // If no usable source after 2s, fall back to image
+    setTimeout(() => {
+        if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE ||
+            video.networkState === HTMLMediaElement.NETWORK_EMPTY ||
+            (video.readyState === 0 && !video.currentSrc)) {
+            showImg();
+        }
+    }, 2000);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    setupVideoFallback('hero-video', 'hero-img-fallback');
+    setupVideoFallback('infra-video', 'infra-img-fallback');
+    setupVideoFallback('mfg-video', 'mfg-img');
+    setupVideoFallback('gv1', 'gv1-img');
+    setupVideoFallback('gv2', 'gv2-img');
+});
+
+// ─── CATEGORY DATA ───
+// Removed: coordsets, loungewear, pyjamas
+const categories = {
+    shirts: {
+        title: 'Shirts',
+        desc: 'Formal, casual & corporate ranges in premium cotton blends — crafted for India\'s modern retail shelves.',
+        bgImg: 'shirts_category_bg.jpg',
+        fallback: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=1600&auto=format&fit=crop',
+        images: [
+            { label:'Formal Oxford', src:'shirts_01.jpg', fallback:'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=800&auto=format&fit=crop' },
+            { label:'Casual Chambray', src:'shirts_02.jpg', fallback:'https://images.unsplash.com/photo-1602810316693-3667c854239a?q=80&w=800&auto=format&fit=crop' },
+            { label:'Corporate Stripe', src:'shirts_03.jpg', fallback:'https://images.unsplash.com/photo-1603252109303-2751441dd157?q=80&w=800&auto=format&fit=crop' },
+            { label:'Linen Blend', src:'shirts_04.jpg', fallback:'https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?q=80&w=800&auto=format&fit=crop' },
+            { label:'Printed Range', src:'shirts_05.jpg', fallback:'https://images.unsplash.com/photo-1589310243389-96a5483213a8?q=80&w=800&auto=format&fit=crop' },
+            { label:'Half-Sleeve Slim', src:'shirts_06.jpg', fallback:'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=800&auto=format&fit=crop' },
+        ]
+    },
+    kurtis: {
+        title: 'Kurtis',
+        desc: 'Elegant designs in cotton, rayon, and blended fabrics — crafted for women\'s ethnic and fusion retail.',
+        bgImg: 'kurtis_category_bg.jpg',
+        fallback: 'https://images.unsplash.com/photo-1583391733958-d25e07fac044?q=80&w=1600&auto=format&fit=crop',
+        images: [
+            { label:'Cotton Anarkali', src:'kurtis_01.jpg', fallback:'https://images.unsplash.com/photo-1583391733958-d25e07fac044?q=80&w=800&auto=format&fit=crop' },
+            { label:'Rayon Straight', src:'kurtis_02.jpg', fallback:'https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800&auto=format&fit=crop' },
+            { label:'Printed Flare', src:'kurtis_03.jpg', fallback:'https://images.unsplash.com/photo-1614252369475-531eba835eb1?q=80&w=800&auto=format&fit=crop' },
+            { label:'Embroidered', src:'kurtis_04.jpg', fallback:'https://images.unsplash.com/photo-1583391733891-f5e1e77484b2?q=80&w=800&auto=format&fit=crop' },
+            { label:'Fusion Casual', src:'kurtis_05.jpg', fallback:'https://images.unsplash.com/photo-1597225638557-25cd4e11d78d?q=80&w=800&auto=format&fit=crop' },
+            { label:'Festive Range', src:'kurtis_06.jpg', fallback:'https://images.unsplash.com/photo-1614252370173-6e57d2c96e17?q=80&w=800&auto=format&fit=crop' },
+        ]
+    },
+    kidswear: {
+        title: 'Kidswear',
+        desc: 'Safe, comfortable, and playful garments for boys and girls — built for active young lives.',
+        bgImg: 'kidswear_category_bg.jpg',
+        fallback: 'https://images.unsplash.com/photo-1519241047957-be31d7379a5d?q=80&w=1600&auto=format&fit=crop',
+        images: [
+            { label:'Boys Casual Set', src:'kidswear_01.jpg', fallback:'https://images.unsplash.com/photo-1519241047957-be31d7379a5d?q=80&w=800&auto=format&fit=crop' },
+            { label:'Girls Frocks', src:'kidswear_02.jpg', fallback:'https://images.unsplash.com/photo-1543269664-7eef42226a21?q=80&w=800&auto=format&fit=crop' },
+            { label:'School Uniform', src:'kidswear_03.jpg', fallback:'https://images.unsplash.com/photo-1591702239748-1e7b6b9b2d58?q=80&w=800&auto=format&fit=crop' },
+            { label:'Ethnic Wear', src:'kidswear_04.jpg', fallback:'https://images.unsplash.com/photo-1555009393-f20bdb245c4d?q=80&w=800&auto=format&fit=crop' },
+            { label:'Sports Range', src:'kidswear_05.jpg', fallback:'https://images.unsplash.com/photo-1575783970733-1aaedde1db74?q=80&w=800&auto=format&fit=crop' },
+            { label:'Toddler Collection', src:'kidswear_06.jpg', fallback:'https://images.unsplash.com/photo-1522771930-78848d9293e8?q=80&w=800&auto=format&fit=crop' },
+        ]
+    },
+    joggers: {
+        title: 'Joggers',
+        desc: 'Comfortable, durable athleisure essentials — designed for everyday active wear across all age groups.',
+        bgImg: 'joggers_category_bg.jpg',
+        fallback: 'https://images.unsplash.com/photo-1629853965901-52648fbcf939?q=80&w=1600&auto=format&fit=crop',
+        images: [
+            { label:"Men's Slim Jogger", src:'joggers_01.jpg', fallback:'https://images.unsplash.com/photo-1629853965901-52648fbcf939?q=80&w=800&auto=format&fit=crop' },
+            { label:"Women's Track", src:'joggers_02.jpg', fallback:'https://images.unsplash.com/photo-1588117305388-c2631a279f82?q=80&w=800&auto=format&fit=crop' },
+            { label:'Kids Active', src:'joggers_03.jpg', fallback:'https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=800&auto=format&fit=crop' },
+            { label:'Fleece Jogger', src:'joggers_04.jpg', fallback:'https://images.unsplash.com/photo-1624378441864-6eda7a0b8a3a?q=80&w=800&auto=format&fit=crop' },
+            { label:'Printed Athletic', src:'joggers_05.jpg', fallback:'https://images.unsplash.com/photo-1605518215765-60d55bc6e8b6?q=80&w=800&auto=format&fit=crop' },
+            { label:'Relaxed Fit', src:'joggers_06.jpg', fallback:'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=800&auto=format&fit=crop' },
+        ]
+    },
+};
+
+// ─── PAGE SWITCHING ───
+function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page-' + pageId);
+    if (target) target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => triggerReveal(), 100);
+    // highlight active nav
+    document.querySelectorAll('#nav-about-link').forEach(l => {
+        l.style.color = pageId === 'about' ? 'var(--gold)' : '';
+    });
+}
+
+// ─── SHOW CATEGORY DETAIL PAGE ───
+function showCategoryPage(catKey) {
+    const cat = categories[catKey];
+    if (!cat) return;
+
+    const page = document.getElementById('page-category');
+    page.innerHTML = `
+        <!-- Category Hero — image only, no video tag -->
+        <section class="relative" style="height:60vh;min-height:400px;overflow:hidden;">
+            <div class="cat-img-bg">
+                <img src="${cat.bgImg}" alt="${cat.title}" onerror="this.src='${cat.fallback}'">
+            </div>
+            <div class="cat-video-overlay"></div>
+            <div class="absolute inset-0 pointer-events-none overflow-hidden" style="z-index:2;">
+                <div class="particle" style="width:5px;height:5px;top:30%;left:10%;--dur:8s;--delay:0s;"></div>
+                <div class="particle" style="width:3px;height:3px;top:60%;left:20%;--dur:10s;--delay:1s;"></div>
+                <div class="particle" style="width:6px;height:6px;top:20%;left:80%;--dur:7s;--delay:0.5s;"></div>
+            </div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6" style="z-index:3;">
+                <button onclick="showPage('categories')" class="back-btn mb-8 animate-float">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 5-7 7 7 7"/></svg>
+                    Back to Categories
+                </button>
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="gold-line"></div>
+                    <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Varun Fabrica LLP</span>
+                    <div class="gold-line" style="background:linear-gradient(90deg,transparent,var(--gold));"></div>
+                </div>
+                <h1 class="font-display text-6xl md:text-8xl font-light text-white tracking-tight mb-4 hero-title-line">
+                    <span class="delay-100 italic text-shimmer">${cat.title}</span>
+                </h1>
+                <p class="text-lg text-stone-300 font-light max-w-2xl leading-relaxed">${cat.desc}</p>
+            </div>
+        </section>
+
+        <!-- Image Gallery Grid -->
+        <section class="py-24" style="background:linear-gradient(160deg,var(--cream),var(--beige),#e5d5b8);">
+            <div class="max-w-7xl mx-auto px-6 md:px-8">
+                <div class="text-center mb-16 reveal-up">
+                    <div class="flex items-center justify-center gap-3 mb-5">
+                        <div class="gold-line"></div>
+                        <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Product Gallery</span>
+                        <div class="gold-line" style="background:linear-gradient(90deg,transparent,var(--gold));"></div>
+                    </div>
+                    <h2 class="font-display text-4xl md:text-5xl font-light tracking-tight" style="color:var(--deep);">${cat.title} <span class="italic" style="color:var(--gold);">Collection</span></h2>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
+                    ${cat.images.map((img, i) => `
+                    <div class="img-grid-item reveal-scale stagger-${(i%6)+1}" style="aspect-ratio:3/4;">
+                        <img src="${img.src}" alt="${img.label}" onerror="this.src='${img.fallback}'" loading="lazy">
+                        <div class="img-overlay"></div>
+                        <div class="img-label">
+                            <p class="text-sm font-medium tracking-wide">${img.label}</p>
+                        </div>
+                    </div>
+                    `).join('')}
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA strip -->
+        <div class="py-12 text-center" style="background:linear-gradient(135deg,var(--beige-deep),var(--beige));">
+            <p class="font-light text-sm mb-4" style="color:#7a6a55;">Interested in bulk production of ${cat.title}?</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="showPage('contact')" class="btn-gold px-8 py-3 rounded-full text-sm font-medium">Schedule Meeting</button>
+                <button onclick="showPage('categories')" class="btn-playful px-8 py-3 rounded-full text-sm font-medium border hover:bg-brand-gold/10" style="border-color:rgba(201,169,110,0.5);color:var(--deep);">Explore More Categories</button>
+            </div>
+        </div>
+    `;
+
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    page.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => triggerReveal(), 100);
+}
+
+// ─── Contact Form ───
+function submitContactForm() {
+    const name = document.getElementById('cf-name').value.trim();
+    const email = document.getElementById('cf-email').value.trim();
+    if (!name || !email) {
+        const inputs = [document.getElementById('cf-name'), document.getElementById('cf-email')];
+        inputs.forEach(inp => {
+            if (!inp.value.trim()) {
+                inp.style.borderColor = '#e07a5f';
+                inp.focus();
+                setTimeout(() => { inp.style.borderColor = 'rgba(201,169,110,0.2)'; }, 2000);
+            }
+        });
+        return;
+    }
+    document.getElementById('contact-form-wrap').classList.add('hidden');
+    document.getElementById('contact-success').classList.remove('hidden');
+}
+function resetContactForm() {
+    ['cf-name','cf-company','cf-email','cf-phone','cf-message'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+    });
+    ['cf-category','cf-volume'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.selectedIndex = 0;
+    });
+    document.getElementById('contact-form-wrap').classList.remove('hidden');
+    document.getElementById('contact-success').classList.add('hidden');
+}
+
+// ─── Navbar Scroll ───
+const navbarContainer = document.getElementById('navbar-container');
+const navBtn = document.getElementById('nav-btn');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbarContainer.classList.add('nav-scrolled');
+        navbarContainer.classList.remove('bg-transparent','border-transparent');
+        navBtn.classList.add('btn-nav-scrolled');
+        navBtn.classList.remove('bg-white/10','text-white','border-white/20');
+    } else {
+        navbarContainer.classList.remove('nav-scrolled');
+        navbarContainer.classList.add('bg-transparent','border-transparent');
+        navBtn.classList.remove('btn-nav-scrolled');
+        navBtn.classList.add('bg-white/10','text-white','border-white/20');
+    }
+});
+
+// ─── Mobile Menu ───
+const menuOpenBtn = document.getElementById('menu-open');
+const menuCloseBtn = document.getElementById('menu-close');
+const mobileMenu = document.getElementById('mobile-menu');
+function closeMenu() { mobileMenu.classList.remove('open'); document.body.style.overflow=''; }
+menuOpenBtn.addEventListener('click', () => { mobileMenu.classList.add('open'); document.body.style.overflow='hidden'; });
+menuCloseBtn.addEventListener('click', closeMenu);
+
+// ─── Scroll Reveal ───
+let revealObserver;
+function triggerReveal() {
+    if (revealObserver) revealObserver.disconnect();
+    revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { root:null, rootMargin:'0px', threshold:0.08 });
+
+    document.querySelectorAll('.page.active .reveal-up, .page.active .reveal-scale, .page.active .reveal-right, .page.active .reveal-left, .page.active .reveal-rotate')
+        .forEach(el => {
+            el.classList.remove('is-revealed');
+            revealObserver.observe(el);
+        });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    triggerReveal();
+
+    // ─── 3D Tilt leader cards ───
+    document.querySelectorAll('.leader-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            card.style.transform = `perspective(800px) rotateY(${x*14}deg) rotateX(${-y*10}deg) translateY(-12px) translateZ(20px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+            card.style.transition = 'transform 0.8s cubic-bezier(0.34,1.56,0.64,1)';
+        });
+    });
+
+    // ─── Counters ───
+    const counters = document.querySelectorAll('[data-count]');
+    const counterObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = parseInt(entry.target.dataset.count);
+                let current = 0;
+                const increment = target / 60;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) { current = target; clearInterval(timer); }
+                    if (target >= 1000) {
+                        entry.target.textContent = Math.floor(current/1000) + 'K';
+                    } else {
+                        entry.target.textContent = Math.floor(current);
+                    }
+                }, 20);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    counters.forEach(c => counterObserver.observe(c));
+});
+</script>
+</body>
+</html>
