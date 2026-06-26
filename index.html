@@ -125,9 +125,10 @@
         }
         @keyframes beige-shimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
         .text-beige-shimmer {
-            background: linear-gradient(90deg, var(--beige-dark) 0%, #fff0d0 40%, var(--beige-dark) 60%, #c8b08a 100%);
+            background: linear-gradient(90deg, #6b3f1d 0%, #a8651f 40%, #6b3f1d 60%, #4a2a12 100%);
             background-size:200% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
             animation: beige-shimmer 4s linear infinite;
+            filter: drop-shadow(0 1px 8px rgba(107,63,29,0.25));
         }
         @keyframes textReveal { 0%{opacity:0;transform:translateY(100%)} 100%{opacity:1;transform:translateY(0)} }
         @keyframes fadeIn { 0%{opacity:0;transform:scale(0.95)} 100%{opacity:1;transform:scale(1)} }
@@ -336,44 +337,44 @@
                 <circle cx="100" cy="100" r="50" stroke="#C9A96E" stroke-width="0.5"/>
             </svg>
         </div>
-        <div class="relative z-10 h-full w-full max-w-7xl mx-auto px-6 md:px-8 flex flex-col justify-end pb-24 md:pb-32">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+        <div class="relative z-10 h-full w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-8 flex flex-col justify-end pb-16 sm:pb-20 md:pb-28 lg:pb-32">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-end">
                 <div class="lg:col-span-8">
-                    <div class="flex items-center gap-3 mb-8 fade-in delay-100">
+                    <div class="flex items-center gap-3 mb-4 sm:mb-5 md:mb-6 fade-in delay-100">
                         <div class="gold-line"></div>
-                        <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-medium">Premium Apparel Manufacturing</span>
+                        <span class="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-brand-gold font-medium">Premium Apparel Manufacturing</span>
                     </div>
-                    <h1 class="font-display text-6xl md:text-8xl lg:text-9xl font-light text-white tracking-tight leading-[1.0] mb-8">
+                    <h1 class="font-display text-[2.1rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white tracking-tight leading-[1.05] mb-4 sm:mb-5 md:mb-6">
                         <div class="overflow-hidden hero-title-line"><span class="delay-100">Crafting apparel</span></div>
                         <div class="overflow-hidden hero-title-line italic" style="color:#C9A96E;"><span class="delay-200">for modern retail.</span></div>
                     </h1>
-                    <p class="fade-in delay-800 text-lg md:text-xl text-white/75 max-w-2xl font-light leading-relaxed mb-10">
+                    <p class="fade-in delay-800 text-sm sm:text-base md:text-lg text-white/75 max-w-xl md:max-w-2xl font-light leading-relaxed mb-6 sm:mb-7 md:mb-8">
                         Manufacturing Mens Half Shirts, Full Shirts, Mens Kurtas, Kids Wear, Coord Sets, Half Pant Pyjamas, Joggers and retail essentials at scale with premium finishing, consistency, and modern production infrastructure.
                     </p>
-                    <div class="fade-in delay-1000 flex flex-wrap gap-4">
-                        <button onclick="showPage('manufacturing')" class="btn-gold inline-block px-8 py-4 rounded-full text-sm font-medium">Explore Manufacturing</button>
-                        <button onclick="showPage('categories')" class="btn-playful inline-flex bg-transparent border border-white/25 text-white backdrop-blur-sm px-8 py-4 rounded-full text-sm font-medium hover:bg-white/10 items-center gap-2 group">
+                    <div class="fade-in delay-1000 flex flex-wrap gap-3 sm:gap-4">
+                        <button onclick="showPage('manufacturing')" class="btn-gold inline-block px-6 sm:px-8 py-3 sm:py-4 rounded-full text-xs sm:text-sm font-medium">Explore Manufacturing</button>
+                        <button onclick="showPage('categories')" class="btn-playful inline-flex bg-transparent border border-white/25 text-white backdrop-blur-sm px-6 sm:px-8 py-3 sm:py-4 rounded-full text-xs sm:text-sm font-medium hover:bg-white/10 items-center gap-2 group">
                             View Categories
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </button>
                     </div>
                 </div>
-                <div class="fade-in delay-1200 lg:col-span-4 lg:justify-self-end w-full max-w-sm animate-float">
-                    <div class="liquid-glass p-8 rounded-3xl text-white hover:scale-105 transition-transform duration-500 cursor-default glow-pulse">
-                        <div class="space-y-6">
+                <div class="fade-in delay-1200 lg:col-span-4 lg:justify-self-end w-full max-w-xs sm:max-w-sm animate-float mt-2 lg:mt-0">
+                    <div class="liquid-glass p-5 sm:p-6 md:p-8 rounded-3xl text-white hover:scale-105 transition-transform duration-500 cursor-default glow-pulse">
+                        <div class="space-y-4 sm:space-y-5 md:space-y-6">
                             <div>
-                                <p class="text-xs text-white/50 uppercase tracking-[0.2em] mb-1">Capacity</p>
-                                <p class="font-display text-4xl font-light stat-number">6L+ <span class="text-xl" style="color:rgba(201,169,110,0.7);">Monthly</span></p>
+                                <p class="text-[10px] sm:text-xs text-white/50 uppercase tracking-[0.2em] mb-1">Capacity</p>
+                                <p class="font-display text-2xl sm:text-3xl md:text-4xl font-light stat-number">6L+ <span class="text-base sm:text-lg md:text-xl" style="color:rgba(201,169,110,0.7);">Monthly</span></p>
                             </div>
                             <div class="h-px w-full" style="background:linear-gradient(90deg,rgba(201,169,110,0.3),transparent);"></div>
                             <div>
-                                <p class="text-xs text-white/50 uppercase tracking-[0.2em] mb-1">Network</p>
-                                <p class="text-xl font-light">PAN India Supply</p>
+                                <p class="text-[10px] sm:text-xs text-white/50 uppercase tracking-[0.2em] mb-1">Network</p>
+                                <p class="text-base sm:text-lg md:text-xl font-light">PAN India Supply</p>
                             </div>
                             <div class="h-px w-full" style="background:linear-gradient(90deg,rgba(201,169,110,0.3),transparent);"></div>
                             <div>
-                                <p class="text-xs text-white/50 uppercase tracking-[0.2em] mb-2">Trusted By</p>
-                                <p class="text-sm font-light text-white/75 leading-relaxed">Baazar Kolkata, M-Baazar, Citi Baazar Metro, Srijan, Style Baazar, V2 Retail, Vishal Mega Mart, V-Mart, Primart and more.</p>
+                                <p class="text-[10px] sm:text-xs text-white/50 uppercase tracking-[0.2em] mb-2">Trusted By</p>
+                                <p class="text-xs sm:text-sm font-light text-white/75 leading-relaxed">Baazar Kolkata, M-Baazar, Srijan, Style Baazar, V2 Retail, Vishal Mega Mart, V-Mart, Primart and more.</p>
                             </div>
                         </div>
                     </div>
@@ -414,35 +415,47 @@
                         <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-medium">Our Facility</span>
                     </div>
                     <h2 class="font-display text-5xl md:text-6xl font-light tracking-tight mb-8 reveal-up" style="color:var(--deep);">
-                        Infrastructure built for <span class="italic" style="color:var(--gold);">volume</span>.
+                        Fabric to dispatch, <span class="italic" style="color:var(--gold);">fully managed.</span>
                     </h2>
                     <p class="text-lg font-light leading-relaxed mb-10 reveal-up" style="transition-delay:200ms;color:#5a4a35;">
-                        Our production floor utilizes automated spreading, modern sewing arrays, and dedicated quality inspection zones to maintain speed without compromising finish.
+                        Integrated apparel manufacturing setup designed to handle retail orders efficiently from development to dispatch.
                     </p>
                     <ul class="space-y-5">
                         <li class="flex items-center gap-4 font-light reveal-right hover:translate-x-3 transition-transform cursor-default" style="transition-delay:300ms;color:#5a4a35;">
                             <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(201,169,110,0.15);border:1px solid rgba(201,169,110,0.3);">
                                 <div class="w-2 h-2 rounded-full animate-pulse-live" style="background:var(--gold);"></div>
                             </div>
-                            State-of-the-art stitching lines
+                            Dedicated sampling and development team
                         </li>
                         <li class="flex items-center gap-4 font-light reveal-right hover:translate-x-3 transition-transform cursor-default" style="transition-delay:400ms;color:#5a4a35;">
                             <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(45,53,97,0.15);border:1px solid rgba(45,53,97,0.35);">
                                 <div class="w-2 h-2 rounded-full animate-pulse-live" style="background:#3d4578;"></div>
                             </div>
-                            Dedicated sampling rooms
+                            Structured cutting and production planning
                         </li>
                         <li class="flex items-center gap-4 font-light reveal-right hover:translate-x-3 transition-transform cursor-default" style="transition-delay:500ms;color:#5a4a35;">
                             <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(29,107,114,0.15);border:1px solid rgba(29,107,114,0.35);">
                                 <div class="w-2 h-2 rounded-full animate-pulse-live" style="background:#1d6b72;"></div>
                             </div>
-                            Climate-controlled fabric warehouse
+                            Multiple stitching lines for scalable production
                         </li>
-                        <li class="flex items-center gap-4 font-light reveal-right hover:translate-x-3 transition-transform cursor-default" style="transition-delay:600ms;color:#5a4a35;">
+                        <li class="flex items-center gap-4 font-light reveal-right hover:translate-x-3 transition-transform cursor-default" style="transition-delay:550ms;color:#5a4a35;">
                             <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(201,169,110,0.15);border:1px solid rgba(201,169,110,0.3);">
                                 <div class="w-2 h-2 rounded-full animate-pulse-live" style="background:var(--gold);"></div>
                             </div>
-                            Automated packaging systems
+                            Inline and end-line quality inspections
+                        </li>
+                        <li class="flex items-center gap-4 font-light reveal-right hover:translate-x-3 transition-transform cursor-default" style="transition-delay:600ms;color:#5a4a35;">
+                            <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(45,53,97,0.15);border:1px solid rgba(45,53,97,0.35);">
+                                <div class="w-2 h-2 rounded-full animate-pulse-live" style="background:#3d4578;"></div>
+                            </div>
+                            Organized finishing and packing workflow
+                        </li>
+                        <li class="flex items-center gap-4 font-light reveal-right hover:translate-x-3 transition-transform cursor-default" style="transition-delay:650ms;color:#5a4a35;">
+                            <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(29,107,114,0.15);border:1px solid rgba(29,107,114,0.35);">
+                                <div class="w-2 h-2 rounded-full animate-pulse-live" style="background:#1d6b72;"></div>
+                            </div>
+                            Retail-compliant dispatch system
                         </li>
                     </ul>
                 </div>
@@ -519,14 +532,14 @@
                     <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:linear-gradient(135deg,#4a3c28,#2a200e);">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3" style="color:var(--deep);">9 Retail Partners</h3>
-                    <p class="text-sm font-light leading-relaxed" style="color:#7a6a55;">Trusted by India's largest value retail chains — Baazar Kolkata, M-Baazar, Citi Baazar Metro, Srijan and more.</p>
+                    <h3 class="text-xl font-semibold mb-3" style="color:var(--deep);">8+ Retail Partners</h3>
+                    <p class="text-sm font-light leading-relaxed" style="color:#7a6a55;">Trusted by India's largest value retail chains — Baazar Kolkata, M-Baazar, Srijan and more.</p>
                 </div>
                 <div class="process-card p-8 rounded-2xl reveal-up stagger-6 cursor-default" style="background:rgba(255,255,255,0.85);border:1px solid rgba(201,169,110,0.2);">
                     <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:linear-gradient(135deg,#7a6a3a,#4a4020);">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3" style="color:var(--deep);">Vertically Integrated</h3>
+                    <h3 class="text-xl font-semibold mb-3" style="color:var(--deep);">Horizontally Integrated Manufacturing Network</h3>
                     <p class="text-sm font-light leading-relaxed" style="color:#7a6a55;">Fabric sourcing, pattern development, cutting, stitching, QC, and packing — all under one roof for complete accountability.</p>
                 </div>
             </div>
@@ -544,12 +557,12 @@
                 </div>
                 <h2 class="font-display text-5xl md:text-6xl font-light tracking-tight mb-4" style="color:var(--deep);">Retail Partners <span class="italic text-beige-shimmer">Across India.</span></h2>
             </div>
-            <div class="grid md:grid-cols-3 gap-6 mb-16">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
                 <div class="p-8 rounded-2xl reveal-scale stagger-1 cursor-default" style="background:rgba(255,255,255,0.65);border:1px solid rgba(201,169,110,0.25);">
                     <div class="flex gap-1 mb-5">
                         <span style="color:var(--gold);">★★★★★</span>
                     </div>
-                    <p class="font-light text-sm leading-relaxed mb-6 italic" style="color:#5a4a35;">"Varun Fabrica consistently delivers on time with outstanding quality. Their Mens Half Shirts, Full Shirts and Mens Kurtas have become a cornerstone of our seasonal buying."</p>
+                    <p class="font-light text-sm leading-relaxed mb-6 italic" style="color:#5a4a35;">"Exceptional product quality, consistent execution and dependable production support across multiple seasons."</p>
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,var(--gold),#a87d3e);color:white;">BK</div>
                         <div>
@@ -562,12 +575,12 @@
                     <div class="flex gap-1 mb-5">
                         <span style="color:var(--gold);">★★★★★</span>
                     </div>
-                    <p class="font-light text-sm leading-relaxed mb-6 italic" style="color:#5a4a35;">"Their production scale and QC discipline is what sets them apart. We've been sourcing Kids Wear, Coord Sets and Joggers from them across multiple seasons."</p>
+                    <p class="font-light text-sm leading-relaxed mb-6 italic" style="color:#5a4a35;">"Reliable production planning and timely deliveries help us maintain our retail schedules effectively."</p>
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,#6b5c3a,#3d3020);color:white;">MB</div>
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,#6b5c3a,#3d3020);color:white;">VM</div>
                         <div>
                             <p class="font-medium text-sm" style="color:var(--deep);">Merchandising Head</p>
-                            <p class="text-brand-gold text-xs font-medium">M-Baazar</p>
+                            <p class="text-brand-gold text-xs font-medium">Vishal Mega Mart</p>
                         </div>
                     </div>
                 </div>
@@ -575,12 +588,25 @@
                     <div class="flex gap-1 mb-5">
                         <span style="color:var(--gold);">★★★★★</span>
                     </div>
-                    <p class="font-light text-sm leading-relaxed mb-6 italic" style="color:#5a4a35;">"Reliable partner for our fast-fashion cycles. The ability to scale up in-season without any quality compromise is genuinely rare in this market."</p>
+                    <p class="font-light text-sm leading-relaxed mb-6 italic" style="color:#5a4a35;">"Wide product variety and flexibility across categories make them a dependable sourcing partner."</p>
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,#5a4a35,#2d2218);color:white;">CB</div>
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,#5a4a35,#2d2218);color:white;">SB</div>
                         <div>
                             <p class="font-medium text-sm" style="color:var(--deep);">Category Manager</p>
-                            <p class="text-brand-gold text-xs font-medium">Citi Baazar Metro</p>
+                            <p class="text-brand-gold text-xs font-medium">Style Baazar</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8 rounded-2xl reveal-scale stagger-4 cursor-default" style="background:rgba(255,255,255,0.5);border:1px solid rgba(201,169,110,0.22);">
+                    <div class="flex gap-1 mb-5">
+                        <span style="color:var(--gold);">★★★★★</span>
+                    </div>
+                    <p class="font-light text-sm leading-relaxed mb-6 italic" style="color:#5a4a35;">"Strong quality standards, responsive communication and dependable execution."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style="background:linear-gradient(135deg,#7a6a3a,#4a4020);color:white;">VM</div>
+                        <div>
+                            <p class="font-medium text-sm" style="color:var(--deep);">Buying Team</p>
+                            <p class="text-brand-gold text-xs font-medium">V-Mart</p>
                         </div>
                     </div>
                 </div>
@@ -588,8 +614,8 @@
 
             <!-- Partner Logos Row -->
             <div class="reveal-up">
-                <p class="text-center text-xs uppercase tracking-widest mb-8" style="color:#9a8568;">Supply Partners Across India</p>
-                <div class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-3">
+                <p class="text-center text-xs uppercase tracking-widest mb-8" style="color:#6b3f1d;">Supply Partners Across India</p>
+                <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-3">
                     <div class="buyer-logo px-3 py-4 rounded-xl flex flex-col items-center gap-2 text-center">
                         <div class="w-10 h-8 rounded flex items-center justify-center" style="background:rgba(201,169,110,0.1);">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="#C9A96E" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -601,12 +627,6 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="#C9A96E" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                         </div>
                         <span class="text-xs font-semibold" style="color:#5a4a35;">M-Baazar</span>
-                    </div>
-                    <div class="buyer-logo px-3 py-4 rounded-xl flex flex-col items-center gap-2 text-center">
-                        <div class="w-10 h-8 rounded flex items-center justify-center" style="background:rgba(201,169,110,0.1);">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="#C9A96E" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
-                        </div>
-                        <span class="text-xs font-semibold" style="color:#5a4a35;">Citi Baazar Metro</span>
                     </div>
                     <div class="buyer-logo px-3 py-4 rounded-xl flex flex-col items-center gap-2 text-center">
                         <div class="w-10 h-8 rounded flex items-center justify-center" style="background:rgba(201,169,110,0.1);">
@@ -774,7 +794,7 @@
                     <p class="text-xs uppercase tracking-widest mt-2 font-medium" style="color:#7a6a55;">Monthly Pieces</p>
                 </div>
                 <div class="reveal-up stagger-2 group cursor-default">
-                    <p class="font-display text-5xl md:text-6xl font-light stat-number group-hover:scale-110 transition-transform duration-300"><span data-count="9">0</span>+</p>
+                    <p class="font-display text-5xl md:text-6xl font-light stat-number group-hover:scale-110 transition-transform duration-300"><span data-count="8">0</span>+</p>
                     <p class="text-xs uppercase tracking-widest mt-2 font-medium" style="color:#7a6a55;">Retail Buyers</p>
                 </div>
                 <div class="reveal-up stagger-3 group cursor-default">
@@ -846,7 +866,6 @@
                     <div class="gold-line" style="background:linear-gradient(90deg,transparent,var(--gold));"></div>
                 </div>
                 <h2 class="font-display text-5xl md:text-6xl font-light tracking-tight mb-6" style="color:var(--deep);">Every Stitch Reflects <span class="italic text-beige-shimmer">Consistency.</span></h2>
-                <p class="font-light max-w-lg mx-auto" style="color:#7a6a55;">Real footage from our production floor.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="group cursor-pointer reveal-scale scene-3d">
@@ -1058,35 +1077,15 @@
             <div class="flex flex-wrap justify-center gap-6 mb-6 reveal-up" style="transition-delay:200ms;">
                 <div class="buyer-logo relative cursor-pointer px-8 py-6 rounded-2xl flex flex-col items-center gap-3 min-w-[160px]">
                     <div class="w-16 h-12 flex items-center justify-center rounded-lg" style="background:rgba(201,169,110,0.06);border:1px dashed rgba(201,169,110,0.25);">
-                        <img src="mbaazar_logo.png" alt="M-Baazar" onerror="this.style.display='none'" class="max-h-10 max-w-[64px] object-contain">
-                    </div>
-                    <span class="text-lg font-semibold tracking-tight" style="color:#5a4a35;">M-Baazar</span>
-                </div>
-                <div class="buyer-logo relative cursor-pointer px-8 py-6 rounded-2xl flex flex-col items-center gap-3 min-w-[200px]">
-                    <div class="w-16 h-12 flex items-center justify-center rounded-lg" style="background:rgba(201,169,110,0.06);border:1px dashed rgba(201,169,110,0.25);">
-                        <img src="citi_baazar_metro_logo.png" alt="Citi Baazar Metro" onerror="this.style.display='none'" class="max-h-10 max-w-[64px] object-contain">
-                    </div>
-                    <span class="text-lg font-semibold tracking-tight" style="color:#5a4a35;">Citi Baazar Metro</span>
-                </div>
-                <div class="buyer-logo relative cursor-pointer px-8 py-6 rounded-2xl flex flex-col items-center gap-3 min-w-[160px]">
-                    <div class="w-16 h-12 flex items-center justify-center rounded-lg" style="background:rgba(201,169,110,0.06);border:1px dashed rgba(201,169,110,0.25);">
-                        <img src="srijan_logo.png" alt="Srijan" onerror="this.style.display='none'" class="max-h-10 max-w-[64px] object-contain">
-                    </div>
-                    <span class="text-lg font-semibold tracking-tight" style="color:#5a4a35;">Srijan</span>
-                </div>
-            </div>
-            <div class="flex flex-wrap justify-center gap-6 mb-6 reveal-up" style="transition-delay:250ms;">
-                <div class="buyer-logo relative cursor-pointer px-8 py-6 rounded-2xl flex flex-col items-center gap-3 min-w-[160px]">
-                    <div class="w-16 h-12 flex items-center justify-center rounded-lg" style="background:rgba(201,169,110,0.06);border:1px dashed rgba(201,169,110,0.25);">
                         <img src="style_baazar_logo.png" alt="Style Baazar" onerror="this.style.display='none'" class="max-h-10 max-w-[64px] object-contain">
                     </div>
                     <span class="text-lg font-semibold tracking-tight" style="color:#5a4a35;">Style Baazar</span>
                 </div>
                 <div class="buyer-logo relative cursor-pointer px-8 py-6 rounded-2xl flex flex-col items-center gap-3 min-w-[160px]">
                     <div class="w-16 h-12 flex items-center justify-center rounded-lg" style="background:rgba(201,169,110,0.06);border:1px dashed rgba(201,169,110,0.25);">
-                        <img src="v2_retail_logo.png" alt="V2 Retail" onerror="this.style.display='none'" class="max-h-10 max-w-[64px] object-contain">
+                        <img src="vmart_logo.png" alt="V-Mart" onerror="this.style.display='none'" class="max-h-10 max-w-[64px] object-contain">
                     </div>
-                    <span class="text-lg font-semibold tracking-tight" style="color:#5a4a35;">V2 Retail</span>
+                    <span class="text-lg font-semibold tracking-tight" style="color:#5a4a35;">V-Mart</span>
                 </div>
                 <div class="buyer-logo relative cursor-pointer px-8 py-6 rounded-2xl flex flex-col items-center gap-3 min-w-[160px]">
                     <div class="w-16 h-12 flex items-center justify-center rounded-lg" style="background:rgba(201,169,110,0.06);border:1px dashed rgba(201,169,110,0.25);">
@@ -1095,20 +1094,30 @@
                     <span class="text-lg font-semibold tracking-tight" style="color:#5a4a35;">Vishal Mega Mart</span>
                 </div>
             </div>
-            <div class="flex flex-wrap justify-center gap-5 reveal-up" style="transition-delay:300ms;">
+            <div class="flex flex-wrap justify-center gap-5 mb-6 reveal-up" style="transition-delay:250ms;">
                 <div class="buyer-logo cursor-pointer px-6 py-5 rounded-xl flex flex-col items-center gap-2 min-w-[140px]">
-                    <img src="vmart_logo.png" alt="V-Mart" onerror="this.style.display='none'" class="max-h-9 max-w-[56px] object-contain">
-                    <span class="text-base font-semibold tracking-tight" style="color:#5a4a35;">V-Mart</span>
+                    <img src="mbaazar_logo.png" alt="M-Baazar" onerror="this.style.display='none'" class="max-h-9 max-w-[56px] object-contain">
+                    <span class="text-base font-semibold tracking-tight" style="color:#5a4a35;">M-Baazar</span>
                 </div>
                 <div class="buyer-logo cursor-pointer px-6 py-5 rounded-xl flex flex-col items-center gap-2 min-w-[140px]">
                     <img src="primart_logo.png" alt="Primart" onerror="this.style.display='none'" class="max-h-9 max-w-[56px] object-contain">
                     <span class="text-base font-semibold tracking-tight" style="color:#5a4a35;">Primart</span>
                 </div>
+                <div class="buyer-logo cursor-pointer px-6 py-5 rounded-xl flex flex-col items-center gap-2 min-w-[140px]">
+                    <img src="v2_retail_logo.png" alt="V2 Retail" onerror="this.style.display='none'" class="max-h-9 max-w-[56px] object-contain">
+                    <span class="text-base font-semibold tracking-tight" style="color:#5a4a35;">V2 Retail</span>
+                </div>
+                <div class="buyer-logo cursor-pointer px-6 py-5 rounded-xl flex flex-col items-center gap-2 min-w-[140px]">
+                    <img src="srijan_logo.png" alt="Srijan" onerror="this.style.display='none'" class="max-h-9 max-w-[56px] object-contain">
+                    <span class="text-base font-semibold tracking-tight" style="color:#5a4a35;">Srijan</span>
+                </div>
+            </div>
+            <div class="flex flex-wrap justify-center gap-5 reveal-up" style="transition-delay:300ms;">
                 <div class="buyer-logo cursor-pointer px-6 py-5 rounded-xl flex flex-col items-center gap-2 min-w-[140px]" style="border-style:dashed;">
                     <div class="w-9 h-9 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="color:rgba(201,169,110,0.4)"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
                     </div>
-                    <span class="text-base font-semibold tracking-tight italic" style="color:#9a8568;">&amp; More</span>
+                    <span class="text-base font-semibold tracking-tight italic" style="color:#6b3f1d;">&amp; More</span>
                 </div>
             </div>
         </div>
@@ -1119,7 +1128,7 @@
         <div class="max-w-7xl mx-auto px-6 md:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mb-16">
                 <div class="reveal-up stagger-1 group cursor-default">
-                    <p class="font-display text-5xl md:text-6xl font-light stat-number group-hover:scale-110 transition-transform duration-300"><span data-count="9">0</span>+</p>
+                    <p class="font-display text-5xl md:text-6xl font-light stat-number group-hover:scale-110 transition-transform duration-300"><span data-count="8">0</span>+</p>
                     <p class="text-xs uppercase tracking-widest mt-2 font-medium" style="color:#7a6a55;">Retail Buyers</p>
                 </div>
                 <div class="reveal-up stagger-2 group cursor-default">
@@ -1216,8 +1225,8 @@
                             </div>
                             <div>
                                 <p class="text-brand-gold text-xs uppercase tracking-widest mb-1 font-medium">Retail Expansion</p>
-                                <h4 class="font-medium text-lg mb-1" style="color:var(--deep);">9+ Major Retail Partnerships</h4>
-                                <p class="font-light text-sm leading-relaxed" style="color:#7a6a55;">Established supply relationships with Baazar Kolkata, M-Baazar, Citi Baazar Metro, Srijan, Style Baazar, V2 Retail, Vishal Mega Mart, V-Mart and Primart.</p>
+                                <h4 class="font-medium text-lg mb-1" style="color:var(--deep);">8+ Major Retail Partnerships</h4>
+                                <p class="font-light text-sm leading-relaxed" style="color:#7a6a55;">Established supply relationships with Baazar Kolkata, M-Baazar, Srijan, Style Baazar, V2 Retail, Vishal Mega Mart, V-Mart and Primart.</p>
                             </div>
                         </div>
                         <div class="flex gap-8 relative">
@@ -1309,8 +1318,12 @@
                         </div>
                         <h3 class="text-base font-semibold uppercase tracking-widest" style="color:var(--deep);">Group Entities</h3>
                     </div>
-                    <p class="text-xs font-light leading-relaxed mb-5" style="color:#7a6a55;line-height:1.75;"><strong style="color:var(--deep);">Varun Creation</strong> and <strong style="color:var(--deep);">Tanvi Apparel</strong> are horizontally integrated, established proprietorship firms who are our manufacturing partners and help us achieve this huge scale.</p>
+                    <p class="text-xs font-light leading-relaxed mb-5" style="color:#7a6a55;line-height:1.75;"><strong style="color:var(--deep);">Varun Fabrica LLP</strong>, <strong style="color:var(--deep);">Varun Creation</strong> and <strong style="color:var(--deep);">Tanvi Apparel</strong> operate as one group — working together horizontally to deliver goods, not as separate, disconnected companies.</p>
                     <div class="space-y-4">
+                        <div class="group-banner">
+                            <h3 class="font-display text-2xl font-light mb-1" style="color:var(--deep);">Varun Fabrica LLP</h3>
+                            <p class="text-sm font-light" style="color:#7a6a55;">Flagship manufacturing entity · <span style="color:var(--gold);font-weight:600;">Production, QC &amp; dispatch.</span></p>
+                        </div>
                         <div class="group-banner">
                             <h3 class="font-display text-2xl font-light mb-1" style="color:var(--deep);">Varun Creation</h3>
                             <p class="text-sm font-light" style="color:#7a6a55;">Established proprietorship · Manufacturing partner · Fabric sourcing &amp; development unit.</p>
@@ -1354,10 +1367,10 @@
                         <img src="rivya_logo.png" alt="RIVYA" onerror="this.style.display='none'" class="max-h-14 max-w-[120px] object-contain">
                     </div>
                     <h3 class="font-display text-3xl font-light tracking-wide" style="color:var(--deep);">RIVYA</h3>
-                    <p class="text-center text-sm font-light" style="color:#7a6a55;">Kurtas for Women</p>
+                    <p class="text-center text-sm font-light" style="color:#7a6a55;">Premium Kurtas For Men</p>
                     <div class="mt-2 flex gap-2 flex-wrap justify-center">
                         <span class="text-[10px] uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(201,169,110,0.1);color:var(--gold);border:1px solid rgba(201,169,110,0.25);">Kurtas</span>
-                        <span class="text-[10px] uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(201,169,110,0.1);color:var(--gold);border:1px solid rgba(201,169,110,0.25);">Women's Wear</span>
+                        <span class="text-[10px] uppercase tracking-wider px-3 py-1 rounded-full" style="background:rgba(201,169,110,0.1);color:var(--gold);border:1px solid rgba(201,169,110,0.25);">Men's Wear</span>
                     </div>
                 </div>
                 <div class="brand-logo-box reveal-scale stagger-3 cursor-default" style="background:rgba(255,255,255,0.55);border:1px solid rgba(201,169,110,0.35);">
@@ -1393,7 +1406,7 @@
                     <div class="leader-photo-frame mb-6">
                         <div class="photo-placeholder" id="placeholder-rakesh">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                            <p class="text-center text-xs" style="color:#9a8568;">Rakesh Tharad</p>
+                            <p class="text-center text-xs" style="color:#6b3f1d;">Rakesh Tharad</p>
                         </div>
                         <img src="rakesh_tharad.jpg" alt="Rakesh Tharad" class="w-full aspect-[3/4] object-cover object-top" style="display:none;" onload="this.style.display='block';document.getElementById('placeholder-rakesh').style.display='none';">
                     </div>
@@ -1408,7 +1421,7 @@
                     <div class="leader-photo-frame mb-6">
                         <div class="photo-placeholder" id="placeholder-varun">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                            <p class="text-center text-xs" style="color:#9a8568;">Varun Tharad</p>
+                            <p class="text-center text-xs" style="color:#6b3f1d;">Varun Tharad</p>
                         </div>
                         <img src="varun_tharad.jpg" alt="Varun Tharad" class="w-full aspect-[3/4] object-cover object-top" style="display:none;" onload="this.style.display='block';document.getElementById('placeholder-varun').style.display='none';">
                     </div>
@@ -1423,7 +1436,7 @@
                     <div class="leader-photo-frame mb-6">
                         <div class="photo-placeholder" id="placeholder-manisha">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                            <p class="text-center text-xs" style="color:#9a8568;">Manisha Tharad</p>
+                            <p class="text-center text-xs" style="color:#6b3f1d;">Manisha Tharad</p>
                         </div>
                         <img src="manisha_tharad.jpg" alt="Manisha Tharad" class="w-full aspect-[3/4] object-cover object-top" style="display:none;" onload="this.style.display='block';document.getElementById('placeholder-manisha').style.display='none';">
                     </div>
@@ -1514,9 +1527,7 @@
                             </div>
                             <div>
                                 <h3 class="font-medium mb-2 text-sm uppercase tracking-widest" style="color:var(--deep);">Email</h3>
-                                <a href="mailto:info@varunfabrica.com" class="text-brand-gold font-light text-sm hover:underline">info@varunfabrica.com</a>
-                                <br/>
-                                <a href="mailto:sales@varunfabrica.com" class="font-light text-sm hover:text-brand-gold transition-colors" style="color:#5a4a35;">sales@varunfabrica.com</a>
+                                <a href="mailto:varuntharad33@gmail.com" class="text-brand-gold font-light text-sm hover:underline">varuntharad33@gmail.com</a>
                             </div>
                         </div>
                     </div>
@@ -1580,11 +1591,12 @@
                                 <label class="block text-xs uppercase tracking-widest mb-2" style="color:#7a6a55;">Approximate Monthly Volume</label>
                                 <select id="cf-volume" class="w-full rounded-xl px-5 py-3.5 text-sm font-light outline-none transition-all appearance-none cursor-pointer" style="background:rgba(255,255,255,0.7);color:var(--deep);border:1px solid rgba(201,169,110,0.3);" onfocus="this.style.borderColor='rgba(201,169,110,0.7)'" onblur="this.style.borderColor='rgba(201,169,110,0.3)'">
                                     <option value="">Select volume range…</option>
-                                    <option value="under10k">Under 10,000 pieces</option>
-                                    <option value="10k-50k">10,000 – 50,000 pieces</option>
-                                    <option value="50k-1l">50,000 – 1 Lakh pieces</option>
-                                    <option value="1l-3l">1 – 3 Lakh pieces</option>
-                                    <option value="3l+">3 Lakh+ pieces</option>
+                                    <option value="1000plus">1000 pcs+</option>
+                                    <option value="5000plus">5000 pcs+</option>
+                                    <option value="10000plus">10000 pcs+</option>
+                                    <option value="25000plus">25000 pcs+</option>
+                                    <option value="50000plus">50000 pcs+</option>
+                                    <option value="100000plus">100000 pcs+</option>
                                 </select>
                             </div>
                             <div class="mb-7">
@@ -1614,7 +1626,7 @@
 
     <!-- Map / Location strip -->
     <div class="py-12 text-center" style="background:linear-gradient(135deg,var(--beige-deep),var(--beige));border-top:1px solid rgba(201,169,110,0.2);">
-        <p class="text-xs uppercase tracking-widest mb-2" style="color:#9a8568;">Our Location</p>
+        <p class="text-xs uppercase tracking-widest mb-2" style="color:#6b3f1d;">Our Location</p>
         <p class="font-light text-sm" style="color:#5a4a35;">EIGMEF Apparel Park · Krishnapur, Kolkata 700102 · West Bengal, India</p>
         <a href="https://maps.google.com/?q=Krishnapur+Kolkata+700102" target="_blank" class="inline-flex items-center gap-2 mt-4 text-xs text-brand-gold hover:underline font-medium">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1883,7 +1895,7 @@
             <div>
                 <h4 class="text-xs uppercase tracking-widest mb-6" style="color:var(--gold);">Contact</h4>
                 <ul class="space-y-3 text-sm font-light">
-                    <li><a href="mailto:info@varunfabrica.com" class="hover:text-brand-gold transition-colors">info@varunfabrica.com</a></li>
+                    <li><a href="mailto:varuntharad33@gmail.com" class="hover:text-brand-gold transition-colors">varuntharad33@gmail.com</a></li>
                     <li><a href="tel:+919831000000" class="hover:text-brand-gold transition-colors">+91 98310 00000</a></li>
                     <li class="pt-4 mt-4 text-xs leading-relaxed" style="border-top:1px solid rgba(201,169,110,0.25);color:#5a4a35;">
                         EIGMEF Apparel Park Ltd.<br/>
@@ -2211,6 +2223,41 @@ function triggerReveal() {
 
 document.addEventListener('DOMContentLoaded', () => {
     triggerReveal();
+
+    // ─── Force autoplay videos to actually start on first load ───
+    // Some browsers don't reliably fire native autoplay on initial paint,
+    // especially the very first video element on the page (hero-video).
+    // We explicitly call .load() + .play() and retry on first user interaction
+    // as a fallback for stricter autoplay policies.
+    function kickstartVideos() {
+        document.querySelectorAll('video[autoplay]').forEach(vid => {
+            const tryPlay = () => {
+                const playPromise = vid.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => {
+                        // Autoplay blocked — will retry on first user interaction
+                    });
+                }
+            };
+            if (vid.readyState >= 2) {
+                tryPlay();
+            } else {
+                vid.addEventListener('loadeddata', tryPlay, { once: true });
+                vid.load();
+            }
+        });
+    }
+    kickstartVideos();
+
+    // Fallback: retry once on first user interaction (covers strict autoplay blocks)
+    const retryOnInteraction = () => {
+        document.querySelectorAll('video[autoplay]').forEach(vid => {
+            if (vid.paused) vid.play().catch(() => {});
+        });
+    };
+    ['click', 'touchstart', 'scroll'].forEach(evt => {
+        window.addEventListener(evt, retryOnInteraction, { once: true, passive: true });
+    });
 
     // ─── 3D Tilt leader cards ───
     document.querySelectorAll('.leader-card').forEach(card => {
