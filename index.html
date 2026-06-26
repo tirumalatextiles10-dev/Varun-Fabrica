@@ -462,7 +462,7 @@
                 <div class="order-1 lg:order-2 relative w-full rounded-3xl overflow-hidden reveal-scale group shadow-[0_40px_80px_rgba(0,0,0,0.5)] scene-3d" style="height:70vh;min-height:420px;">
                     <div class="card-3d w-full h-full">
                         <!-- Infrastructure: video preferred, png/jpg fallback -->
-                        <video autoplay loop muted playsinline class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[2s]" id="infra-video">
+                        <video autoplay preload="none" loop muted playsinline class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[2s]" id="infra-video">
                             <source src="infrastructure_tour.mp4" type="video/mp4">
                         </video>
                         <img src="infrastructure_tour.jpg" id="infra-img-fallback" alt="Infrastructure" class="w-full h-full object-cover absolute inset-0" style="display:none;"
@@ -739,7 +739,7 @@
             <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
                 <div class="aspect-[4/5] overflow-hidden rounded-3xl relative reveal-scale shadow-2xl group cursor-pointer scene-3d" style="background:#111;">
                     <div class="card-3d w-full h-full">
-                        <video autoplay loop muted playsinline class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s]" id="mfg-video">
+                        <video autoplay preload="none" loop muted playsinline class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s]" id="mfg-video">
                             <source src="manufacturing_process.mp4" type="video/mp4">
                         </video>
                         <img src="manufacturing_process.jpg" alt="Manufacturing Process" class="w-full h-full object-cover absolute inset-0" id="mfg-img" style="display:none;"
@@ -870,7 +870,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="group cursor-pointer reveal-scale scene-3d">
                     <div class="card-3d video-showcase" style="height:480px;">
-                        <video autoplay loop muted playsinline class="transform group-hover:scale-105 transition-transform duration-700" style="width:100%;height:100%;object-fit:cover;" id="gv1">
+                        <video autoplay preload="none" loop muted playsinline class="transform group-hover:scale-105 transition-transform duration-700" style="width:100%;height:100%;object-fit:cover;" id="gv1">
                             <source src="gallery_video_1.mp4" type="video/mp4">
                         </video>
                         <img src="gallery_video_1.jpg" alt="Manufacturing Process" class="absolute inset-0" style="width:100%;height:100%;object-fit:cover;display:none;" id="gv1-img"
@@ -883,7 +883,7 @@
                 </div>
                 <div class="group cursor-pointer reveal-scale scene-3d" style="transition-delay:150ms;">
                     <div class="card-3d-reverse card-3d video-showcase" style="height:480px;">
-                        <video autoplay loop muted playsinline class="transform group-hover:scale-105 transition-transform duration-700" style="width:100%;height:100%;object-fit:cover;" id="gv2">
+                        <video autoplay preload="none" loop muted playsinline class="transform group-hover:scale-105 transition-transform duration-700" style="width:100%;height:100%;object-fit:cover;" id="gv2">
                             <source src="gallery_video_2.mp4" type="video/mp4">
                         </video>
                         <img src="gallery_video_2.jpg" alt="Quality Finishing" class="absolute inset-0" style="width:100%;height:100%;object-fit:cover;display:none;" id="gv2-img"
@@ -925,7 +925,7 @@
             </div>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <div onclick="showCategoryPage('mens_half_shirt')" class="group relative overflow-hidden rounded-3xl cursor-pointer reveal-scale stagger-1 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(201,169,110,0.25)] transition-all duration-500" style="min-height:340px;">
-                    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;">
+                    <video autoplay preload="none" loop muted playsinline class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;">
                         <source src="mens_half_shirt_category.mp4" type="video/mp4">
                     </video>
                     <img src="mens_half_shirt_category_bg.jpg" alt="Mens Half Shirt" onerror="this.src='https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=800&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;display:none;" id="catbg-mens_half_shirt">
@@ -940,7 +940,7 @@
                     </div>
                 </div>
                 <div onclick="showCategoryPage('full_shirt')" class="group relative overflow-hidden rounded-3xl cursor-pointer reveal-scale stagger-2 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(201,169,110,0.25)] transition-all duration-500" style="min-height:340px;">
-                    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;">
+                    <video autoplay preload="none" loop muted playsinline class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;">
                         <source src="full_shirt_category.mp4" type="video/mp4">
                     </video>
                     <img src="full_shirt_category_bg.jpg" alt="Full Shirt" onerror="this.src='https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=800&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;display:none;" id="catbg-full_shirt">
@@ -955,7 +955,7 @@
                     </div>
                 </div>
                 <div onclick="showCategoryPage('mens_kurta')" class="group relative overflow-hidden rounded-3xl cursor-pointer reveal-scale stagger-3 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(201,169,110,0.25)] transition-all duration-500" style="min-height:340px;">
-                    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;">
+                    <video autoplay preload="none" loop muted playsinline class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;">
                         <source src="mens_kurta_category.mp4" type="video/mp4">
                     </video>
                     <img src="mens_kurta_category_bg.jpg" alt="Mens Kurta" onerror="this.src='https://images.unsplash.com/photo-1583391733958-d25e07fac044?q=80&w=800&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;display:none;" id="catbg-mens_kurta">
@@ -970,7 +970,7 @@
                     </div>
                 </div>
                 <div onclick="showCategoryPage('kids_wear')" class="group relative overflow-hidden rounded-3xl cursor-pointer reveal-scale stagger-4 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(201,169,110,0.25)] transition-all duration-500" style="min-height:340px;">
-                    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;">
+                    <video autoplay preload="none" loop muted playsinline class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;">
                         <source src="kids_wear_category.mp4" type="video/mp4">
                     </video>
                     <img src="kids_wear_category_bg.jpg" alt="Kids Wear" onerror="this.src='https://images.unsplash.com/photo-1519241047957-be31d7379a5d?q=80&w=800&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;display:none;" id="catbg-kids_wear">
@@ -985,7 +985,7 @@
                     </div>
                 </div>
                 <div onclick="showCategoryPage('coord_sets')" class="group relative overflow-hidden rounded-3xl cursor-pointer reveal-scale stagger-5 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(201,169,110,0.25)] transition-all duration-500" style="min-height:340px;">
-                    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;">
+                    <video autoplay preload="none" loop muted playsinline class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;">
                         <source src="coord_sets_category.mp4" type="video/mp4">
                     </video>
                     <img src="coord_sets_category_bg.jpg" alt="Coord Sets" onerror="this.src='https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;display:none;" id="catbg-coord_sets">
@@ -1000,7 +1000,7 @@
                     </div>
                 </div>
                 <div onclick="showCategoryPage('half_pants')" class="group relative overflow-hidden rounded-3xl cursor-pointer reveal-scale stagger-6 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(201,169,110,0.25)] transition-all duration-500" style="min-height:340px;">
-                    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;">
+                    <video autoplay preload="none" loop muted playsinline class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;">
                         <source src="half_pants_category.mp4" type="video/mp4">
                     </video>
                     <img src="half_pants_category_bg.jpg" alt="Half Pants" onerror="this.src='https://images.unsplash.com/photo-1561861422-a549073e547a?q=80&w=800&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;display:none;" id="catbg-half_pants">
@@ -1015,7 +1015,7 @@
                     </div>
                 </div>
                 <div onclick="showCategoryPage('joggers')" class="group relative overflow-hidden rounded-3xl cursor-pointer reveal-scale stagger-1 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(201,169,110,0.25)] transition-all duration-500" style="min-height:340px;">
-                    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;">
+                    <video autoplay preload="none" loop muted playsinline class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;">
                         <source src="joggers_category.mp4" type="video/mp4">
                     </video>
                     <img src="joggers_category_bg.jpg" alt="Joggers" onerror="this.src='https://images.unsplash.com/photo-1629853965901-52648fbcf939?q=80&w=800&auto=format&fit=crop'" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" style="z-index:0;display:none;" id="catbg-joggers">
@@ -2060,6 +2060,7 @@ function showPage(pageId) {
     if (target) target.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout(() => triggerReveal(), 100);
+    if (window._rescanLazyVideos) window._rescanLazyVideos();
     // highlight active nav
     document.querySelectorAll('#nav-about-link').forEach(l => {
         l.style.color = pageId === 'about' ? 'var(--gold)' : '';
@@ -2076,7 +2077,7 @@ function showCategoryPage(catKey) {
         <!-- Category Hero — video with image fallback -->
         <section class="relative" style="height:75vh;min-height:520px;overflow:hidden;">
             <div class="cat-img-bg">
-                <video autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+                <video autoplay preload="none" loop muted playsinline style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
                     <source src="${cat.bgVideo || cat.bgImg.replace('_bg.jpg','.mp4')}" type="video/mp4">
                 </video>
                 <img src="${cat.bgImg}" alt="${cat.title}" onerror="this.src='${cat.fallback}'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
@@ -2143,6 +2144,7 @@ function showCategoryPage(catKey) {
     page.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout(() => triggerReveal(), 100);
+    if (window._rescanLazyVideos) window._rescanLazyVideos();
 }
 
 // ─── Contact Form ───
@@ -2224,40 +2226,76 @@ function triggerReveal() {
 document.addEventListener('DOMContentLoaded', () => {
     triggerReveal();
 
-    // ─── Force autoplay videos to actually start on first load ───
-    // Some browsers don't reliably fire native autoplay on initial paint,
-    // especially the very first video element on the page (hero-video).
-    // We explicitly call .load() + .play() and retry on first user interaction
-    // as a fallback for stricter autoplay policies.
-    function kickstartVideos() {
-        document.querySelectorAll('video[autoplay]').forEach(vid => {
-            const tryPlay = () => {
-                const playPromise = vid.play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(() => {
-                        // Autoplay blocked — will retry on first user interaction
-                    });
-                }
-            };
-            if (vid.readyState >= 2) {
-                tryPlay();
-            } else {
-                vid.addEventListener('loadeddata', tryPlay, { once: true });
-                vid.load();
+    // ─── Force the HERO video to actually start on first load ───
+    // Some browsers don't reliably fire native autoplay on initial paint
+    // for the first video element on the page. We only do this for the
+    // hero video — NOT every video on the page — so we don't trigger
+    // simultaneous downloads of every other video (infra, manufacturing,
+    // gallery, category backgrounds) before they're actually visible.
+    (function kickstartHeroVideo() {
+        const vid = document.getElementById('hero-video');
+        if (!vid) return;
+        const tryPlay = () => {
+            const playPromise = vid.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    // Autoplay blocked — will retry on first user interaction
+                });
             }
-        });
-    }
-    kickstartVideos();
-
-    // Fallback: retry once on first user interaction (covers strict autoplay blocks)
-    const retryOnInteraction = () => {
-        document.querySelectorAll('video[autoplay]').forEach(vid => {
+        };
+        if (vid.readyState >= 2) {
+            tryPlay();
+        } else {
+            vid.addEventListener('loadeddata', tryPlay, { once: true });
+        }
+        // Fallback: retry once on first user interaction (covers strict autoplay blocks)
+        const retryOnInteraction = () => {
             if (vid.paused) vid.play().catch(() => {});
+        };
+        ['click', 'touchstart', 'scroll'].forEach(evt => {
+            window.addEventListener(evt, retryOnInteraction, { once: true, passive: true });
         });
-    };
-    ['click', 'touchstart', 'scroll'].forEach(evt => {
-        window.addEventListener(evt, retryOnInteraction, { once: true, passive: true });
-    });
+    })();
+
+    // ─── Lazy-load all OTHER videos only when they scroll near the viewport ───
+    // These have preload="none" in the HTML, so the browser won't fetch them
+    // up front. We watch for each one approaching the viewport, then trigger
+    // .load() + .play() just for that one. This stops the page from trying
+    // to download 11+ video files at once on shared hosting.
+    (function lazyLoadVideos() {
+        const lazyVideos = document.querySelectorAll('video[autoplay][preload="none"]');
+        if (!lazyVideos.length) return;
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const vid = entry.target;
+                    if (vid.readyState === 0) {
+                        vid.load();
+                    }
+                    const tryPlay = () => vid.play().catch(() => {});
+                    if (vid.readyState >= 2) {
+                        tryPlay();
+                    } else {
+                        vid.addEventListener('loadeddata', tryPlay, { once: true });
+                    }
+                    videoObserver.unobserve(vid);
+                }
+            });
+        }, { root: null, rootMargin: '200px', threshold: 0.01 });
+        lazyVideos.forEach(vid => videoObserver.observe(vid));
+
+        // Re-scan whenever a page is shown (handles dynamically rendered
+        // category pages and SPA navigation where new video tags appear)
+        const rescan = () => {
+            document.querySelectorAll('video[autoplay][preload="none"]').forEach(vid => {
+                if (vid.readyState === 0 && !vid.dataset.lazyObserved) {
+                    vid.dataset.lazyObserved = '1';
+                    videoObserver.observe(vid);
+                }
+            });
+        };
+        window._rescanLazyVideos = rescan;
+    })();
 
     // ─── 3D Tilt leader cards ───
     document.querySelectorAll('.leader-card').forEach(card => {
