@@ -338,31 +338,43 @@
                 <circle cx="100" cy="100" r="50" stroke="#C9A96E" stroke-width="0.5"/>
             </svg>
         </div>
-        <div class="relative z-10 h-full w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-8 flex flex-col justify-end pb-16 sm:pb-20 md:pb-28 lg:pb-32">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-end">
+        <!-- Hero content -->
+        <div class="relative z-10 h-full w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-8 flex flex-col justify-end pb-8 sm:pb-12 md:pb-20 lg:pb-28 xl:pb-32">
+
+            <!-- Mobile layout: single column, card hidden on small screens -->
+            <div class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-8 lg:items-end gap-0">
+
+                <!-- Left: text content -->
                 <div class="lg:col-span-8">
-                    <div class="flex items-center gap-3 mb-4 sm:mb-5 md:mb-6 fade-in delay-100">
+                    <div class="flex items-center gap-3 mb-3 sm:mb-4 md:mb-6 fade-in delay-100">
                         <div class="gold-line"></div>
-                        <span class="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-brand-gold font-medium">Premium Apparel Manufacturing</span>
+                        <span class="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-brand-gold font-medium">Premium Apparel Manufacturing</span>
                     </div>
-                    <h1 class="font-display text-[2.1rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white tracking-tight leading-[1.05] mb-4 sm:mb-5 md:mb-6">
+                    <h1 class="font-display font-light text-white tracking-tight leading-[1.05] mb-3 sm:mb-4 md:mb-6"
+                        style="font-size:clamp(1.75rem,6vw,4.5rem);">
                         <div class="overflow-hidden hero-title-line"><span class="delay-100">Crafting apparel</span></div>
                         <div class="overflow-hidden hero-title-line italic" style="color:#C9A96E;"><span class="delay-200">for modern retail.</span></div>
                     </h1>
-                    <p class="fade-in delay-800 text-sm sm:text-base md:text-lg text-white/75 max-w-xl md:max-w-2xl font-light leading-relaxed mb-6 sm:mb-7 md:mb-8">
+                    <p class="fade-in delay-800 text-xs sm:text-sm md:text-base lg:text-lg text-white/75 font-light leading-relaxed mb-5 sm:mb-6 md:mb-8"
+                       style="max-width:min(90vw,38rem);">
                         Manufacturing Men's Half Shirts, Full Shirts, Men's Kurtas, Kidswear, Co-ord Sets, Shorts, Pyjamas, Joggers, and a wide range of retail essentials at scale with precision, premium craftsmanship, consistent quality, and state-of-the-art manufacturing infrastructure.
                     </p>
                     <div class="fade-in delay-1000 flex flex-wrap gap-3 sm:gap-4">
-                        <button onclick="showPage('manufacturing')" class="btn-gold inline-block px-6 sm:px-8 py-3 sm:py-4 rounded-full text-xs sm:text-sm font-medium">Explore Manufacturing</button>
-                        <button onclick="showPage('categories')" class="btn-playful inline-flex bg-transparent border border-white/25 text-white backdrop-blur-sm px-6 sm:px-8 py-3 sm:py-4 rounded-full text-xs sm:text-sm font-medium hover:bg-white/10 items-center gap-2 group">
+                        <button onclick="showPage('manufacturing')" class="btn-gold inline-block px-5 sm:px-7 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full text-xs sm:text-sm font-medium">Explore Manufacturing</button>
+                        <button onclick="showPage('categories')" class="btn-playful inline-flex bg-transparent border border-white/25 text-white backdrop-blur-sm px-5 sm:px-7 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full text-xs sm:text-sm font-medium hover:bg-white/10 items-center gap-2 group">
                             View Categories
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transform group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 transform group-hover:translate-x-1 transition-transform duration-200">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
                         </button>
                     </div>
                 </div>
-                <div class="fade-in delay-1200 lg:col-span-4 lg:justify-self-end w-full max-w-xs sm:max-w-sm animate-float mt-2 lg:mt-0">
-                    <div class="liquid-glass p-5 sm:p-6 md:p-8 rounded-3xl text-white hover:scale-105 transition-transform duration-500 cursor-default glow-pulse">
-                        <div class="space-y-4 sm:space-y-5 md:space-y-6">
+
+                <!-- Right: capacity card — hidden on mobile, visible md+ -->
+                <div class="fade-in delay-1200 hidden md:block lg:col-span-4 lg:justify-self-end w-full max-w-xs animate-float mt-6 lg:mt-0">
+                    <div class="liquid-glass p-5 sm:p-6 md:p-7 rounded-3xl text-white hover:scale-105 transition-transform duration-500 cursor-default glow-pulse">
+                        <div class="space-y-4 sm:space-y-5">
                             <div>
                                 <p class="text-[10px] sm:text-xs text-white/50 uppercase tracking-[0.2em] mb-1">Capacity</p>
                                 <p class="font-display text-2xl sm:text-3xl md:text-4xl font-light stat-number-on-dark">6L+ <span class="text-base sm:text-lg md:text-xl" style="color:rgba(201,169,110,0.7);">Monthly</span></p>
@@ -375,11 +387,12 @@
                             <div class="h-px w-full" style="background:linear-gradient(90deg,rgba(201,169,110,0.3),transparent);"></div>
                             <div>
                                 <p class="text-[10px] sm:text-xs text-white/50 uppercase tracking-[0.2em] mb-2">Trusted By</p>
-                                <p class="text-xs sm:text-sm font-light text-white/75 leading-relaxed">Baazar Kolkata, M-Baazar, Srijan, Style Baazar, V2 Retail, Vishal Mega Mart, V-Mart, Primart and more.</p>
+                                <p class="text-xs font-light text-white/75 leading-relaxed">Baazar Kolkata, M-Baazar, Srijan, Style Baazar, V2 Retail, Vishal Mega Mart, V-Mart, Primart and more.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
