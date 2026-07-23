@@ -266,8 +266,8 @@
             <div class="w-9 h-9 rounded-full flex items-center justify-center border border-brand-gold/40" style="background:linear-gradient(135deg,rgba(201,169,110,0.2),rgba(201,169,110,0.05));">
                 <span class="font-semibold tracking-widest text-sm text-brand-gold">VF</span>
             </div>
-            <span class="w-px h-4 bg-white/20 hidden sm:block"></span>
-            <span class="text-sm font-medium tracking-widest hidden sm:block">VARUN FABRICA LLP</span>
+            <span class="w-px h-4 bg-white/20 hidden lg:block"></span>
+            <span class="text-sm font-medium tracking-widest hidden lg:block">VARUN FABRICA LLP</span>
         </div>
         <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white/80">
             <a href="#" onclick="showPage('manufacturing');return false;" class="hover:text-brand-gold hover:-translate-y-1 transition-all">Manufacturing</a>
@@ -310,17 +310,16 @@
 <div id="page-home" class="page active">
 
     <!-- HERO -->
-    <section class="relative h-screen w-full overflow-hidden" style="background:#0f0a04;">
+    <section class="relative w-full overflow-hidden" style="background:#0f0a04; min-height:100vh; min-height:100dvh;">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0" style="background:radial-gradient(ellipse at 30% 60%,rgba(201,169,110,0.14) 0%,transparent 60%),radial-gradient(ellipse at 70% 20%,rgba(45,53,97,0.2) 0%,transparent 60%);"></div>
         </div>
         <div class="absolute inset-0 w-full h-full z-0">
-            <!-- Hero background: video preferred, jpg fallback -->
             <video autoplay loop muted playsinline class="object-cover w-full h-full" id="hero-video" style="object-fit:cover;">
                 <source src="hero_landing.mp4" type="video/mp4">
             </video>
-            <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/55"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-black/15 via-transparent to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/60"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent"></div>
         </div>
         <!-- Particles -->
         <div class="absolute inset-0 z-1 pointer-events-none overflow-hidden">
@@ -338,32 +337,54 @@
                 <circle cx="100" cy="100" r="50" stroke="#C9A96E" stroke-width="0.5"/>
             </svg>
         </div>
-        <!-- Hero content -->
-        <div class="relative z-10 h-full w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-8 flex flex-col justify-end pb-8 sm:pb-12 md:pb-20 lg:pb-28 xl:pb-32">
 
-            <!-- Mobile layout: single column, card hidden on small screens -->
-            <div class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-8 lg:items-end gap-0">
+        <!-- Hero content: flex column, top-padding clears the fixed nav, bottom padding gives breathing room -->
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-8
+                    flex flex-col justify-between
+                    pt-28 sm:pt-32 md:pt-36
+                    pb-10 sm:pb-14 md:pb-20 lg:pb-28"
+             style="min-height:100vh; min-height:100dvh;">
 
-                <!-- Left: text content -->
+            <!-- Top spacer (empty, just pushes content down naturally) -->
+            <div></div>
+
+            <!-- Main content row -->
+            <div class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-8 lg:items-end gap-5 sm:gap-6">
+
+                <!-- Left: eyebrow + heading + description + buttons -->
                 <div class="lg:col-span-8">
-                    <div class="flex items-center gap-3 mb-3 sm:mb-4 md:mb-6 fade-in delay-100">
+                    <div class="flex items-center gap-3 mb-3 sm:mb-4 md:mb-5 fade-in delay-100">
                         <div class="gold-line"></div>
                         <span class="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-brand-gold font-medium">Premium Apparel Manufacturing</span>
                     </div>
-                    <h1 class="font-display font-light text-white tracking-tight leading-[1.05] mb-3 sm:mb-4 md:mb-6"
-                        style="font-size:clamp(1.75rem,6vw,4.5rem);">
+
+                    <h1 class="font-display font-light text-white tracking-tight leading-[1.05] mb-3 sm:mb-4 md:mb-5"
+                        style="font-size:clamp(1.9rem, 5.5vw, 4.5rem);">
                         <div class="overflow-hidden hero-title-line"><span class="delay-100">Crafting apparel</span></div>
                         <div class="overflow-hidden hero-title-line italic" style="color:#C9A96E;"><span class="delay-200">for modern retail.</span></div>
                     </h1>
-                    <p class="fade-in delay-800 text-xs sm:text-sm md:text-base lg:text-lg text-white/75 font-light leading-relaxed mb-5 sm:mb-6 md:mb-8"
-                       style="max-width:min(90vw,38rem);">
-                        Manufacturing Men's Half Shirts, Full Shirts, Men's Kurtas, Kidswear, Co-ord Sets, Shorts, Pyjamas, Joggers, and a wide range of retail essentials at scale with precision, premium craftsmanship, consistent quality, and state-of-the-art manufacturing infrastructure.
+
+                    <!-- Description: shorter on mobile to save vertical space -->
+                    <p class="fade-in delay-800 text-white/75 font-light leading-relaxed mb-5 sm:mb-6 md:mb-7"
+                       style="font-size:clamp(0.78rem,2.2vw,1.1rem); max-width:min(92vw,36rem);">
+                        Manufacturing Men's Half Shirts, Full Shirts, Men's Kurtas, Kidswear, Co-ord Sets, Shorts, Pyjamas, Joggers, and a wide range of retail essentials at scale — with precision, premium craftsmanship, and consistent quality.
                     </p>
-                    <div class="fade-in delay-1000 flex flex-wrap gap-3 sm:gap-4">
-                        <button onclick="showPage('manufacturing')" class="btn-gold inline-block px-5 sm:px-7 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full text-xs sm:text-sm font-medium">Explore Manufacturing</button>
-                        <button onclick="showPage('categories')" class="btn-playful inline-flex bg-transparent border border-white/25 text-white backdrop-blur-sm px-5 sm:px-7 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full text-xs sm:text-sm font-medium hover:bg-white/10 items-center gap-2 group">
+
+                    <!-- Buttons -->
+                    <div class="fade-in delay-1000 flex flex-wrap items-center gap-3">
+                        <button onclick="showPage('manufacturing')"
+                                class="btn-gold rounded-full font-medium whitespace-nowrap"
+                                style="padding:0.65rem 1.6rem; font-size:clamp(0.72rem,2vw,0.875rem);">
+                            Explore Manufacturing
+                        </button>
+                        <button onclick="showPage('categories')"
+                                class="btn-playful inline-flex items-center gap-2 bg-transparent border border-white/30 text-white backdrop-blur-sm rounded-full font-medium hover:bg-white/10 group whitespace-nowrap"
+                                style="padding:0.65rem 1.6rem; font-size:clamp(0.72rem,2vw,0.875rem);">
                             View Categories
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 transform group-hover:translate-x-1 transition-transform duration-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2.5"
+                                 stroke-linecap="round" stroke-linejoin="round"
+                                 class="flex-shrink-0 group-hover:translate-x-1 transition-transform duration-200">
                                 <line x1="5" y1="12" x2="19" y2="12"/>
                                 <polyline points="12 5 19 12 12 19"/>
                             </svg>
@@ -371,23 +392,23 @@
                     </div>
                 </div>
 
-                <!-- Right: capacity card — hidden on mobile, visible md+ -->
-                <div class="fade-in delay-1200 hidden md:block lg:col-span-4 lg:justify-self-end w-full max-w-xs animate-float mt-6 lg:mt-0">
-                    <div class="liquid-glass p-5 sm:p-6 md:p-7 rounded-3xl text-white hover:scale-105 transition-transform duration-500 cursor-default glow-pulse">
-                        <div class="space-y-4 sm:space-y-5">
+                <!-- Right: capacity card — hidden on small mobile, shown sm+ -->
+                <div class="fade-in delay-1200 hidden sm:block lg:col-span-4 lg:justify-self-end w-full max-w-[17rem] md:max-w-xs animate-float lg:mt-0">
+                    <div class="liquid-glass p-5 md:p-6 rounded-3xl text-white cursor-default glow-pulse">
+                        <div class="space-y-3 md:space-y-4">
                             <div>
-                                <p class="text-[10px] sm:text-xs text-white/50 uppercase tracking-[0.2em] mb-1">Capacity</p>
-                                <p class="font-display text-2xl sm:text-3xl md:text-4xl font-light stat-number-on-dark">6L+ <span class="text-base sm:text-lg md:text-xl" style="color:rgba(201,169,110,0.7);">Monthly</span></p>
+                                <p class="text-[10px] text-white/50 uppercase tracking-[0.2em] mb-1">Capacity</p>
+                                <p class="font-display text-3xl md:text-4xl font-light stat-number-on-dark">6L+ <span class="text-lg md:text-xl" style="color:rgba(201,169,110,0.7);">Monthly</span></p>
                             </div>
                             <div class="h-px w-full" style="background:linear-gradient(90deg,rgba(201,169,110,0.3),transparent);"></div>
                             <div>
-                                <p class="text-[10px] sm:text-xs text-white/50 uppercase tracking-[0.2em] mb-1">Network</p>
-                                <p class="text-base sm:text-lg md:text-xl font-light">PAN India Supply</p>
+                                <p class="text-[10px] text-white/50 uppercase tracking-[0.2em] mb-0.5">Network</p>
+                                <p class="text-base md:text-lg font-light">PAN India Supply</p>
                             </div>
                             <div class="h-px w-full" style="background:linear-gradient(90deg,rgba(201,169,110,0.3),transparent);"></div>
                             <div>
-                                <p class="text-[10px] sm:text-xs text-white/50 uppercase tracking-[0.2em] mb-2">Trusted By</p>
-                                <p class="text-xs font-light text-white/75 leading-relaxed">Baazar Kolkata, M-Baazar, Srijan, Style Baazar, V2 Retail, Vishal Mega Mart, V-Mart, Primart and more.</p>
+                                <p class="text-[10px] text-white/50 uppercase tracking-[0.2em] mb-1">Trusted By</p>
+                                <p class="text-[11px] md:text-xs font-light text-white/70 leading-relaxed">Baazar Kolkata, M-Baazar, Srijan, Style Baazar, V2 Retail, Vishal Mega Mart, V-Mart, Primart and more.</p>
                             </div>
                         </div>
                     </div>
